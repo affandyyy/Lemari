@@ -1,18 +1,58 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      <img alt="logo" height="40" src="imgs/logo.png">
+      <ion-title>
+        <img src="assets/imgs/logo.png" alt="logo" height="30" />
+      </ion-title>
     </ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="openProfile()">
+          <ion-icon color="dark" name="shuffle" ></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the
-    <code>src/pages/</code> directory to add or change tabs, update any existing page or create new pages.
-  </p>
+<ion-content padding text-justify>
+
+  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+    penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
+    pretium quis, sem. Nulla consequat massa quis enim.</p>
+
+  <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae,
+    justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean
+    vulputate eleifend tellus.</p>
+
+  <p>Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat
+    a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
+    augue. Curabitur ullamcorper ultricies nisi.</p>
+
+  <p>Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing
+    sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt
+    tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
+    Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales,
+    augue velit cursus nunc,</p>
+
+
+  <ion-fab bottom center>
+    <button ion-fab class="pop-in" color="danger">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-fab-list side="top">
+      <button ion-fab color="primary">
+        <ion-icon name="md-camera"></ion-icon>
+      </button>
+    </ion-fab-list>
+    <ion-fab-list side="right">
+      <button ion-fab color="primary">
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-fab-list>
+    <ion-fab-list side="left">
+      <button ion-fab color="primary">
+        <ion-icon name="md-home"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
 </ion-content>
