@@ -16,13 +16,14 @@ page-login {
     background-image: none;
   }
 
+  //Facebook button
   .login-button {
     text-align: center;
     text-transform: none;
-    border-radius: 3px !important;
+    border-radius: 0px !important;
     position: absolute;
     bottom: 0;
-    padding-bottom: 10px;
+    padding-bottom: 0px;
   }
   // Facebook icon
   ion-icon {

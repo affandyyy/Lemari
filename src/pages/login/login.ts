@@ -16,7 +16,7 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  public backgroundImage = " ";
+  public backgroundImage = "assets/imgs/wall.png";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modal: ModalController) {
   }
