@@ -5,11 +5,11 @@
   Ionic pages and navigation.
 -->
 
+
 <ion-content class="transparent-header" [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
-  <ion-header>
-  </ion-header>
+  
   <div padding text-center>
-        <img class="kepala" src="assets/imgs/logo.png">
+        <img class="kepala" src="assets/imgs/logo.png" (click)="nextPage()">
   </div>
   <button ion-button block color="fb-button" (click)="login()" class="login-button">
     <ion-icon name="logo-facebook"></ion-icon> Login with Facebook</button>

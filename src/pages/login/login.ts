@@ -33,6 +33,10 @@ export class LoginPage {
     this.modal.create(pageName, null, { cssClass: 'inset-modal' })
                   .present();
   }
+
+  nextPage(){
+    this.navCtrl.push('HomePage');
+  }
   
 
   

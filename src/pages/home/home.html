@@ -13,46 +13,101 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding text-justify>
+<ion-content text-justify>
+  
+  <ion-slides autoplay="2500" loop="true" effect="fade">
+    <ion-slide *ngFor="let slide of slides" [ngStyle]="{'background' : 'url(' + slide.imageUrl + ')'}">
+      <h2>{{slide.title}}</h2>
+    </ion-slide>
+  </ion-slides>
 
-  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-    penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
-    pretium quis, sem. Nulla consequat massa quis enim.</p>
+  <div padding-horizontal padding-top>
+    Tops
+    </div>
+  <ion-scroll scrollX="true" direction="x">
+    <ion-card *ngFor="let item of listOne" style="border-radius: 7px 7px 7px 7px;">
+      <ion-card-content>
+        <ion-card-title>
+          {{ item.title }}
+          </ion-card-title>
+        <!-- <button ion-item (click)="openDetailActivity(item)">            
+          More info
+          <ion-icon name="arrow-forward" item-right color="primary"></ion-icon>
+        </button> -->
+      </ion-card-content>
+    </ion-card>
+  </ion-scroll>
 
-  <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae,
-    justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean
-    vulputate eleifend tellus.</p>
+  <div padding-horizontal padding-top>
+      Bottoms
+      </div>
+      <ion-scroll scrollX="true" direction="x">
+          <ion-card *ngFor="let itemTwo of listTwo" style="border-radius: 7px 7px 7px 7px;">
+            <ion-card-content>
+              <ion-card-title>
+                {{ itemTwo.title }}
+                </ion-card-title>
+              <!-- <button ion-item (click)="openDetailActivity(item)">            
+                More info
+                <ion-icon name="arrow-forward" item-right color="primary"></ion-icon>
+              </button> -->
+            </ion-card-content>
+          </ion-card>
+        </ion-scroll>
 
-  <p>Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat
-    a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
-    augue. Curabitur ullamcorper ultricies nisi.</p>
+        <div padding-horizontal padding-top>
+            Shoes
+            </div>
+            <ion-scroll scrollX="true" direction="x">
+                <ion-card *ngFor="let itemThree of listThree" style="border-radius: 7px 7px 7px 7px;">
+                  <ion-card-content>
+                    <ion-card-title>
+                      {{ itemThree.title }}
+                      </ion-card-title>
+                    <!-- <button ion-item (click)="openDetailActivity(item)">            
+                      More info
+                      <ion-icon name="arrow-forward" item-right color="primary"></ion-icon>
+                    </button> -->
+                  </ion-card-content>
+                </ion-card>
+              </ion-scroll>
 
-  <p>Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing
-    sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt
-    tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
-    Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales,
-    augue velit cursus nunc,</p>
-
-
-  <ion-fab bottom center>
-    <button ion-fab class="pop-in" color="danger">
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-fab-list side="top">
-      <button ion-fab color="primary">
-        <ion-icon name="md-camera"></ion-icon>
-      </button>
-    </ion-fab-list>
-    <ion-fab-list side="right">
-      <button ion-fab color="primary">
-        <ion-icon name="contact"></ion-icon>
-      </button>
-    </ion-fab-list>
-    <ion-fab-list side="left">
-      <button ion-fab color="primary">
-        <ion-icon name="md-home"></ion-icon>
-      </button>
-    </ion-fab-list>
-  </ion-fab>
-
+              <div padding-horizontal padding-top>
+                  Accessories
+                  </div>
+                  <ion-scroll scrollX="true" direction="x">
+                      <ion-card *ngFor="let itemFour of listFour" style="border-radius: 7px 7px 7px 7px;">
+                        <ion-card-content>
+                          <ion-card-title>
+                            {{ itemFour.title }}
+                            </ion-card-title>
+                          <!-- <button ion-item (click)="openDetailActivity(item)">            
+                            More info
+                            <ion-icon name="arrow-forward" item-right color="primary"></ion-icon>
+                          </button> -->
+                        </ion-card-content>
+                      </ion-card>
+                    </ion-scroll>
+                    <ion-fab bottom right >
+                        <button ion-fab class="pop-in" color="danger"> <ion-icon name="md-share"></ion-icon></button>
+                        <ion-fab-list side="top">
+                          <button ion-fab color="primary">
+                            <ion-icon  name="logo-facebook"></ion-icon>
+                          </button>
+                          <button ion-fab color="secondary">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                          </button>
+                          <button ion-fab color="dark">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                          </button>
+                        </ion-fab-list>
+                        <ion-fab-list side="left">
+                          <button ion-fab>
+                            <ion-icon name="logo-github"></ion-icon>
+                          </button>
+                        </ion-fab-list>
+                      </ion-fab>
 </ion-content>
+
+
+  
