@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+
+import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
 //Pages
 
 
@@ -25,6 +28,10 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
+  login(){
+    this.navCtrl.push(TabsPage);
+  }
+
   openModal(){
     this.openThis('TcModalPage');
   }
@@ -34,9 +41,6 @@ export class LoginPage {
                   .present();
   }
 
-  nextPage(){
-    this.navCtrl.push('HomePage');
-  }
   
 
   

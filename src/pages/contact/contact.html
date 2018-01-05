@@ -1,17 +1,86 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Contact
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content parallax-header no-bounce class="bg-modal">
+  <div class="header-image"></div>
+  <div class="main-content" text-wrap text-center>
+    <div class="circular"></div>
+    <h2>{{user.name}}</h2>
+    <p>{{user.location}}</p>
+    <p class="profile-description">{{user.description}}</p>
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+    <ion-row class="profile-numbers">
+      <ion-col col-4>
+        <p>Items</p>
+        <span>{{user.items}}</span>
+      </ion-col>
+      <ion-col col-4>
+        <p>Value</p>
+        <span>{{user.value}}</span>
+      </ion-col>
+      <ion-col col-4>
+        <p>Subscription</p>
+        <span>{{user.subs}}</span>
+      </ion-col>
+    </ion-row>
+  </div>
+  <br>
+  <br>
+
+  <!-- Second content for setting bawah ni -->
+  <div class="main-content-two">
+    <ion-list no-border>
+      <ion-list-header>
+        Settings
+      </ion-list-header>
+      <ion-item>
+        <ion-icon name='settings' item-start></ion-icon>
+        <ion-label>Language</ion-label>
+        <ion-select [(ngModel)]="language">
+          <ion-option *ngFor="let language of languages" [value]="language">{{language}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-toggle [(ngModel)]="enableNotifications" (click)="toggleNotifications()"></ion-toggle>
+        <ion-label class="label">Notifications </ion-label>
+        <ion-icon name='notifications' item-start></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-toggle [(ngModel)]="autoSavePhotos" (click)="toggleautoSavePhotos()"></ion-toggle>
+        <ion-label class="label">Auto-save Photos </ion-label>
+        <ion-icon name='md-photos' item-start></ion-icon>
+      </ion-item>
+    </ion-list>
+
+    <!-- List yang kedua for settings -->
+    <ion-list>
+      <ion-list-header>
+        Others
+      </ion-list-header>
+      <ion-item>
+        <ion-icon name='card' item-start></ion-icon>
+        <ion-label>Payment Method</ion-label>
+        <ion-select [(ngModel)]="paymentMethod">
+          <ion-option *ngFor="let method of paymentMethods" [value]="method">{{method}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-icon name='logo-usd' item-start></ion-icon>
+        <ion-label>Currency</ion-label>
+        <ion-select [(ngModel)]="currency">
+          <ion-option *ngFor="let currency of currencies" [value]="currency">{{currency}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-list-header>
+        Other
+      </ion-list-header>
+      <ion-item>
+        <ion-icon name='power' item-start></ion-icon>
+        <button ion-button (click)="logOut()" item-end>
+          Logout
+        </button>
+      </ion-item>
+    </ion-list>
+  </div>
+
+
 </ion-content>
