@@ -21,12 +21,12 @@
     </ion-slide>
   </ion-slides>
 
-  <div padding-horizontal padding-top>
+  <div padding-horizontal padding-top (click)="openGallery()">
     Tops
     </div>
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let item of listOne" style="border-radius: 7px 7px 7px 7px;">
-      <ion-card-content>
+      <ion-card-content (click)="openThis()">
         <ion-card-title>
           {{ item.title }}
           </ion-card-title>
@@ -38,12 +38,12 @@
     </ion-card>
   </ion-scroll>
 
-  <div padding-horizontal padding-top>
+  <div padding-horizontal padding-top (click)="openGallery()">
       Bottoms
       </div>
       <ion-scroll scrollX="true" direction="x">
           <ion-card *ngFor="let itemTwo of listTwo" style="border-radius: 7px 7px 7px 7px;">
-            <ion-card-content>
+            <ion-card-content (click)="openThis()">
               <ion-card-title>
                 {{ itemTwo.title }}
                 </ion-card-title>
@@ -55,12 +55,12 @@
           </ion-card>
         </ion-scroll>
 
-        <div padding-horizontal padding-top>
+        <div padding-horizontal padding-top (click)="openGallery()">
             Shoes
             </div>
             <ion-scroll scrollX="true" direction="x">
                 <ion-card *ngFor="let itemThree of listThree" style="border-radius: 7px 7px 7px 7px;">
-                  <ion-card-content>
+                  <ion-card-content (click)="openThis()">
                     <ion-card-title>
                       {{ itemThree.title }}
                       </ion-card-title>
@@ -72,12 +72,12 @@
                 </ion-card>
               </ion-scroll>
 
-              <div padding-horizontal padding-top>
+              <div padding-horizontal padding-top (click)="openGallery()">
                   Accessories
                   </div>
                   <ion-scroll scrollX="true" direction="x">
                       <ion-card *ngFor="let itemFour of listFour" style="border-radius: 7px 7px 7px 7px;">
-                        <ion-card-content>
+                        <ion-card-content (click)="openThis()">
                           <ion-card-title>
                             {{ itemFour.title }}
                             </ion-card-title>
@@ -88,25 +88,7 @@
                         </ion-card-content>
                       </ion-card>
                     </ion-scroll>
-                    <ion-fab bottom right >
-                        <button ion-fab class="pop-in" color="danger"> <ion-icon name="md-share"></ion-icon></button>
-                        <ion-fab-list side="top">
-                          <button ion-fab color="primary">
-                            <ion-icon  name="logo-facebook"></ion-icon>
-                          </button>
-                          <button ion-fab color="secondary">
-                            <ion-icon name="logo-twitter"></ion-icon>
-                          </button>
-                          <button ion-fab color="dark">
-                            <ion-icon name="logo-instagram"></ion-icon>
-                          </button>
-                        </ion-fab-list>
-                        <ion-fab-list side="left">
-                          <button ion-fab>
-                            <ion-icon name="logo-github"></ion-icon>
-                          </button>
-                        </ion-fab-list>
-                      </ion-fab>
+
 </ion-content>
 
 

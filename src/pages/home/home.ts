@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, Slides } from 'ionic-angular';
+import { NavController, Slides, ModalController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -120,8 +120,22 @@ export class HomePage {
   ];
   
 
-  constructor(public navCtrl: NavController) {
+  constructor(
+    public navCtrl: NavController,
+    public modalCtrl: ModalController,
+  ) {}
+  
+  openThis() {
+    this.openModal('ItemmodalPage');
+  }
 
+  openModal(pageName) {
+    this.modalCtrl.create(pageName, null, { cssClass: 'inset-modal' })
+                  .present();
+  }
+
+  openGallery(){
+    this.navCtrl.push('WardrobePage');
   }
 
 }
