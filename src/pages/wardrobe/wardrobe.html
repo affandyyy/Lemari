@@ -5,20 +5,16 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
     <ion-title>Wardrobe</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content>
   <ion-card *ngFor="let item of listOne" style="border-radius: 7px 7px 7px 7px;">
     <ion-card-content (click)="openThis()">
-      <ion-card-title>
-        {{ item.title }}
-      </ion-card-title>
+
       <!-- <button ion-item (click)="openDetailActivity(item)">            
             More info
             <ion-icon name="arrow-forward" item-right color="primary"></ion-icon>

@@ -18,7 +18,7 @@ export class WardrobePage {
 
   listOne = [
     {
-      image: '../assets/imgs/example.png'
+      image: '../assets/imgs/card/example.png'
     },
     {
       title: '2',

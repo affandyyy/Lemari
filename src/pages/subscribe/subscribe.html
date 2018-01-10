@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>Subscription</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content>
+      <br>
+      <div text-center>
+        <img width="70%" src="../assets/imgs/braintree.png"/>
+      </div>
+    <ion-card *ngFor="let card of cards" (click)="cardTapped(card)">
+      <img height="120px" [src]="card.imageUrl" />
+      <div class="card-title">{{card.title}}</div>
+      <div class="card-subtitle">{{card.subtitle}}</div>
+    </ion-card>
+
+  </ion-content>
+  
+  

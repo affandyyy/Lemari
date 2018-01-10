@@ -5,8 +5,47 @@
   Ionic pages and navigation.
 -->
 
+<ion-header>
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon item-right name="ios-close-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
 
+<ion-content [style.background-color]="color" class="round" text-center>
 
-<ion-content [style.background-color]="color" class="round">
-  <button ion-button full class="footer-button" (click)="dismiss()">Done</button>
+  <br>
+  <img src="../assets/imgs/card/example.png" width="70%" />
+  <ion-list>
+    <ion-list-header>
+      RED BLOUSE
+    </ion-list-header>
+    <ion-item>
+      <ion-label>
+        Price
+      </ion-label>
+      <ion-label end>
+        RM190
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Size
+      </ion-label>
+      <ion-label end>
+        XS
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Date Purchase
+      </ion-label>
+      <ion-label end>
+        September 2018
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -27,4 +27,9 @@ export class ItemmodalPage {
     this.viewCtrl.dismiss();
   }
 
+  closeModal() {
+    this.navCtrl.pop();
+}
+
+
 }

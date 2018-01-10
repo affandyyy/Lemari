@@ -26,5 +26,9 @@ export class ProfilePage {
     console.log('Hello ProfileThree Page');
   }
 
+  openSubs(){
+    this.navCtrl.push('SubscribePage');
+  }
+
 
 }
