@@ -7,7 +7,7 @@
     <p class="profile-description">{{user.description}}</p>
 
     <ion-row class="profile-numbers">
-      <ion-col col-4>
+      <ion-col col-4 (click)="openSum()">
         <p>Items</p>
         <span>{{user.items}}</span>
       </ion-col>
@@ -28,7 +28,7 @@
   <div class="main-content-two">
     <ion-list no-border>
       <ion-list-header>
-        Settings
+        General
       </ion-list-header>
       <ion-item>
         <ion-icon name='settings' item-start></ion-icon>
@@ -52,20 +52,13 @@
     <!-- List yang kedua for settings -->
     <ion-list>
       <ion-list-header>
-        Others
+        Wardrobe
       </ion-list-header>
       <ion-item>
-        <ion-icon name='card' item-start></ion-icon>
-        <ion-label>Payment Method</ion-label>
-        <ion-select [(ngModel)]="paymentMethod">
-          <ion-option *ngFor="let method of paymentMethods" [value]="method">{{method}}</ion-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-icon name='logo-usd' item-start></ion-icon>
-        <ion-label>Currency</ion-label>
-        <ion-select [(ngModel)]="currency">
-          <ion-option *ngFor="let currency of currencies" [value]="currency">{{currency}}</ion-option>
+        <ion-icon name='ios-navigate' item-start></ion-icon>
+        <ion-label>Custom Location</ion-label>
+        <ion-select [(ngModel)]="loc">
+          <ion-option *ngFor="let loc of customLoc" [value]="loc">{{loc}}</ion-option>
         </ion-select>
       </ion-item>
     </ion-list>

@@ -1,0 +1,18 @@
+page-subsmary {
+    ion-card {
+        width: 40% !important;
+        height: auto;
+        display: inline-block;
+    }
+
+    .bold{
+        font-weight: bold;
+        font-size: 17px;
+    }
+
+    .val{
+        font-style: italic;
+        font-size: 15px;
+    }
+
+}

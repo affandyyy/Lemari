@@ -5,9 +5,9 @@
   </ion-header>
   <ion-content>
       <br>
-      <div text-center>
-        <img width="70%" src="../assets/imgs/braintree.png"/>
-      </div>
+      <!-- <div text-center>
+        <img width="60%" src="../assets/imgs/braintree.png"/>
+      </div> -->
     <ion-card *ngFor="let card of cards" (click)="cardTapped(card)">
       <img height="120px" [src]="card.imageUrl" />
       <div class="card-title">{{card.title}}</div>

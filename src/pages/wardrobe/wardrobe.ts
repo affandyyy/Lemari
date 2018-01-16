@@ -62,4 +62,8 @@ export class WardrobePage {
     console.log('ionViewDidLoad WardrobePage');
   }
 
+  openThis(){
+    console.log('Okay berjaya lutpi !');
+  }
+
 }

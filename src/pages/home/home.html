@@ -21,12 +21,12 @@
     </ion-slide>
   </ion-slides>
 
-  <div padding-horizontal padding-top (click)="openGallery()">
+  <div padding-horizontal padding-top >
     Tops
   </div>
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let item of listOne" style="border-radius: 7px 7px 7px 7px;">
-      <ion-card-content (click)="openThis()">
+      <ion-card-content (click)="openGallery()">
         <!-- <button ion-item (click)="openDetailActivity(item)">            
           More info
           <ion-icon name="arrow-forward" item-right color="primary"></ion-icon>
@@ -38,29 +38,29 @@
     </ion-card>
   </ion-scroll>
 
-  <div padding-horizontal padding-top (click)="openGallery()">
+  <div padding-horizontal padding-top >
     Bottoms
   </div>
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let itemTwo of listTwo" style="border-radius: 7px 7px 7px 7px;">
-      <ion-card-content (click)="openThis()">
-        <ion-card-title>
-          {{ itemTwo.title }}
-        </ion-card-title>
-        <!-- <button ion-item (click)="openDetailActivity(item)">            
-                More info
-                <ion-icon name="arrow-forward" item-right color="primary"></ion-icon>
-              </button> -->
-      </ion-card-content>
+        <ion-card-content (click)="openGallery()">
+            <!-- <button ion-item (click)="openDetailActivity(item)">            
+              More info
+              <ion-icon name="arrow-forward" item-right color="primary"></ion-icon>
+            </button> -->
+            <div *ngIf="itemTwo.image">
+              <img [src]="itemTwo.image" />
+            </div>
+          </ion-card-content>
     </ion-card>
   </ion-scroll>
 
-  <div padding-horizontal padding-top (click)="openGallery()">
+  <div padding-horizontal padding-top>
     Shoes
   </div>
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let itemThree of listThree" style="border-radius: 7px 7px 7px 7px;">
-      <ion-card-content (click)="openThis()">
+      <ion-card-content (click)="openGallery()">
         <ion-card-title>
           {{ itemThree.title }}
         </ion-card-title>
@@ -72,12 +72,12 @@
     </ion-card>
   </ion-scroll>
 
-  <div padding-horizontal padding-top (click)="openGallery()">
+  <div padding-horizontal padding-top >
     Accessories
   </div>
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let itemFour of listFour" style="border-radius: 7px 7px 7px 7px;">
-      <ion-card-content (click)="openThis()">
+      <ion-card-content (click)="openGallery()">
         <ion-card-title>
           {{ itemFour.title }}
         </ion-card-title>

@@ -38,6 +38,7 @@ export class HomePage {
   listTwo = [
     {
       title: '1',
+      image: '../assets/imgs/card/trou.jpeg',
     },
     {
       title: '2',
