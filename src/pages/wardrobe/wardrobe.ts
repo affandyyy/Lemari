@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 
 /**
  * Generated class for the WardrobePage page.
@@ -55,15 +56,24 @@ export class WardrobePage {
     },
   ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WardrobePage');
   }
 
-  openThis(){
-    console.log('Okay berjaya lutpi !');
+  openThis() {
+    this.openModal('ItemmodalPage');
+  }
+
+  openModal(pageName) {
+    this.modalCtrl.create(pageName, null, { cssClass: 'inset-modal' })
+                  .present();
+  }
+
+  openGallery(){
+    this.navCtrl.push('WardrobePage');
   }
 
 }

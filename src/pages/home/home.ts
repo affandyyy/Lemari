@@ -60,6 +60,7 @@ export class HomePage {
   listThree = [
     {
       title: '1',
+      image: '../assets/imgs/card/shoes.jpg',
     },
     {
       title: '2',

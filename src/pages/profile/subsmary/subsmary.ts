@@ -35,7 +35,7 @@ export class SubsmaryPage {
       value: 'RM2590'
     },
     {
-      image: '../assets/imgs/card/shoes.png',
+      image: '../assets/imgs/card/shoes.jpg',
       desc: 'Shoes',
       quan: '50',
       value: 'RM2590'
