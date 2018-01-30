@@ -1,11 +1,20 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Camera
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
 <ion-content>
-  
+  <ion-fab left bottom>
+    <button ion-fab color="secondary" (click)="changeEffect()">
+        <ion-icon name="md-flash"></ion-icon>
+    </button>
+</ion-fab>
+ 
+<ion-fab center bottom>
+    <button ion-fab color="primary" (click)="takePicture()">
+        <ion-icon name="md-camera"></ion-icon>
+    </button>
+</ion-fab>
+
+<ion-fab top right margin-top="10px">
+  <button ion-fab color="dark" (click)="closeCamera()">
+      <ion-icon top right name="close"></ion-icon>
+  </button>
+</ion-fab>
 </ion-content>

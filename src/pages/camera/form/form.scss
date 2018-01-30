@@ -1,0 +1,23 @@
+page-form {
+    .scroll-zoom-wrapper {
+        white-space: nowrap;
+    }
+
+
+
+    .tiny {
+        width: 60px !important;
+        height: 60px;
+        display: inline-block;
+    }
+
+    ion-scroll {
+        min-height: 90px; 
+        height: auto;
+
+            .scroll-content {
+            padding: 0px !important;
+        }    
+    }
+
+}

@@ -132,6 +132,11 @@ export class HomePage {
     public navCtrl: NavController,
     public modalCtrl: ModalController,
   ) {}
+
+
+  openProfile(){
+    this.navCtrl.push('ShufflePage');
+  }
   
   openThis() {
     this.openModal('ItemmodalPage');
