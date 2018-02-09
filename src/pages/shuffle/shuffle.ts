@@ -15,9 +15,38 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ShufflePage {
 
+  
   listOne = [
     {
-      image: '../assets/imgs/card/example.png'
+      title: '1',
+      image: '../assets/imgs/card/example.png',
+    },
+    {
+      title: '2',
+      image: '../assets/imgs/card/sweat.jpg',
+    },
+    {
+      title: '3',
+      image: '../assets/imgs/card/tank.jpeg',
+    },
+    {
+      title: '4',
+      image: '../assets/imgs/card/tee.jpg',
+    },
+    {
+      title: '5',
+      image: '../assets/imgs/card/cardigan.jpeg',
+    },
+    {
+      title: '6',
+      image: '../assets/imgs/card/shirt.jpg',
+    }
+  ];
+
+  listTwo = [
+    {
+      title: '1',
+      image: '../assets/imgs/card/trou.jpeg',
     },
     {
       title: '2',
@@ -33,26 +62,52 @@ export class ShufflePage {
     },
     {
       title: '6',
-    },
-    {
-      title: '7',
-    },
-    {
-      title: '8',
-    },
-    {
-      title: '9',
-    },
-    {
-      title: '10',
-    },
-    {
-      title: '11',
-    },
-    {
-      title: '12',
-    },
+    }
   ];
+
+  listThree = [
+    {
+      title: '1',
+      image: '../assets/imgs/card/shoes.jpg',
+    },
+    {
+      title: '2',
+    },
+    {
+      title: '3',
+    },
+    {
+      title: '4',
+    },
+    {
+      title: '5',
+    },
+    {
+      title: '6',
+    }
+  ];
+
+  listFour = [
+    {
+      title: '1',
+    },
+    {
+      title: '2',
+    },
+    {
+      title: '3',
+    },
+    {
+      title: '4',
+    },
+    {
+      title: '5',
+    },
+    {
+      title: '6',
+    }
+  ];
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

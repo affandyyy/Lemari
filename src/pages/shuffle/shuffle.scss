@@ -1,8 +1,23 @@
 page-shuffle {
 
-        ion-card {
+
+      // For card
+      .scroll-zoom-wrapper {
+        white-space: nowrap;
+    }
+
+    ion-card {
         width: 100px !important;
-        height: 110px;
+        height: 100px;
         display: inline-block;
+    }
+
+    ion-scroll {
+        min-height: 130px; 
+        height: auto;
+
+            .scroll-content {
+            padding: 0px !important;
+        }    
     }
 }

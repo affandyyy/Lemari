@@ -15,8 +15,8 @@
 
 <ion-content>
 <ion-card>
-    <ion-card-content>
-      <img src="../assets/imgs/card/example.png" />
+    <ion-card-content text-center>
+      <img class="headtiny" src="../assets/imgs/card/example.png" />
     </ion-card-content>
   </ion-card>
   <ion-scroll scrollX="true" direction="x">
@@ -26,13 +26,42 @@
             More info
             <ion-icon name="arrow-forward" item-right color="primary"></ion-icon>
           </button> -->
-          <!-- <div *ngIf="item.image">
+          <div *ngIf="item.image">
             <img [src]="item.image" />
-          </div> -->
+          </div>
         </ion-card-content>
       </ion-card>
     </ion-scroll>
   
+    <!-- Form Material -->
 
 
+    <ion-list inset>
+
+      <ion-item>
+        <ion-input type="brand" placeholder="Brand"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-input type="color" placeholder="Color"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="price" placeholder="Price"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="tag" placeholder="#TAG"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="location" placeholder="Location"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-fab right bottom (click)="goPost()">
+      <button ion-fab class="pop-in" color="primary" >
+        Save
+      </button>
+    </ion-fab>
 </ion-content>
