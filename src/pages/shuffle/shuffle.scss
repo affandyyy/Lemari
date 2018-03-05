@@ -1,4 +1,8 @@
 page-shuffle {
+    
+    .masters {
+        background-color: black;
+      }
 
 
       // For card
@@ -19,5 +23,37 @@ page-shuffle {
             .scroll-content {
             padding: 0px !important;
         }    
+    }
+
+    //For shuffle
+
+    .game-area {
+        box-sizing: border-box;
+        position: relative;
+        height: 120px;
+        overflow: hidden;
+        margin-bottom: 5px;
+
+        .card {
+            bottom: 0;
+            box-sizing: border-box;
+            height: 120px;
+            left: 0;
+            position: absolute;
+            right: 0;
+            width: 120px;
+        }
+
+        p{
+            margin: 0;
+        }
+
+        br {
+            margin: 0em;
+            display: block;
+            font-size: 24%;
+          }
+
+
     }
 }

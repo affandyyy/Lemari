@@ -12,53 +12,24 @@
 
 </ion-header>
 
+<ion-content padding>
 
-<ion-content>
-  <ion-scroll scrollX="true" direction="x">
-    <ion-card *ngFor="let item of listOne" style="border-radius: 7px 7px 7px 7px;">
-      <ion-card-content (click)="openGallery()">
-        <!-- <button ion-item (click)="openDetailActivity(item)">            
-          More info
-          <ion-icon name="arrow-forward" item-right color="primary"></ion-icon>
-        </button> -->
-        <div *ngIf="item.image">
-          <img [src]="item.image" />
-        </div>
-      </ion-card-content>
-    </ion-card>
-  </ion-scroll>
-
-  <ion-scroll scrollX="true" direction="x">
-    <ion-card *ngFor="let itemTwo of listTwo" style="border-radius: 7px 7px 7px 7px;">
-      <ion-card-content (click)="openGallery()">
-        <div *ngIf="itemTwo.image">
-          <img [src]="itemTwo.image" />
-        </div>
-      </ion-card-content>
-    </ion-card>
-  </ion-scroll>
-
-  <ion-scroll scrollX="true" direction="x">
-    <ion-card *ngFor="let itemThree of listThree" style="border-radius: 7px 7px 7px 7px;">
-      <ion-card-content (click)="openGallery()">
-        <div *ngIf="itemThree.image">
-          <img [src]="itemThree.image" />
-        </div>
-      </ion-card-content>
-    </ion-card>
-  </ion-scroll>
-
-  <ion-scroll scrollX="true" direction="x">
-    <ion-card *ngFor="let itemFour of listFour" style="border-radius: 7px 7px 7px 7px;">
-      <ion-card-content (click)="openGallery()">
-        <div *ngIf="itemFour.image">
-          <img [src]="itemFour.image" />
-        </div>
-      </ion-card-content>
-    </ion-card>
-  </ion-scroll>
+  <div class="game-area" >
+    <div class="card" *ngFor="let card of cards" [@cardSpinner]="card.state">
+      <p><img src="{{card.value}}"></p>
+    </div>
+  </div>
+  <div class="game-area">
+    <div class="card" *ngFor="let cardtwo of cardsTWO" [@cardSpinner]="cardtwo.state">
+      <p><img src="{{cardtwo.value}}"></p>
+    </div>
+  </div>
 
 <ion-footer text-center>
-<img width="15%" src="../assets/imgs/magic-wand.png"/>
+    <div style="text-align: center">
+        <div text-center>
+            <img height="80" src="../assets/imgs/magic-wand.png" (click)="animateAll()" >
+          </div>
+    </div>
 </ion-footer>
 </ion-content>
