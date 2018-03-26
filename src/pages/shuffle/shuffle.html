@@ -24,6 +24,11 @@
       <p><img src="{{cardtwo.value}}"></p>
     </div>
   </div>
+  <div class="game-area">
+    <div class="card" *ngFor="let cardthree of cardsTHREE" [@cardSpinner]="cardthree.state">
+      <p><img src="{{cardthree.value}}"></p>
+    </div>
+  </div>
 
 <ion-footer text-center>
     <div style="text-align: center">
