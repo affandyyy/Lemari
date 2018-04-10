@@ -1,0 +1,14 @@
+{
+    "clothes" : {
+      "uid" : {
+        "brand": "Uniqlo",
+        "category": "001",
+        "colors": "#180d0d",
+        "price": 200,
+        "tag": ["Kenduri","Raya", "Krismas", "Kematian"],
+        "storage": ["id1", "id2", "id3"],
+        "created_at": 1506168876
+      }
+    }
+  }
+  

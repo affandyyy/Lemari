@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, LoadingController } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
@@ -19,9 +19,9 @@ import { TabsPage } from '../tabs/tabs';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  public backgroundImage = "../assets/imgs/wall.png";
+  public backgroundImage = "./assets/imgs/tnc.jpg";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modal: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modal: ModalController, public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -32,6 +32,8 @@ export class LoginPage {
     this.navCtrl.push(TabsPage);
   }
 
+  
+
   openModal(){
     this.openThis('TcModalPage');
   }
@@ -40,9 +42,5 @@ export class LoginPage {
     this.modal.create(pageName, null, { cssClass: 'inset-modal' })
                   .present();
   }
-
-  
-
-  
 
 }

@@ -1,0 +1,13 @@
+{
+  "details" : {
+    "uid" : {
+      "image_url":"https://*.jpg",
+      "first_name":"William",
+      "last_name":"Johnson",
+      "items_count":500,
+      "items_value":6990,
+      "subscription":"Diamond",
+      "gender":"male"
+    }
+  }
+}

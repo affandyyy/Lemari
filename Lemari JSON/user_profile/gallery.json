@@ -1,0 +1,19 @@
+{
+	"gallery": {
+		"uid": {
+			"push_id_1": {
+				"image_url": "https://*.jpg",
+				"image_name": "image.jpg",
+				"image_caption": "about the image",
+				"uploaded_on": "2017-08-04T09:24:39+00:00"
+			},
+			"push_id_2": {
+				"image_url": "https://*.jpg",
+				"image_name": "image.jpg",
+				"image_caption": "about the image",
+				"uploaded_on": "2017-08-04T09:24:39+00:00",
+				"is_default":true
+			}
+		}
+	}
+}
