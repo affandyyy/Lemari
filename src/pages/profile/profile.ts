@@ -11,7 +11,7 @@ export class ProfilePage {
   user = {
     name: 'Uvuwewe Osas',
     profileImage: '',
-    coverImage: '../assets/imgs/card/emerald.jpg',
+    coverImage: './src/assets/imgs/card/emerald.jpg',
     occupation: 'Specialist',
     location: 'Mont Kiara, MY',
     items: 500,

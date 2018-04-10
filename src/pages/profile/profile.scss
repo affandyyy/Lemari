@@ -1,6 +1,6 @@
 page-profile {
     .header-image {
-        background-image: url('../assets/imgs/card/emerald.jpg');
+        background-image: url('./src/assets/imgs/card/emerald.jpg');
         height: 30vh;
         background-size: cover;
         background-position: center center;
@@ -41,7 +41,7 @@ page-profile {
         -webkit-border-radius: 150px;
         -moz-border-radius: 150px;
         border: solid white;
-        background: url(../../assets/imgs/emilia.png) no-repeat;
+        background: url('./src/assets/imgs/emilia.png') no-repeat;
         background-size: 110%;
         margin-top: -70px;
         margin-left: auto;

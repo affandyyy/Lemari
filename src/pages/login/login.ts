@@ -19,7 +19,7 @@ import { TabsPage } from '../tabs/tabs';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  public backgroundImage = "assets/imgs/wall.png";
+  public backgroundImage = "../assets/imgs/wall.png";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modal: ModalController) {
   }

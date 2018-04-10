@@ -11,34 +11,35 @@ export class HomePage {
   listOne = [
     {
       title: '1',
-      image: '../assets/imgs/card/example.png',
+      image: './assets/imgs/card/example.png',
+      ///./assets/imgs/card/example.png
     },
     {
       title: '2',
-      image: '../assets/imgs/card/sweat.jpg',
+      image: './assets/imgs/card/sweat.jpg',
     },
     {
       title: '3',
-      image: '../assets/imgs/card/tank.jpeg',
+      image: './assets/imgs/card/tank.jpeg',
     },
     {
       title: '4',
-      image: '../assets/imgs/card/tee.jpg',
+      image: './assets/imgs/card/tee.jpg',
     },
     {
       title: '5',
-      image: '../assets/imgs/card/cardigan.jpeg',
+      image: './assets/imgs/card/cardigan.jpeg',
     },
     {
       title: '6',
-      image: '../assets/imgs/card/shirt.jpg',
+      image: './assets/imgs/card/shirt.jpg',
     }
   ];
 
   listTwo = [
     {
       title: '1',
-      image: '../assets/imgs/card/trou.jpeg',
+      image: './assets/imgs/card/trou.jpeg',
     },
     {
       title: '2',
@@ -60,7 +61,7 @@ export class HomePage {
   listThree = [
     {
       title: '1',
-      image: '../assets/imgs/card/shoes.jpg',
+      image: './assets/imgs/card/shoes.jpg',
     },
     {
       title: '2',
