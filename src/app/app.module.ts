@@ -11,8 +11,20 @@ import { CameraPage } from '../pages/camera/camera';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Facebook } from '@ionic-native/facebook';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import firebase from 'firebase';
+
+firebase.initializeApp({
+  apiKey: "AIzaSyAb_L8fcd0NqkCM210vP2tuMvSOvi77P0o",
+  authDomain: "lemari-1.firebaseapp.com",
+  databaseURL: "https://lemari-1.firebaseio.com",
+  projectId: "lemari-1",
+  storageBucket: "lemari-1.appspot.com",
+  messagingSenderId: "901133329281"
+});
 
 @NgModule({
   declarations: [
@@ -40,7 +52,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    Facebook
   ]
 })
 export class AppModule { }

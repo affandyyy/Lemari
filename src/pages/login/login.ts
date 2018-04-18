@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams, ModalController, LoadingController
 
 import { HomePage } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
+
+import firebase from 'firebase';
+import {Facebook} from "@ionic-native/facebook";
 //Pages
 
 
@@ -21,18 +24,27 @@ import { TabsPage } from '../tabs/tabs';
 export class LoginPage {
   public backgroundImage = "./assets/imgs/tnc.jpg";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modal: ModalController, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modal: ModalController, public loadingCtrl: LoadingController, public facebook: Facebook) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
 
-  login(){
-    this.navCtrl.push(TabsPage);
-  }
+  login(): Promise<any> {
+    return this.facebook.login(['email'])
+      .then( response => {
+        const facebookCredential = firebase.auth.FacebookAuthProvider
+          .credential(response.authResponse.accessToken);
 
-  
+        firebase.auth().signInWithCredential(facebookCredential)
+          .then( success => {
+            console.log("Firebase success: " + JSON.stringify(success));
+            this.navCtrl.push(TabsPage);
+          });
+
+      }).catch((error) => { console.log(error) });
+  }
 
   openModal(){
     this.openThis('TcModalPage');
