@@ -24,7 +24,11 @@ import {Facebook} from "@ionic-native/facebook";
 export class LoginPage {
   public backgroundImage = "./assets/imgs/tnc.jpg";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modal: ModalController, public loadingCtrl: LoadingController, public facebook: Facebook) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public modal: ModalController,
+              public loadingCtrl: LoadingController,
+              public facebook: Facebook) {
   }
 
   ionViewDidLoad() {
@@ -32,7 +36,7 @@ export class LoginPage {
   }
 
   login(): Promise<any> {
-    return this.facebook.login(['email'])
+    return this.facebook.login(['email', 'public_profile'])
       .then( response => {
         const facebookCredential = firebase.auth.FacebookAuthProvider
           .credential(response.authResponse.accessToken);
@@ -41,7 +45,7 @@ export class LoginPage {
           .then( success => {
             console.log("Firebase success: " + JSON.stringify(success));
             this.navCtrl.push(TabsPage);
-          });
+        });
 
       }).catch((error) => { console.log(error) });
   }

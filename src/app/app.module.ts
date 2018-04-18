@@ -11,11 +11,14 @@ import { CameraPage } from '../pages/camera/camera';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Facebook } from '@ionic-native/facebook';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { Facebook } from '@ionic-native/facebook';
+import {AngularFireModule} from "angularfire2";
+import {AngularFireDatabaseModule} from "angularfire2/database";
 import firebase from 'firebase';
+import {FIREBASE_CREDENTIALS} from "./firebase.credentials";
 
 firebase.initializeApp({
   apiKey: "AIzaSyAb_L8fcd0NqkCM210vP2tuMvSOvi77P0o",
@@ -38,7 +41,11 @@ firebase.initializeApp({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    // Initialize AngularFire with credentials from the dashboard
+    AngularFireModule.initializeApp(FIREBASE_CREDENTIALS),
+    //Import the AngularFireDatabaseModule to use database interactions
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
