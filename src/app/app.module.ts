@@ -13,6 +13,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera-preview';
+
+import { ImagePicker } from '@ionic-native/image-picker';
+import { Crop } from '@ionic-native/crop';
+import { Camera } from '@ionic-native/camera';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +46,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   providers: [
     StatusBar,
     SplashScreen,
+    ImagePicker,
+    Crop,
+    Camera,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

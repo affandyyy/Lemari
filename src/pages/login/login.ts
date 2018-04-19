@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ModalController, LoadingController
 
 import { HomePage } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
+import { CameraPage } from '../camera/camera';
 //Pages
 
 

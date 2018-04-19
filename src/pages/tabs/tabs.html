@@ -1,5 +1,18 @@
 <ion-tabs>
   <ion-tab [root]="tab1Root" tabIcon="home"></ion-tab>
-  <ion-tab [root]="tab2Root" tabIcon="md-camera"></ion-tab>
+  <ion-tab [root]="tab4Root" tabIcon=""></ion-tab>  
   <ion-tab [root]="tab3Root" tabIcon="contacts"></ion-tab>
+
+<ion-fab bottom center>
+  <button ion-fab class="pop-in" color="camera"><ion-icon name="md-add"></ion-icon></button>
+  <ion-fab-list side="top">
+    <button ion-fab color="primary" (click)="openImagePicker()">
+      <ion-icon  name="md-images"></ion-icon>
+    </button>
+    <button ion-fab color="secondary" (click)="takePicture()">
+      <ion-icon name="md-camera"></ion-icon>
+    </button>
+  </ion-fab-list>
+</ion-fab>
 </ion-tabs>
+

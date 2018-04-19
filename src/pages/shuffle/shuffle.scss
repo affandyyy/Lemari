@@ -30,18 +30,21 @@ page-shuffle {
     .game-area {
         box-sizing: border-box;
         position: relative;
-        height: 120px;
+        height: 150px;
+        width: 150px;
         overflow: hidden;
         margin-bottom: 5px;
+        margin-left: 30%;
+        margin-right: 40%;
 
         .card {
             bottom: 0;
             box-sizing: border-box;
-            height: 120px;
+            height: 150px;
             left: 0;
             position: absolute;
             right: 0;
-            width: 120px;
+            width: 150px;
         }
 
         p{

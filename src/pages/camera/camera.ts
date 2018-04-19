@@ -1,33 +1,28 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { EditPage } from './edit/edit';
+import { Component } from "@angular/core";
+import { NavController, ToastController, ActionSheetController } from "ionic-angular";
+import { EditPage } from "./edit/edit";
+
+import { Diagnostic, CameraPreviewRect } from "ionic-native";
+import { ImagePicker } from '@ionic-native/image-picker';
+import { Crop } from '@ionic-native/crop';
+import { Camera } from '@ionic-native/camera';
 
 @Component({
-  selector: 'page-camera',
-  templateUrl: 'camera.html'
+  selector: "page-camera",
+  templateUrl: "camera.html"
 })
 export class CameraPage {
 
-  constructor(public navCtrl: NavController) {
 
-  }
+  constructor(
+    public toastCtrl: ToastController,
+    public navCtrl: NavController,
+  ) {}
 
-  takePicture(){
-    this.navCtrl.push('EditPage');
-  }
 
-//   initializePreview() {
-//     // Make the width and height of the preview equal 
-//     // to the width and height of the app's window
-//     let previewRect: CameraPreviewRect = {
-//       x: 0,
-//       y: 0,
-//       width: window.innerWidth,
-//       height: window.innerHeight
-//     };
- 
-//     // More code goes here
-// }
+
+
+
 
 
 }
