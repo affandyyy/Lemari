@@ -5,7 +5,7 @@
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
     <universal-links>
         <host name="https://d4g7g.app.goo.gl" scheme="https" />
-        <host name="lemari-1.firebaseapp.com" scheme="https">
+        <host name="lemari-2.firebaseapp.com" scheme="https">
             <path url="/__/auth/callback" />
         </host>
     </universal-links>

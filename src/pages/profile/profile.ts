@@ -10,6 +10,7 @@ import {Facebook} from "@ionic-native/facebook";
 })
 export class ProfilePage {
 
+  //data take from interface in file models -> user-fb -> user-fb.interface.ts
   userData = {} as fb;
 
   user = {
@@ -29,6 +30,7 @@ export class ProfilePage {
 
   constructor(public navCtrl: NavController, private facebook: Facebook) { }
 
+  //take a data from fb and implement to profile screen Lemari App (username, picture and email)
   ionViewDidLoad() {
     this.facebook.api('me?fields=id,name,email,first_name,hometown,picture.width(100).height(100).as(picture_large)', []).then(profile => {
     this.userData = {email: profile['email'], first_name: profile['first_name'], picture: profile['picture_large']['data']['url'], username: profile['name'], location: profile['hometown']}

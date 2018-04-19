@@ -14,19 +14,18 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { Facebook } from '@ionic-native/facebook';
-import {AngularFireModule} from "angularfire2";
-import {AngularFireDatabaseModule} from "angularfire2/database";
-import firebase from 'firebase';
-import {FIREBASE_CREDENTIALS} from "./firebase.credentials";
+import { Facebook } from '@ionic-native/facebook'; //facebook connection
+import firebase from 'firebase'; //firebase connection
 
+//initial between firebase and Lemari App
 firebase.initializeApp({
-  apiKey: "AIzaSyAb_L8fcd0NqkCM210vP2tuMvSOvi77P0o",
-  authDomain: "lemari-1.firebaseapp.com",
-  databaseURL: "https://lemari-1.firebaseio.com",
-  projectId: "lemari-1",
-  storageBucket: "lemari-1.appspot.com",
-  messagingSenderId: "901133329281"
+  apiKey: "AIzaSyDuBnf27h5uM6FUP6oMujO3IDJGB1h276I",
+  authDomain: "lemari-2.firebaseapp.com",
+  databaseURL: "https://lemari-2.firebaseio.com",
+  projectId: "lemari-2",
+
+  storageBucket: "lemari-2.appspot.com",
+  messagingSenderId: "296224199871"
 });
 
 @NgModule({
@@ -42,10 +41,6 @@ firebase.initializeApp({
     BrowserModule,
     BrowserAnimationsModule,
     IonicModule.forRoot(MyApp),
-    // Initialize AngularFire with credentials from the dashboard
-    AngularFireModule.initializeApp(FIREBASE_CREDENTIALS),
-    //Import the AngularFireDatabaseModule to use database interactions
-    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

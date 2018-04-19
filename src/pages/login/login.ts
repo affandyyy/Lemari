@@ -4,8 +4,8 @@ import { IonicPage, NavController, NavParams, ModalController, LoadingController
 import { HomePage } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
 
-import firebase from 'firebase';
-import {Facebook} from "@ionic-native/facebook";
+import firebase from 'firebase'; //firebase connection
+import {Facebook} from "@ionic-native/facebook"; //facebook connection
 //Pages
 
 
@@ -35,6 +35,7 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
+  //authentication to login facebook
   login(): Promise<any> {
     return this.facebook.login(['email', 'public_profile'])
       .then( response => {
