@@ -28,7 +28,6 @@ firebase.initializeApp({
   authDomain: "lemari-2.firebaseapp.com",
   databaseURL: "https://lemari-2.firebaseio.com",
   projectId: "lemari-2",
-
   storageBucket: "lemari-2.appspot.com",
   messagingSenderId: "296224199871"
 });

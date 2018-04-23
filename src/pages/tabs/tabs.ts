@@ -66,16 +66,15 @@ export class TabsPage {
         targetHeight: 500,
         saveToPhotoAlbum: true
       })
-      .then(profilePicture => {
-
+      .then(clothes => {
         const storageRef = firebase.storage().ref();
-        let uploadTask = storageRef.child(`users/user1/profilePicture/` + "test.png");
+        let uploadTask = storageRef.child(`test/clothes/` + "test.png");
         uploadTask
-          .putString(profilePicture, "base64", { contentType: "image/png" })
+          .putString(clothes, "base64", { contentType: "image/png" })
           .then(snapshot => {
             this.db
               .list(
-                `users/user1/profilePicture`
+                `test/clothes`
               )
               .push({
                 image_caption: "My Caption",
