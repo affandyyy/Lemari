@@ -1,20 +1,25 @@
+<ion-content class="home">
+    <ion-card>
+      <ion-card-content>
+  
+        Latest Picture:
+        <img [src]="base64Image" *ngIf="base64Image" />
+      </ion-card-content>
+    </ion-card>
+    
+    <ion-card *ngFor="let photo of photos">
+        <img src="{{photo}}" />
+      </ion-card>
 
-<ion-content>
-  <ion-fab left bottom>
-    <button ion-fab color="secondary" (click)="changeEffect()">
-        <ion-icon name="md-flash"></ion-icon>
-    </button>
-</ion-fab>
- 
-<ion-fab center bottom>
-    <button ion-fab color="primary" (click)="takePicture()">
-        <ion-icon name="md-camera"></ion-icon>
-    </button>
-</ion-fab>
+    <ion-fab right bottom>
+        <button ion-fab color="secondary" (click)="openImagePicker()">
+            <ion-icon name="md-images"></ion-icon>
+        </button>
+    </ion-fab>
 
-<ion-fab top right margin-top="10px">
-  <button ion-fab color="dark" (click)="closeCamera()">
-      <ion-icon top right name="close"></ion-icon>
-  </button>
-</ion-fab>
-</ion-content>
+    <ion-fab center bottom>
+        <button ion-fab color="primary" (click)="takePicture()">
+            <ion-icon name="md-camera"></ion-icon>
+        </button>
+    </ion-fab>
+  </ion-content>

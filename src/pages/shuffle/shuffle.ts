@@ -34,7 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ]
 })
 export class ShufflePage {
-
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
