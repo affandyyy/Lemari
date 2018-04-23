@@ -18,7 +18,17 @@ import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, Camer
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Crop } from '@ionic-native/crop';
 import { Camera } from '@ionic-native/camera';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database'
 
+var config = {
+  apiKey: "AIzaSyAZjHL3BjtaVqj5SPqXuMV-z_9h9AGHlx4",
+  authDomain: "gh-hendi.firebaseapp.com",
+  databaseURL: "https://gh-hendi.firebaseio.com",
+  projectId: "gh-hendi",
+  storageBucket: "gh-hendi.appspot.com",
+  messagingSenderId: "968697856347"
+};
 
 @NgModule({
   declarations: [
@@ -32,7 +42,9 @@ import { Camera } from '@ionic-native/camera';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(config),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
