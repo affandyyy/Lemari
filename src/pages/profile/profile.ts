@@ -1,7 +1,6 @@
 import {Component, NgZone} from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {users} from "../../models/user-fb/user-fb.interface";
-//import {Facebook} from "@ionic-native/facebook";
+
 import  * as firebase from "firebase";
 import {AngularFireDatabase, AngularFireObject} from "angularfire2/database";
 import "rxjs/add/operator/take";
@@ -13,13 +12,6 @@ import {AlertController} from "ionic-angular";
   templateUrl: 'profile.html'
 })
 export class ProfilePage {
-
-  //data take from interface in file models -> user-fb -> user-fb.interface.ts
-  //userData: AngularFireObject<any>;
-  userData: Observable<firebase.User>;
-  displayName: string;
-  email: string;
-  photoURL: string;
 
   user = {
     name: 'Uvuwewe Osas',
