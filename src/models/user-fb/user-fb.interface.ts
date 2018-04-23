@@ -1,7 +1,8 @@
-export interface fb {
+export interface users {
+  uid: string;
   email : string;
-  first_name : string;
-  picture : string;
+  profile_picture : string;
   username : string;
-  location : string;
+  /*first_name : string;
+  location : string;*/
 }

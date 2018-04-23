@@ -101,4 +101,9 @@
         <variable name="APP_ID" value="575147996198120" />
         <variable name="APP_NAME" value="Lemari" />
     </plugin>
+    <allow-navigation href="http://192.168.0.129:8100" />
+    <allow-navigation href="http://172.21.121.145:8100" />
+    <allow-navigation href="http://10.60.91.205:8100" />
+    <allow-navigation href="http://192.168.137.1:8100" />
+    <allow-navigation href="http://192.168.8.102:8100" />
 </widget>

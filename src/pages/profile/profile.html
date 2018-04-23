@@ -1,9 +1,9 @@
-<ion-content parallax-header no-bounce class="bg-modal">
+<ion-content parallax-header no-bounce class="bg-modal" >
   <div class="header-image"></div>
   <div class="main-content" text-wrap text-center>
-  <div class="circular"> <img [src]="userData.picture" /> </div>
-    <h2>{{userData.username}}</h2>
-    <p>Email : {{userData.email}}</p>
+  <div class="circular"> <img *ngIf="imageUrl" [src]="imageUrl" /> </div>
+    <h2>{{ (userFB | async)?.username }}</h2>
+    <p>{{ (userFB | async)?.email }}</p>
     <p class="profile-description">{{user.description}}</p>
 
     <ion-row class="profile-numbers">
@@ -62,17 +62,30 @@
         </ion-select>
       </ion-item>
     </ion-list>
-    <ion-list>
-      <ion-list-header>
-        Other
-      </ion-list-header>
-      <ion-item>
-        <ion-icon name='power' item-start></ion-icon>
-        <button ion-button (click)="logOut()" item-end>
-          Logout
-        </button>
-      </ion-item>
-    </ion-list>
+    <!--<ion-list>-->
+      <!--<ion-list-header>-->
+        <!--Other-->
+      <!--</ion-list-header>-->
+      <!--<ion-item>-->
+        <!--<ion-icon name='power' item-start></ion-icon>-->
+        <!--<button ion-button (click)="editProfile()" item-middle>-->
+          <!--Edit Profile-->
+        <!--</button>-->
+        <!--<button ion-button (click)="logOut()" item-end>-->
+          <!--Logout-->
+        <!--</button>-->
+      <!--</ion-item>-->
+    <!--</ion-list>-->
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button block color="secondary" (click)="editProfile()">Edit Profile</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block (click)="logOut()">Logout</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 
 

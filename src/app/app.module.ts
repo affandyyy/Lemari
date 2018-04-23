@@ -15,7 +15,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { Facebook } from '@ionic-native/facebook'; //facebook connection
-import firebase from 'firebase'; //firebase connection
+import firebase from 'firebase/app'; //firebase connection
+import {AngularFireModule} from "angularfire2";
+import {AngularFireDatabaseModule, AngularFireDatabase} from "angularfire2/database";
+import {FIREBASE_CREDENTIALS} from "./firebase.credentials";
+import {AngularFireAuthModule} from "angularfire2/auth";
+
 
 //initial between firebase and Lemari App
 firebase.initializeApp({
@@ -41,6 +46,9 @@ firebase.initializeApp({
     BrowserModule,
     BrowserAnimationsModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(FIREBASE_CREDENTIALS),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -54,6 +62,7 @@ firebase.initializeApp({
   providers: [
     StatusBar,
     SplashScreen,
+    AngularFireDatabase,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     Facebook
   ]
