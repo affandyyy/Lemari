@@ -38,24 +38,28 @@ export class LoginPage {
   }
 
   //authentication to login facebook
-  login(): Promise<any> {
-    return this.facebook.login(['email', 'public_profile'])
-      .then( response => {
-        const facebookCredential = firebase.auth.FacebookAuthProvider
-          .credential(response.authResponse.accessToken);
+  // login(): Promise<any> {
+  //   return this.facebook.login(['email', 'public_profile'])
+  //     .then( response => {
+  //       const facebookCredential = firebase.auth.FacebookAuthProvider
+  //         .credential(response.authResponse.accessToken);
 
-        firebase.auth().signInWithCredential(facebookCredential)
-          .then( success => {
-            console.log("Firebase success: " + JSON.stringify(success));
-            firebase.database().ref('users/' + firebase.auth().currentUser.uid).set({
-              username: firebase.auth().currentUser.displayName,
-              email: firebase.auth().currentUser.email,
-              profile_picture : firebase.auth().currentUser.photoURL
-            });
-            this.navCtrl.push(TabsPage);
-        });
+  //       firebase.auth().signInWithCredential(facebookCredential)
+  //         .then( success => {
+  //           console.log("Firebase success: " + JSON.stringify(success));
+  //           firebase.database().ref('users/' + firebase.auth().currentUser.uid).set({
+  //             username: firebase.auth().currentUser.displayName,
+  //             email: firebase.auth().currentUser.email,
+  //             profile_picture : firebase.auth().currentUser.photoURL
+  //           });
+  //           this.navCtrl.push(TabsPage);
+  //       });
 
-      }).catch((error) => { console.log(error) });
+  //     }).catch((error) => { console.log(error) });
+  // }
+
+  login(){
+    this.navCtrl.push(TabsPage);
   }
 
   openModal(){

@@ -11,10 +11,14 @@ import { CameraPage } from '../pages/camera/camera';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// Provider
 import { Facebook } from '@ionic-native/facebook'; //facebook connection
+import { ImagePicker } from '@ionic-native/image-picker';
+import { Crop } from '@ionic-native/crop';
+import { Camera } from '@ionic-native/camera';
+
 import firebase from 'firebase/app'; //firebase connection
 import {AngularFireModule} from "angularfire2";
 import {AngularFireDatabaseModule, AngularFireDatabase} from "angularfire2/database";
@@ -59,6 +63,9 @@ firebase.initializeApp({
     LoginPage
   ],
   providers: [
+    ImagePicker,
+    Crop,
+    Camera,
     StatusBar,
     SplashScreen,
     AngularFireDatabase,

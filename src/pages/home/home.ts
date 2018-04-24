@@ -43,12 +43,10 @@ export class HomePage {
     },
     {
       title: '2',
-      image: './assets/imgs/card/pants2.jpeg',
-      
+      image: './assets/imgs/card/pants3.jpg',
     },
     {
       title: '3',
-      image: './assets/imgs/card/pants3.jpg',
       
     },
     {
@@ -69,11 +67,10 @@ export class HomePage {
     },
     {
       title: '2',
-      image: './assets/imgs/card/shoes2.jpg',
+      image: './assets/imgs/card/shoes3.jpg',
     },
     {
       title: '3',
-      image: './assets/imgs/card/shoes3.jpg',
       
     },
     {
@@ -90,7 +87,7 @@ export class HomePage {
   listFour = [
     {
       title: '1',
-      image: './assets/imgs/card/lvacc.jpg',      
+      image: './assets/imgs/card/acc.jpg',      
     },
     {
       title: '2',

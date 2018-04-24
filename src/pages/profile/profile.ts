@@ -25,59 +25,59 @@ export class ProfilePage {
 
   };
 
-  userFBRef: AngularFireObject<any>;
-  userFB: Observable<any>;
-  uid: string;
-  imageUrl: string
+  // userFBRef: AngularFireObject<any>;
+  // userFB: Observable<any>;
+  // uid: string;
+  // imageUrl: string
 
   languages = ['English', 'Bahasa', '中文'];
   customLoc = ['Wardrobe', 'Chestdrawer', 'Headboard', 'Laundry'];
 
   constructor(public navCtrl: NavController, private database: AngularFireDatabase, private zone: NgZone, private alert: AlertController) {
 
-    this.uid = firebase.auth().currentUser.uid;
-    this.userFBRef = this.database.object(`users/${this.uid}`);
-    this.userFB = this.userFBRef.valueChanges();
-    this.userFBFunc();
+    // this.uid = firebase.auth().currentUser.uid;
+    // this.userFBRef = this.database.object(`users/${this.uid}`);
+    // this.userFB = this.userFBRef.valueChanges();
+    // this.userFBFunc();
 
   }
 
-  userFBFunc() {
-    this.userFB.subscribe(response => {
-      console.log(response);
-      this.zone.run(() => {
-        this.imageUrl = response.profile_picture;
-      });
-    });
-  }
+  // userFBFunc() {
+  //   this.userFB.subscribe(response => {
+  //     console.log(response);
+  //     this.zone.run(() => {
+  //       this.imageUrl = response.profile_picture;
+  //     });
+  //   });
+  // }
 
-  editProfile(){
+  // editProfile(){
 
-    const alertItem =  this.alert.create({
-      title: 'Edit Profile',
-      inputs: [
-        {
-          name: 'username',
-          placeholder: 'Username'
-        }
-      ],
-      buttons: [
-        {
-          text: 'Okay',
-          handler: data => {
-            console.log(data);
-            this.database.object(`users/${this.uid}`).update(data);
-          }
-        },
-        {
-          text: 'Cancel',
-          role: 'cancel'
-        }
-      ]
-    });
+  //   const alertItem =  this.alert.create({
+  //     title: 'Edit Profile',
+  //     inputs: [
+  //       {
+  //         name: 'username',
+  //         placeholder: 'Username'
+  //       }
+  //     ],
+  //     buttons: [
+  //       {
+  //         text: 'Okay',
+  //         handler: data => {
+  //           console.log(data);
+  //           this.database.object(`users/${this.uid}`).update(data);
+  //         }
+  //       },
+  //       {
+  //         text: 'Cancel',
+  //         role: 'cancel'
+  //       }
+  //     ]
+  //   });
 
-    alertItem.present();
-  }
+  //   alertItem.present();
+  // }
 
   openSubs(){
     this.navCtrl.push('SubscribePage');
