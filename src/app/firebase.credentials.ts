@@ -1,9 +1,8 @@
 export const FIREBASE_CREDENTIALS ={
-  apiKey: "AIzaSyDuBnf27h5uM6FUP6oMujO3IDJGB1h276I",
-  authDomain: "lemari-2.firebaseapp.com",
-  databaseURL: "https://lemari-2.firebaseio.com",
-  projectId: "lemari-2",
-
-  storageBucket: "lemari-2.appspot.com",
-  messagingSenderId: "296224199871"
+  apiKey: "AIzaSyAZjHL3BjtaVqj5SPqXuMV-z_9h9AGHlx4",
+  authDomain: "gh-hendi.firebaseapp.com",
+  databaseURL: "https://gh-hendi.firebaseio.com",
+  projectId: "gh-hendi",
+  storageBucket: "gh-hendi.appspot.com",
+  messagingSenderId: "968697856347"
 };

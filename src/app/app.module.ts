@@ -11,14 +11,16 @@ import { CameraPage } from '../pages/camera/camera';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// Provider
-import { Facebook } from '@ionic-native/facebook'; //facebook connection
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera-preview';
+
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Crop } from '@ionic-native/crop';
 import { Camera } from '@ionic-native/camera';
 
+//After Facebook
+import { Facebook } from '@ionic-native/facebook'; //facebook connection
 import firebase from 'firebase/app'; //firebase connection
 import {AngularFireModule} from "angularfire2";
 import {AngularFireDatabaseModule, AngularFireDatabase} from "angularfire2/database";
@@ -26,15 +28,11 @@ import {FIREBASE_CREDENTIALS} from "./firebase.credentials";
 import {AngularFireAuthModule} from "angularfire2/auth";
 
 
+
 //initial between firebase and Lemari App
-firebase.initializeApp({
-  apiKey: "AIzaSyDuBnf27h5uM6FUP6oMujO3IDJGB1h276I",
-  authDomain: "lemari-2.firebaseapp.com",
-  databaseURL: "https://lemari-2.firebaseio.com",
-  projectId: "lemari-2",
-  storageBucket: "lemari-2.appspot.com",
-  messagingSenderId: "296224199871"
-});
+
+firebase.initializeApp(FIREBASE_CREDENTIALS)
+
 
 @NgModule({
   declarations: [
@@ -63,14 +61,13 @@ firebase.initializeApp({
     LoginPage
   ],
   providers: [
+    StatusBar,
+    SplashScreen,
     ImagePicker,
     Crop,
     Camera,
-    StatusBar,
-    SplashScreen,
-    AngularFireDatabase,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-    Facebook
+    Facebook,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
 export class AppModule { }

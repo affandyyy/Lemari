@@ -43,11 +43,9 @@ export class HomePage {
     },
     {
       title: '2',
-      image: './assets/imgs/card/pants3.jpg',
     },
     {
       title: '3',
-      
     },
     {
       title: '4',
@@ -67,11 +65,9 @@ export class HomePage {
     },
     {
       title: '2',
-      image: './assets/imgs/card/shoes3.jpg',
     },
     {
       title: '3',
-      
     },
     {
       title: '4',
@@ -87,7 +83,6 @@ export class HomePage {
   listFour = [
     {
       title: '1',
-      image: './assets/imgs/card/acc.jpg',      
     },
     {
       title: '2',

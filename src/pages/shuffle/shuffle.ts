@@ -5,7 +5,7 @@ import {
   style
 } from '@angular/animations';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /**
  * Generated class for the ShufflePage page.

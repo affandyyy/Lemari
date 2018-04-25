@@ -14,9 +14,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'edit.html',
 })
 export class EditPage {
-  private brightness = 50;
-  private contrast = 50;
-  private saturation = 50;
+  // private brightness = 50;
+  // private contrast = 50;
+  // private saturation = 50;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
