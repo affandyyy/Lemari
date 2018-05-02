@@ -14,27 +14,33 @@
 
 <ion-content padding>
 
-  <div class="game-area" >
+  <div class="game-area">
     <div class="card" *ngFor="let card of cards" [@cardSpinner]="card.state">
-      <p><img src="{{card.value}}"></p>
+      <p>
+        <img src="{{card.value}}">
+      </p>
     </div>
   </div>
   <div class="game-area">
     <div class="card" *ngFor="let cardtwo of cardsTWO" [@cardSpinner]="cardtwo.state">
-      <p><img src="{{cardtwo.value}}"></p>
+      <p>
+        <img src="{{cardtwo.value}}">
+      </p>
     </div>
   </div>
   <div class="game-area">
     <div class="card" *ngFor="let cardthree of cardsTHREE" [@cardSpinner]="cardthree.state">
-      <p><img src="{{cardthree.value}}"></p>
+      <p>
+        <img src="{{cardthree.value}}">
+      </p>
     </div>
   </div>
 
-<ion-footer text-center>
-    <div style="text-align: center">
-        <div text-center>
-            <img height="70" src="https://icon-icons.com/icons2/474/PNG/512/magic-wand_46867.png" (click)="animateAll()" >
-          </div>
+  <ion-footer padding>
+    <div style="text-align: right">
+      <div>
+        <img height="70" src="https://icon-icons.com/icons2/474/PNG/512/magic-wand_46867.png" (click)="animateAll()">
+      </div>
     </div>
-</ion-footer>
+  </ion-footer>
 </ion-content>
