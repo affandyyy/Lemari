@@ -8,6 +8,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { CameraPage } from '../pages/camera/camera';
+import { EditPage } from '../pages/camera/edit/edit';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -30,7 +31,6 @@ import {AngularFireAuthModule} from "angularfire2/auth";
 
 
 //initial between firebase and Lemari App
-
 firebase.initializeApp(FIREBASE_CREDENTIALS)
 
 
@@ -41,7 +41,8 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     ProfilePage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    EditPage
   ],
   imports: [
     BrowserModule,
@@ -58,7 +59,8 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     ProfilePage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    EditPage
   ],
   providers: [
     StatusBar,

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActionSheetController } from "ionic-angular";
+import { ActionSheetController, NavController } from "ionic-angular";
 
 
 import { CameraPage } from '../camera/camera';
@@ -10,6 +10,7 @@ import { HomePage } from '../home/home';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Crop } from '@ionic-native/crop';
 import { Camera } from '@ionic-native/camera';
+import { EditPage } from '../camera/edit/edit';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -28,7 +29,8 @@ export class TabsPage {
     public actionSheetCtrl: ActionSheetController,
     public imagePicker: ImagePicker,
     public camera: Camera,
-    public cropService: Crop
+    public cropService: Crop,
+    public navCtrl: NavController
   ) {}
 
 
@@ -68,11 +70,16 @@ export class TabsPage {
       .crop(data, {quality: 75})
       .then((newImage) => {
         this.photos.push(newImage);
+        // push here
       }, error => console.error("Error cropping image", error));
     }, function(error) {
       console.log(error);
     });
   }
+
+  // takePicture(){
+  //   this.navCtrl.push(EditPage)
+  // }
 
 
 

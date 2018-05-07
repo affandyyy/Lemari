@@ -8,6 +8,7 @@ import { TabsPage } from '../tabs/tabs';
 
 import firebase from 'firebase'; //firebase connection
 import { Facebook } from "@ionic-native/facebook"; //facebook connection
+import { HomePage } from '../home/home';
 
 
 /**
@@ -25,14 +26,20 @@ import { Facebook } from "@ionic-native/facebook"; //facebook connection
 export class LoginPage {
   public backgroundImage = "./assets/imgs/tnc.jpg";
 
-  constructor(private alt: AlertController, public navCtrl: NavController, public navParams: NavParams, public modal: ModalController, public loadingCtrl: LoadingController, public facebook: Facebook) {
+  constructor(
+    private alt: AlertController, 
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public modal: ModalController, 
+    public loadingCtrl: LoadingController, 
+    public facebook: Facebook) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
 
-  //authentication to login facebook
+  // authentication to login facebook
   login(): Promise<any> {
     return this.facebook.login(['email', 'public_profile'])
       .then(response => {
@@ -47,10 +54,14 @@ export class LoginPage {
             })
           })
 
-        this.navCtrl.push(TabsPage)
+        this.navCtrl.setRoot(TabsPage)
       })
       .catch((error) => { this.createAlert(error) })
   }
+
+  // login(){
+  //   this.navCtrl.push(TabsPage);
+  // }
 
   createAlert(err) {
     let alert = this.alt.create({
