@@ -19,24 +19,31 @@
       <img class="headtiny" src="./assets/imgs/card/example.png" />
     </ion-card-content>
   </ion-card>
-  <ion-scroll scrollX="true" direction="x">
+  
+  <!-- <ion-scroll scrollX="true" direction="x">
       <ion-card class="tiny" *ngFor="let item of listOne" style="border-radius: 7px 7px 7px 7px;">
         <ion-card-content (click)="openGallery()">
-          <!-- <button ion-item (click)="openDetailActivity(item)">            
-            More info
-            <ion-icon name="arrow-forward" item-right color="primary"></ion-icon>
-          </button> -->
           <div *ngIf="item.image">
             <img [src]="item.image" />
           </div>
         </ion-card-content>
       </ion-card>
-    </ion-scroll>
+    </ion-scroll> -->
   
     <!-- Form Material -->
 
 
     <ion-list inset>
+
+      <ion-item>
+        <ion-label>Category</ion-label>
+        <ion-select [(ngModel)]="category" multiple="true">
+          <ion-option value="tops">Tops</ion-option>
+          <ion-option value="bottom">Bottom</ion-option>
+          <ion-option value="shoes">Shoes</ion-option>
+          <ion-option value="Accessories">Accessories</ion-option>
+        </ion-select>
+      </ion-item>
 
       <ion-item>
         <ion-input type="brand" placeholder="Brand"></ion-input>
