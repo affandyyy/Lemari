@@ -22,12 +22,12 @@ export class ProfilePage {
   user = {
     name: 'Uvuwewe Osas',
     profileImage: '',
-    coverImage: './src/assets/imgs/card/emerald.jpg',
+    coverImage: './assets/imgs/card/wardrobebg.jpeg',
     occupation: 'Specialist',
     location: 'Mont Kiara, MY',
-    items: 500,
-    value: 'RM6990',
-    subs: 'Diamond'
+    items: 100,
+    value: '700',
+    subs: 'Emerald'
 
   };
 
@@ -35,20 +35,20 @@ export class ProfilePage {
   customLoc = ['Wardrobe', 'Chestdrawer', 'Headboard', 'Laundry'];
 
   constructor(public navCtrl: NavController, private database: AngularFireDatabase, private zone: NgZone, private alert: AlertController) {
-    this.uid = firebase.auth().currentUser.uid;
-    this.userFBRef = this.database.object(`users/${this.uid}`);
-    this.userFB = this.userFBRef.valueChanges();
-    this.userFBFunc();
+    // this.uid = firebase.auth().currentUser.uid;
+    // this.userFBRef = this.database.object(`users/${this.uid}`);
+    // this.userFB = this.userFBRef.valueChanges();
+    // this.userFBFunc();
    }
 
-   userFBFunc() {
-    this.userFB.subscribe(response => {
-      console.log(response);
-      this.zone.run(() => {
-        this.imageUrl = response.profile_picture;
-      });
-    });
-  }
+  //  userFBFunc() {
+  //   this.userFB.subscribe(response => {
+  //     console.log(response);
+  //     this.zone.run(() => {
+  //       this.imageUrl = response.profile_picture;
+  //     });
+  //   });
+  // }
 
   editProfile(){
 

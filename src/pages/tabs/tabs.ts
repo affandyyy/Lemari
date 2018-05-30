@@ -57,29 +57,29 @@ export class TabsPage {
   }
 
 
-  takePicture(){
-    let options =
-    {
-      quality: 100,
-      correctOrientation: true
-    };
-    this.camera.getPicture(options)
-    .then((data) => {
-      this.photos = new Array<string>();
-      this.cropService
-      .crop(data, {quality: 75})
-      .then((newImage) => {
-        this.photos.push(newImage);
-        // push here
-      }, error => console.error("Error cropping image", error));
-    }, function(error) {
-      console.log(error);
-    });
-  }
-
   // takePicture(){
-  //   this.navCtrl.push(EditPage)
+  //   let options =
+  //   {
+  //     quality: 100,
+  //     correctOrientation: true
+  //   };
+  //   this.camera.getPicture(options)
+  //   .then((data) => {
+  //     this.photos = new Array<string>();
+  //     this.cropService
+  //     .crop(data, {quality: 75})
+  //     .then((newImage) => {
+  //       this.photos.push(newImage);
+  //       // push here
+  //     }, error => console.error("Error cropping image", error));
+  //   }, function(error) {
+  //     console.log(error);
+  //   });
   // }
+
+  takePicture(){
+    this.navCtrl.push(EditPage)
+  }
 
 
 
