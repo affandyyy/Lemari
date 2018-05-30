@@ -20,7 +20,7 @@ import { TemplateBindingParseResult } from '@angular/compiler';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any;
+  rootPage: any = TabsPage;
   loader: any;
 
 
