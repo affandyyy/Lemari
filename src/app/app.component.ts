@@ -41,6 +41,7 @@ export class MyApp {
         } else {
           this.rootPage = 'IntroPage';
           this.storage.set('introShown', true);
+          
         }
 
         this.loader.dismiss();
@@ -50,7 +51,7 @@ export class MyApp {
       });
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
+      // statusBar.styleDefault();
       splashScreen.hide();
 
 

@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 import { LoginPage } from '../login/login';
+import { StatusBar } from '@ionic-native/status-bar';
 
 
 /**
@@ -21,28 +22,33 @@ export class IntroPage {
   slideIndex = 0;
   slides = [
     {
-      title: 'Dream\'s Adventure',
-      imageUrl: 'assets/img/lists/wishlist-1.jpg',
+      title: 'Your wardrobe, digitalized',
+      imageUrl: './assets/imgs/slide/slide-1.jpg',
       description: 'Take a look at our amazing options',
     },
     {
-      title: 'For the Weekend',
-      imageUrl: 'assets/img/lists/wishlist-2.jpg',
+      title: 'For the fashionist',
+      imageUrl: './assets/imgs/slide/slide-2.jpg',
       description: 'Take a look at our amazing options',
     },
     {
-      title: 'Family Time',
-      imageUrl: 'assets/img/lists/wishlist-3.jpg',
+      title: 'Solution for clutter clothes',
+      imageUrl: './assets/imgs/slide/slide-3.jpg',
       description: 'Take a look at our amazing options',
     },
     {
-      title: 'My Trip',
-      imageUrl: 'assets/img/lists/wishlist-4.jpg',
+      title: 'All store in one apps',
+      imageUrl: './assets/imgs/slide/slide-4.jpg',
       description: 'Take a look at our amazing options',
     }
   ];
 
-  constructor(private navCtrl: NavController, public navParams: NavParams) {
+  constructor(private navCtrl: NavController, public navParams: NavParams, private statusBar: StatusBar) {
+    
+  }
+
+  ionViewDidLoad() {
+    
   }
 
 
