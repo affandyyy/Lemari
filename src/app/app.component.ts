@@ -26,8 +26,8 @@ export class MyApp {
 
   constructor(
     platform: Platform, 
-    statusBar: StatusBar, 
-    splashScreen: SplashScreen,
+    public statusBar: StatusBar, 
+    public splashScreen: SplashScreen,
     private auth: AngularFireAuth,
     public storage: Storage,
     public loadingCtrl: LoadingController
@@ -52,7 +52,10 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       // statusBar.styleDefault();
-      splashScreen.hide();
+      this.statusBar.overlaysWebView(false);
+      // this.statusBar.backgroundColorByHexString("#DE4E47");
+      this.statusBar.styleLightContent();
+      this.splashScreen.hide();
 
 
       // this.auth.authState.subscribe(auth => {
@@ -72,7 +75,7 @@ export class MyApp {
 
   presentLoading(){
     this.loader = this.loadingCtrl.create({
-      content: "Initializing..."
+      content: "Tidying up..."
     });
 
     this.loader.present();

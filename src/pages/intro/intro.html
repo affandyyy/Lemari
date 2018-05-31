@@ -9,7 +9,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content fullscreen="true" class="no-padding-top">
-  <ion-slides #slider pager="true" autoplay="3000" (ionSlideWillChange)="onSlideChanged()">
+  <ion-slides #slider pager="true" autoplay="4000" (ionSlideWillChange)="onSlideChanged()">
     <ion-slide *ngFor="let slide of slides"
                class="slide-background"
                [ngStyle]="{'background-image': 'url(' + slide.imageUrl +')'}">
