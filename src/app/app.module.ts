@@ -44,7 +44,6 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     ProfilePage,
     HomePage,
     TabsPage,
-    LoginPage,
     EditPage,
     // IntroPage
   ],
@@ -64,7 +63,6 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     ProfilePage,
     HomePage,
     TabsPage,
-    LoginPage,
     EditPage,
     // IntroPage
   ],

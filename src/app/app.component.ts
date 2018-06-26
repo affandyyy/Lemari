@@ -9,6 +9,9 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ProfilePage } from '../pages/profile/profile';
 
+import { EditPage } from '../pages/camera/edit/edit';
+
+
 import { AngularFireAuth } from 'angularfire2/auth';
 
 
@@ -20,7 +23,7 @@ import { TemplateBindingParseResult } from '@angular/compiler';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any = TabsPage;
+  rootPage: any = EditPage;
   loader: any;
 
 

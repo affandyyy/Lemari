@@ -5,6 +5,10 @@ import { Camera } from '@ionic-native/camera';
 import { Platform, ActionSheetController, LoadingController, NavParams } from 'ionic-angular';
 import firebase from 'firebase';
 
+import { ImagePicker } from '@ionic-native/image-picker';
+import { Crop } from '@ionic-native/crop';
+
+
 /**
  * Generated class for the EditPage page.
  *
@@ -30,6 +34,8 @@ export class EditPage {
   image: string = '';
   _zone: any;
 
+  photos : Array<string>;
+
   brightness: number = 12;
   contrast: number = 52;
   unsharpMask: any = { radius: 100, strength: 2 };
@@ -44,6 +50,8 @@ export class EditPage {
     private camera: Camera,
     public platform: Platform,
     public loadingCtrl: LoadingController,
+    public cropService: Crop,
+    public imagePicker: ImagePicker,
     public actionsheetCtrl: ActionSheetController) {
       this._zone = new NgZone({ enableLongStackTrace: false });
       this.mypicref=firebase.storage().ref('/');
@@ -54,14 +62,21 @@ export class EditPage {
     let actionSheet;
       if (!this.image) {
         actionSheet = this.actionsheetCtrl.create({
-        title: 'Actions',
+        title: 'Add new',
         cssClass: 'action-sheets-basic-page',
         buttons: [
           {
-            text: 'Take Photo',
+            text: 'Camera',
             icon: !this.platform.is('ios') ? 'camera' : null,
             handler: () => {
               this.takePicture()
+            }
+          },
+          {
+            text: 'From Gallery',
+            icon: !this.platform.is('ios') ? 'camera' : null,
+            handler: () => {
+              this.openImagePicker()
             }
           },
           {
@@ -202,6 +217,35 @@ export class EditPage {
     });
     return uuid;
   }
+
+
+  openImagePicker() {
+    let options = {
+      maximumImagesCount: 5
+    };
+    this.photos = new Array<string>();
+    this.imagePicker.getPictures(options).then(
+      results => {
+        this.reduceImages(results).then(() => {
+          console.log("all images cropped!!");
+        });
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
+  reduceImages(selected_pictures: any): any {
+    return selected_pictures.reduce((promise: any, item: any) => {
+      return promise.then(result => {
+        return this.cropService
+          .crop(item, { quality: 75 })
+          .then(cropped_image => this.photos.push(cropped_image));
+      });
+    }, Promise.resolve());
+  }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditPage');
