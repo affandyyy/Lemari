@@ -1,3 +1,4 @@
+import { FormPage } from './../form/form';
 // import { firebase } from 'firebase/app';
 import { Component, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { NavController } from 'ionic-angular';
@@ -180,7 +181,7 @@ export class EditPage {
     // Take a picture saving in device, as jpg and allows edit
     this.camera.getPicture({
       quality: 100,
-      destinationType: this.camera.DestinationType.DATA_URL,
+      destinationType: this.camera.DestinationType.NATIVE_URI,
       encodingType: this.camera.EncodingType.JPEG,
       targetHeight: 1000,
       sourceType: 1,
@@ -191,8 +192,10 @@ export class EditPage {
       loader.dismissAll();
 
       // bind the URI returned by API
-      this.image = 'data:image/jpeg;base64,' + imageURI;
-      // this.image = imageURI;
+      // this.image = 'data:image/jpeg;base64,' + imageURI;
+      
+      this.image = imageURI;
+      this.navCtrl.push(FormPage,this.image);
       // this.uploadPicture();
 
     }, (err) => {
