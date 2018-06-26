@@ -181,7 +181,7 @@ export class EditPage {
     this.camera.getPicture({
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
-      encodingType: this.camera.EncodingType.PNG,
+      encodingType: this.camera.EncodingType.JPEG,
       targetHeight: 1000,
       sourceType: 1,
       allowEdit: true,
@@ -191,8 +191,9 @@ export class EditPage {
       loader.dismissAll();
 
       // bind the URI returned by API
-      this.image = imageURI;
-      this.uploadPicture();
+      this.image = 'data:image/jpeg;base64,' + imageURI;
+      // this.image = imageURI;
+      // this.uploadPicture();
 
     }, (err) => {
       console.log(`ERROR -> ${JSON.stringify(err)}`);
@@ -202,7 +203,7 @@ export class EditPage {
 
   uploadPicture() {
       this.mypicref.child(this.uid()).child('lemari.png')
-      .putString(this.image, 'base64',{contentType:'image/png'})
+      .putString(this.image, firebase.storage.StringFormat.DATA_URL)
       .then(savepic=>{
         this.image=savepic.downloadURL;
       })
