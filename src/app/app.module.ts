@@ -45,6 +45,7 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     HomePage,
     TabsPage,
     EditPage,
+    LoginPage
     // IntroPage
   ],
   imports: [
@@ -64,6 +65,7 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     HomePage,
     TabsPage,
     EditPage,
+    LoginPage
     // IntroPage
   ],
   providers: [
