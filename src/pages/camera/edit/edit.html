@@ -57,13 +57,13 @@
   <ion-card (click)="openMenu()">
     <ion-card-content text-center>
       <img [src]="image" #imageResult />
-      <!-- <img src="./assets/imgs/card/sample.png" /> -->
+      <img src="./assets/imgs/card/sample.png" *ngIf="imageBefore" />
     </ion-card-content>
   </ion-card>
 
   <!-- <img src="{{picurl}}"/> -->
 
-  <ion-list>
+  <ion-list *ngIf="">
     <ion-list-header>
       Adjust Image Filters
     </ion-list-header>

@@ -42,6 +42,7 @@ export class EditPage {
   saturation: number = -100;
 
   showEditFilters: boolean = false;
+  imageBefore: boolean = true;
   
   constructor(
     public navCtrl: NavController, 
@@ -72,7 +73,7 @@ export class EditPage {
           },
           {
             text: 'From Gallery',
-            icon: !this.platform.is('ios') ? 'camera' : null,
+            icon: !this.platform.is('ios') ? 'md-image' : null,
             handler: () => {
               this.openImagePicker()
             }
@@ -190,6 +191,7 @@ export class EditPage {
 
       // bind the URI returned by API
       this.image = 'data:image/jpeg;base64,' + imageURI;
+      this.imageBefore = false;
 
     }, (err) => {
       console.log(`ERROR -> ${JSON.stringify(err)}`);
@@ -225,6 +227,7 @@ export class EditPage {
 
       // bind the URI returned by API
       this.image = 'data:image/jpeg;base64,' + imageURI;
+      this.imageBefore = false;
 
     }, (err) => {
       console.log(`ERROR -> ${JSON.stringify(err)}`);
