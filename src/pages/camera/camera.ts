@@ -17,7 +17,9 @@ export class CameraPage {
   constructor(
     public toastCtrl: ToastController,
     public navCtrl: NavController,
-  ) {}
+  ) {
+    
+  }
 
 
 
