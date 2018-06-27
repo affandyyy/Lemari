@@ -31,6 +31,7 @@ import {FIREBASE_CREDENTIALS} from "./firebase.credentials";
 import {AngularFireAuthModule} from "angularfire2/auth";
 
 import { IonicStorageModule } from '@ionic/storage';
+import { LoginPageModule } from '../pages/login/login.module';
 
 
 
@@ -45,13 +46,8 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     ProfilePage,
     HomePage,
     TabsPage,
-<<<<<<< HEAD
-    EditPage
-=======
     EditPage,
-    FormPage,
-    LoginPage
->>>>>>> c400a41f404a47f18db2c5e5d61a162a40d779d5
+    FormPage
     // IntroPage
   ],
   imports: [
@@ -61,7 +57,8 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(FIREBASE_CREDENTIALS),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    LoginPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -70,13 +67,9 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     ProfilePage,
     HomePage,
     TabsPage,
-<<<<<<< HEAD
-    EditPage
-=======
     EditPage,
     FormPage,
     LoginPage
->>>>>>> c400a41f404a47f18db2c5e5d61a162a40d779d5
     // IntroPage
   ],
   providers: [
