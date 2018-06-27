@@ -1,3 +1,4 @@
+import { FormPage } from './../pages/camera/form/form';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -44,7 +45,13 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     ProfilePage,
     HomePage,
     TabsPage,
+<<<<<<< HEAD
     EditPage
+=======
+    EditPage,
+    FormPage,
+    LoginPage
+>>>>>>> c400a41f404a47f18db2c5e5d61a162a40d779d5
     // IntroPage
   ],
   imports: [
@@ -63,7 +70,13 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     ProfilePage,
     HomePage,
     TabsPage,
+<<<<<<< HEAD
     EditPage
+=======
+    EditPage,
+    FormPage,
+    LoginPage
+>>>>>>> c400a41f404a47f18db2c5e5d61a162a40d779d5
     // IntroPage
   ],
   providers: [

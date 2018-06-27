@@ -1,10 +1,8 @@
 import { FormPage } from './../form/form';
-// import { firebase } from 'firebase/app';
 import { Component, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Camera } from '@ionic-native/camera';
 import { Platform, ActionSheetController, LoadingController, NavParams } from 'ionic-angular';
-import firebase from 'firebase';
 
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Crop } from '@ionic-native/crop';
@@ -55,7 +53,6 @@ export class EditPage {
     public imagePicker: ImagePicker,
     public actionsheetCtrl: ActionSheetController) {
       this._zone = new NgZone({ enableLongStackTrace: false });
-      this.mypicref=firebase.storage().ref('/');
   }
 
    /// Execute a menu 
@@ -181,7 +178,7 @@ export class EditPage {
     // Take a picture saving in device, as jpg and allows edit
     this.camera.getPicture({
       quality: 100,
-      destinationType: this.camera.DestinationType.NATIVE_URI,
+      destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       targetHeight: 1000,
       sourceType: 1,
@@ -192,11 +189,7 @@ export class EditPage {
       loader.dismissAll();
 
       // bind the URI returned by API
-      // this.image = 'data:image/jpeg;base64,' + imageURI;
-      
-      this.image = imageURI;
-      this.navCtrl.push(FormPage,this.image);
-      // this.uploadPicture();
+      this.image = 'data:image/jpeg;base64,' + imageURI;
 
     }, (err) => {
       console.log(`ERROR -> ${JSON.stringify(err)}`);
@@ -204,40 +197,39 @@ export class EditPage {
     
   }
 
-  uploadPicture() {
-      this.mypicref.child(this.uid()).child('lemari.png')
-      .putString(this.image, firebase.storage.StringFormat.DATA_URL)
-      .then(savepic=>{
-        this.image=savepic.downloadURL;
-      })
-  }
-
-  uid() {
-    var d = new Date().getTime();
-    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx'.replace(/[xy]/g, function (c) {
-      var r = (d + Math.random() * 16) % 16 | 0;
-      d = Math.floor(d / 16);
-      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-    });
-    return uuid;
-  }
-
-
   openImagePicker() {
-    let options = {
-      maximumImagesCount: 5
-    };
-    this.photos = new Array<string>();
-    this.imagePicker.getPictures(options).then(
-      results => {
-        this.reduceImages(results).then(() => {
-          console.log("all images cropped!!");
-        });
-      },
-      err => {
-        console.log(err);
-      }
-    );
+    // let options = {
+    //   maximumImagesCount: 5
+    // };
+    // this.photos = new Array<string>();
+    // this.imagePicker.getPictures(options).then(
+    //   results => {
+    //     this.reduceImages(results).then(() => {
+    //       console.log("all images cropped!!");
+    //     });
+    //   },
+    //   err => {
+    //     console.log(err);
+    //   }
+    // );
+    this.camera.getPicture({
+
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      targetHeight: 1000,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      allowEdit: true,
+      correctOrientation: true
+    }).then((imageURI) => {
+
+      // bind the URI returned by API
+      this.image = 'data:image/jpeg;base64,' + imageURI;
+
+    }, (err) => {
+      console.log(`ERROR -> ${JSON.stringify(err)}`);
+    });
+
   }
 
   reduceImages(selected_pictures: any): any {
@@ -250,13 +242,14 @@ export class EditPage {
     }, Promise.resolve());
   }
 
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditPage');
   }
 
   goPost(){
-    this.navCtrl.push('FormPage');
+    let uploadImage = this.image;
+    // console.log("Edit Page image: " + uploadImage);
+    this.navCtrl.push(FormPage, {uploadImage});
   }
 
 }
