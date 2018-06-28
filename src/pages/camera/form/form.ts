@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../../home/home';
+import {AngularFireDatabase, AngularFireObject, AngularFireList} from "angularfire2/database";
+import {Observable} from "rxjs/Observable";
 import firebase from 'firebase';
 
 /**
@@ -31,6 +33,7 @@ export class FormPage {
     },
     {
       title: '4',
+      
       image: './assets/imgs/card/tee.jpg',
     },
     {
@@ -42,41 +45,75 @@ export class FormPage {
       image: './assets/imgs/card/shirt.jpg',
     }
   ];
-
+  
   img: any;
   mypicref:any;
+  url:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  category:any;
+  brand:any;
+  color:any;
+  price:any;
+  tag:any;
+  location:any;
+  
+  uid: string;
+  detailRef: AngularFireList<any>;
+  details: Observable<any>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private database: AngularFireDatabase) {
+    //init data
+    this.uid = firebase.auth().currentUser.uid;
+    this.detailRef = this.database.list(`users/${this.uid}/lemari_category/`);
+    this.details = this.detailRef.valueChanges();
+    this.getData();
+    
+    //get Image from Edit Page
     this.img = this.navParams.get('uploadImage');
     this.mypicref=firebase.storage().ref('/');
     // console.log("Form Page image: " +this.img);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FormPage');
+  getData(){
+    this.details.subscribe(response => {
+      console.log(response);
+    });
   }
 
-  goPost(){
-    this.uploadPicture();
-    this.navCtrl.push(HomePage);
-  }
-
-  uploadPicture() {
-    this.mypicref.child(this.uid()).child('lemari.jpeg')
+  saveDetail() {
+    this.mypicref.child(this.imageUid()).child('lemari.jpeg')
     .putString(this.img, firebase.storage.StringFormat.DATA_URL)
     .then(savepic=>{
       this.img=savepic.downloadURL;
-    })
-}
 
-uid() {
-  var d = new Date().getTime();
-  var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx'.replace(/[xy]/g, function (c) {
-    var r = (d + Math.random() * 16) % 16 | 0;
-    d = Math.floor(d / 16);
-    return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-  });
-  return uuid;
-}
+      let url = savepic.downloadURL;
+      this.database.list(`users/${this.uid}/lemari_category/`).push({
+        category:this.category,
+        image_url:url,
+        brand:this.brand,
+        // color:this.color,
+        price:this.price,
+        tag:this.tag,
+        location:this.location
+      })
+      
+      // console.log(url);
+    })
+  }
+
+  imageUid() {
+    var d = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx'.replace(/[xy]/g, function (c) {
+      var r = (d + Math.random() * 16) % 16 | 0;
+      d = Math.floor(d / 16);
+      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+    return uuid;
+  }
+
+  goPost(){
+    this.saveDetail();
+    this.navCtrl.push(HomePage);
+  }
 
 }

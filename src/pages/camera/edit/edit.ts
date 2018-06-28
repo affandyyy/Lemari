@@ -229,7 +229,8 @@ export class EditPage {
       this.image = 'data:image/jpeg;base64,' + imageURI;
       this.imageBefore = false;
 
-    }, (err) => {
+      }, (err) => {
+        
       console.log(`ERROR -> ${JSON.stringify(err)}`);
     });
 
