@@ -52,7 +52,7 @@ export class FormPage {
 
   category:any;
   brand:any;
-  color:any;
+  color:AngularFireObject<any>;;
   price:any;
   tag:any;
   location:any;
@@ -91,7 +91,7 @@ export class FormPage {
         category:this.category,
         image_url:url,
         brand:this.brand,
-        // color:this.color,
+        color:this.color,
         price:this.price,
         tag:this.tag,
         location:this.location
