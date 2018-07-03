@@ -1,9 +1,10 @@
+import { TabsPage } from './../../tabs/tabs';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HomePage } from '../../home/home';
 import {AngularFireDatabase, AngularFireObject, AngularFireList} from "angularfire2/database";
 import {Observable} from "rxjs/Observable";
 import firebase from 'firebase';
+import {AlertController} from "ionic-angular";
 
 /**
  * Generated class for the FormPage page.
@@ -48,7 +49,6 @@ export class FormPage {
   
   img: any;
   mypicref:any;
-  url:any;
 
   category:any;
   brand:any;
@@ -58,13 +58,13 @@ export class FormPage {
   location:any;
   
   uid: string;
-  detailRef: AngularFireList<any>;
+  detailRef: AngularFireObject<any>;
   details: Observable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private database: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private database: AngularFireDatabase, private alert: AlertController) {
     //init data
     this.uid = firebase.auth().currentUser.uid;
-    this.detailRef = this.database.list(`users/${this.uid}/lemari_category/`);
+    this.detailRef = this.database.object(`users/${this.uid}/lemari_category/`);
     this.details = this.detailRef.valueChanges();
     this.getData();
     
@@ -86,10 +86,10 @@ export class FormPage {
     .then(savepic=>{
       this.img=savepic.downloadURL;
 
-      let url = savepic.downloadURL;
-      this.database.list(`users/${this.uid}/lemari_category/`).push({
+      let imageUrl = savepic.downloadURL;
+      this.database.object(`users/${this.uid}/lemari_category/`).set({
         category:this.category,
-        image_url:url,
+        image_url:imageUrl,
         brand:this.brand,
         color:this.color,
         price:this.price,
@@ -111,9 +111,24 @@ export class FormPage {
     return uuid;
   }
 
+  alertImage() {
+    const alertItem =  this.alert.create({
+      title: 'Saved!',
+      subTitle:  "Your Image and image's detail be saved!",
+      buttons: [
+        {
+          text: 'Okay',
+          handler: () => {
+            this.navCtrl.setRoot(TabsPage);
+          }
+        }
+      ]
+    });
+    alertItem.present();
+  }
+ 
   goPost(){
     this.saveDetail();
-    this.navCtrl.push(HomePage);
+    this.alertImage();
   }
-
 }

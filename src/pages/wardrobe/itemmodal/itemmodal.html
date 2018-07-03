@@ -18,17 +18,17 @@
 <ion-content [style.background-color]="color" class="round" text-center>
 
   <br>
-  <img src="../assets/imgs/card/example.png" width="40%" />
+  <img [src]="imageUrl" width="40%" />
   <ion-list>
     <ion-list-header>
-      RED BLOUSE
+      {{ (details | async)?.brand }}
     </ion-list-header>
     <ion-item>
       <ion-label>
         Price
       </ion-label>
       <ion-label end>
-        RM190
+        {{ (details | async)?.price }}
       </ion-label>
     </ion-item>
     <ion-item>

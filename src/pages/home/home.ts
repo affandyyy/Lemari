@@ -1,5 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild} from '@angular/core';
 import { NavController, Slides, ModalController } from 'ionic-angular';
+
+import "rxjs/add/operator/take";
 
 @Component({
   selector: 'page-home',
@@ -127,15 +129,9 @@ export class HomePage {
   //     private: true
   //   }
   // ];
-  
 
-  constructor(
-    public navCtrl: NavController,
-    public modalCtrl: ModalController,
-  ) {
-    
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
   }
-
 
   openProfile(){
     this.navCtrl.push('ShufflePage');
