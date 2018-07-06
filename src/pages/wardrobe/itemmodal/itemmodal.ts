@@ -1,3 +1,5 @@
+import { TabsPage } from './../../tabs/tabs';
+import { WardrobePage } from './../wardrobe';
 import { Component, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ViewController } from 'ionic-angular/navigation/view-controller';
@@ -59,7 +61,6 @@ export class ItemmodalPage {
   }
   
   editDetail(){
-
     const alertItem =  this.alert.create({
       title: 'Edit Image Detail',
       inputs: [
@@ -79,7 +80,7 @@ export class ItemmodalPage {
             console.log(data);
             this.details.subscribe(response => {
               response.forEach(response => {
-                this.database.list(`users/${this.uid}/lemari_category/`).update(response.id, data);
+                this.detailRef.update(response.id, data);
               });
             });
           }
@@ -91,6 +92,27 @@ export class ItemmodalPage {
       ]
     });
     
+    alertItem.present();
+  }
+
+  removeDetail(){
+    const alertItem =  this.alert.create({
+      title: 'Deleted!',
+      subTitle:  "Your Image and image's detail have be deleted!",
+      buttons: [
+        {
+          text: 'Okay',
+          handler: () => {
+            this.details.subscribe(response => {
+              response.forEach(response => {
+                this.detailRef.remove(response.id);
+              });
+            });
+            this.navCtrl.setRoot(TabsPage);
+          }
+        }
+      ]
+    });
     alertItem.present();
   }
 
