@@ -6,6 +6,7 @@ import  * as firebase from "firebase";
 import {AngularFireDatabase, AngularFireObject, AngularFireList} from "angularfire2/database";
 import "rxjs/add/operator/take";
 import {Observable} from "rxjs/Observable";
+import {AlertController} from "ionic-angular";
 
 /**
  * Generated class for the ItemmodalPage page.
@@ -22,8 +23,10 @@ import {Observable} from "rxjs/Observable";
 export class ItemmodalPage {
 
   uid: string;
-  detailRef: AngularFireObject<any>;
+  detailRef:  AngularFireList<any[]>;
   details: Observable<any>;
+
+  newPostKey: any;
 
   imageUrl: any;
   category:any;
@@ -33,22 +36,62 @@ export class ItemmodalPage {
   tag:any;
   location:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, private database: AngularFireDatabase, private zone: NgZone) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, private database: AngularFireDatabase, private zone: NgZone, private alert: AlertController) {
     this.uid = firebase.auth().currentUser.uid;
-    this.detailRef = this.database.object(`users/${this.uid}/lemari_category`);
+    this.detailRef = this.database.list(`users/${this.uid}/lemari_category`);
     this.details = this.detailRef.valueChanges();
     this.getImage();
   }
 
   getImage(){
-    this.details.subscribe(response => {
-      console.log(response);
-      this.zone.run(() => {
-        this.imageUrl = response.image_url;
+     this.details.subscribe(response => {
+      response.forEach(response => {
+        console.log(response);
+        this.zone.run(() => {
+          this.imageUrl = response.image_url;
+        });
+        this.brand = response.brand;
+        this.price = response.price;  
+
+        console.log(this.price);
       });
-      this.brand = response.brand;
-      this.price = response.price;  
     });
+  }
+  
+  editDetail(){
+
+    const alertItem =  this.alert.create({
+      title: 'Edit Image Detail',
+      inputs: [
+        {
+          name: 'brand',
+          placeholder: 'Brand'
+        },
+        {
+          name: 'price',
+          placeholder: 'Price'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Okay',
+          handler: data => {
+            console.log(data);
+            this.details.subscribe(response => {
+              response.forEach(response => {
+                this.database.list(`users/${this.uid}/lemari_category/`).update(response.id, data);
+              });
+            });
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        }
+      ]
+    });
+    
+    alertItem.present();
   }
 
   ionViewDidLoad() {

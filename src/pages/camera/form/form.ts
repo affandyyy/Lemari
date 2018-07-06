@@ -58,13 +58,15 @@ export class FormPage {
   location:any;
   
   uid: string;
+  newPostKey: string;
   detailRef: AngularFireObject<any>;
   details: Observable<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private database: AngularFireDatabase, private alert: AlertController) {
     //init data
     this.uid = firebase.auth().currentUser.uid;
-    this.detailRef = this.database.object(`users/${this.uid}/lemari_category/`);
+    this.newPostKey = firebase.database().ref().child(`users/${this.uid}/lemari_category`).push().key;
+    this.detailRef = this.database.object(`users/${this.uid}/lemari_category/${this.newPostKey}`);
     this.details = this.detailRef.valueChanges();
     this.getData();
     
@@ -87,7 +89,8 @@ export class FormPage {
       this.img=savepic.downloadURL;
 
       let imageUrl = savepic.downloadURL;
-      this.database.object(`users/${this.uid}/lemari_category/`).set({
+      this.detailRef.set({
+        id: this.newPostKey,
         category:this.category,
         image_url:imageUrl,
         brand:this.brand,
@@ -96,11 +99,9 @@ export class FormPage {
         tag:this.tag,
         location:this.location
       })
-      
-      // console.log(url);
     })
   }
-
+  
   imageUid() {
     var d = new Date().getTime();
     var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx'.replace(/[xy]/g, function (c) {

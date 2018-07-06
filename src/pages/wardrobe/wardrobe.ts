@@ -24,26 +24,28 @@ export class WardrobePage {
   listOne = [];
 
   uid: string;
-  detailRef: AngularFireObject<any>;
+  newPostKey: string;
+  detailRef: AngularFireList<any>;
   details: Observable<any>;
 
   imageUrl: any;
   category:any;
   brand:any;
-  color:AngularFireObject<any>;;
+  color:AngularFireObject<any>;
   price:any;
   tag:any;
   location:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private database: AngularFireDatabase, private zone: NgZone) {
     this.uid = firebase.auth().currentUser.uid;
-    this.detailRef = this.database.object(`users/${this.uid}/lemari_category`);
+    this.detailRef = this.database.list(`users/${this.uid}/lemari_category`);
     this.details = this.detailRef.valueChanges();
     this.getImage();
   }
 
   getImage(){
     this.details.subscribe(response => {
+      response.forEach(response => {
       console.log(response);
       this.zone.run(() => {
         this.imageUrl = response.image_url;
@@ -90,6 +92,9 @@ export class WardrobePage {
           title: '12',
         },
       ];
+
+      console.log("Brand : " + this.brand);
+      });
     });
   }
 

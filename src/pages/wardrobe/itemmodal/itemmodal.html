@@ -21,14 +21,14 @@
   <img [src]="imageUrl" width="40%" />
   <ion-list>
     <ion-list-header>
-      {{ (details | async)?.brand }}
+      {{ this.brand }}
     </ion-list-header>
     <ion-item>
       <ion-label>
         Price
       </ion-label>
       <ion-label end>
-        {{ (details | async)?.price }}
+        {{ this.price }}
       </ion-label>
     </ion-item>
     <ion-item>
@@ -48,4 +48,13 @@
       </ion-label>
     </ion-item>
   </ion-list>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button block color="secondary" (click)="editDetail()">Edit Clothes</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>

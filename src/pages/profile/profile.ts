@@ -65,7 +65,7 @@ export class ProfilePage {
           text: 'Okay',
           handler: data => {
             console.log(data);
-            this.database.object(`users/${this.uid}`).update(data);
+            this.userFBRef.update(data);
           }
         },
         {
