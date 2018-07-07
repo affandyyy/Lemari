@@ -3,7 +3,7 @@
     <name>Lemari</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.1.122:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -100,5 +100,6 @@
     <plugin name="cordova-plugin-splashscreen" spec="^4.1.0" />
     <allow-navigation href="http://192.168.0.102:8100" />
     <allow-navigation href="http://192.168.137.1:8100" />
+    <allow-navigation href="http://192.168.1.122:8100" />
     <engine name="android" spec="6.4.0" />
 </widget>

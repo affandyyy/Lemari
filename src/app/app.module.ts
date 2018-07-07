@@ -1,3 +1,4 @@
+import { ItemmodalPage } from './../pages/wardrobe/itemmodal/itemmodal';
 import { FormPage } from './../pages/camera/form/form';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -47,7 +48,8 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     HomePage,
     TabsPage,
     EditPage,
-    FormPage
+    FormPage,
+    ItemmodalPage
     // IntroPage
   ],
   imports: [
@@ -69,7 +71,8 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     TabsPage,
     EditPage,
     FormPage,
-    LoginPage
+    LoginPage,
+    ItemmodalPage
     // IntroPage
   ],
   providers: [

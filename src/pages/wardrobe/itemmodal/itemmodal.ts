@@ -25,7 +25,7 @@ import {AlertController} from "ionic-angular";
 export class ItemmodalPage {
 
   uid: string;
-  detailRef:  AngularFireList<any[]>;
+  detailRef:  AngularFireObject<any>;
   details: Observable<any>;
 
   newPostKey: any;
@@ -33,21 +33,21 @@ export class ItemmodalPage {
   imageUrl: any;
   category:any;
   brand:any;
-  color:AngularFireObject<any>;;
+  color:AngularFireObject<any>;
   price:any;
   tag:any;
   location:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, private database: AngularFireDatabase, private zone: NgZone, private alert: AlertController) {
     this.uid = firebase.auth().currentUser.uid;
-    this.detailRef = this.database.list(`users/${this.uid}/lemari_category`);
+    this.newPostKey = this.navParams.get('id');
+    this.detailRef = this.database.object(`users/${this.uid}/lemari_category/${this.newPostKey}`);
     this.details = this.detailRef.valueChanges();
     this.getImage();
   }
 
   getImage(){
      this.details.subscribe(response => {
-      response.forEach(response => {
         console.log(response);
         this.zone.run(() => {
           this.imageUrl = response.image_url;
@@ -56,7 +56,6 @@ export class ItemmodalPage {
         this.price = response.price;  
 
         console.log(this.price);
-      });
     });
   }
   
@@ -78,11 +77,7 @@ export class ItemmodalPage {
           text: 'Okay',
           handler: data => {
             console.log(data);
-            this.details.subscribe(response => {
-              response.forEach(response => {
-                this.detailRef.update(response.id, data);
-              });
-            });
+            this.detailRef.update(data);
           }
         },
         {
@@ -103,12 +98,8 @@ export class ItemmodalPage {
         {
           text: 'Okay',
           handler: () => {
-            this.details.subscribe(response => {
-              response.forEach(response => {
-                this.detailRef.remove(response.id);
-              });
-            });
-            this.navCtrl.setRoot(TabsPage);
+            this.navCtrl.push(TabsPage);
+            this.detailRef.remove();
           }
         }
       ]

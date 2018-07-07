@@ -12,17 +12,17 @@
 
 
 <ion-content text-center>
-  <ion-card *ngFor="let item of listOne" style="border-radius: 7px 7px 7px 7px;">
-    <ion-card-content (click)="openThis()">
+  <ion-card *ngFor="let item of details | async" style="border-radius: 7px 7px 7px 7px;">
+    <ion-card-content (click)="openThis(item.id)">
 
       <!-- <button ion-item (click)="openDetailActivity(item)">            
             More info
             <ion-icon name="arrow-forward" item-right color="primary"></ion-icon>
           </button> -->
-      <div *ngIf="item.image">
-        <img [src]="item.image" />
+      <div *ngIf="item.image_url">
+        <img [src]="item.image_url" />
       </div>
-      <div style="font-size: 9px; margin-top: 10px;">{{item.name}}</div>
+      <div style="font-size: 9px; margin-top: 10px;">{{item.brand}}</div>
     </ion-card-content>
   </ion-card>
 </ion-content>

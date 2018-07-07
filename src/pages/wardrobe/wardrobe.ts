@@ -1,4 +1,5 @@
-import { Component, NgZone } from '@angular/core';
+import { ItemmodalPage } from './itemmodal/itemmodal';
+import { Component} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 
@@ -21,45 +22,13 @@ import {Observable} from "rxjs/Observable";
 })
 export class WardrobePage {
 
-  listOne = [];
-
-  uid: string;
-  newPostKey: string;
-  detailRef: AngularFireList<any>;
-  details: Observable<any>;
-
-  imageUrl: any;
-  category:any;
-  brand:any;
-  color:AngularFireObject<any>;
-  price:any;
-  tag:any;
-  location:any;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private database: AngularFireDatabase, private zone: NgZone) {
-    this.uid = firebase.auth().currentUser.uid;
-    this.detailRef = this.database.list(`users/${this.uid}/lemari_category`);
-    this.details = this.detailRef.valueChanges();
-    this.getImage();
-  }
-
-  getImage(){
-    this.details.subscribe(response => {
-      response.forEach(response => {
-      console.log(response);
-      this.zone.run(() => {
-        this.imageUrl = response.image_url;
-      });
-      this.brand = response.brand;
-
-      this.listOne = [
+  listOne = [
         {
           name: 'Red Blouse',
           image: '../assets/imgs/card/example.png'
         },
         {
-          name: this.brand,
-          image: this.imageUrl
+          title: '2',
         },
         {
           title: '3',
@@ -93,21 +62,35 @@ export class WardrobePage {
         },
       ];
 
-      console.log("Brand : " + this.brand);
-      });
-    });
+  uid: string;
+  newPostKey: string;
+  detailRef: AngularFireList<any>;
+  details: Observable<any>;
+
+  image_url: any;
+  category:any;
+  brand:any;
+  color:AngularFireObject<any>;
+  price:any;
+  tag:any;
+  location:any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private database: AngularFireDatabase) {
+    this.uid = firebase.auth().currentUser.uid;
+    this.detailRef = this.database.list(`users/${this.uid}/lemari_category`);
+    this.details = this.detailRef.valueChanges();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WardrobePage');
   }
 
-  openThis() {
-    this.openModal('ItemmodalPage');
+  openThis(id) {
+    this.openModal(ItemmodalPage,id);
   }
 
-  openModal(pageName) {
-    this.modalCtrl.create(pageName, null, { cssClass: 'inset-modal' })
+  openModal(pageName,id) {
+    this.modalCtrl.create(pageName, {id}, { cssClass: 'inset-modal' })
                   .present();
   }
 
