@@ -1,3 +1,4 @@
+import { WardrobePage } from './../wardrobe/wardrobe';
 import { Component, ViewChild} from '@angular/core';
 import { NavController, Slides, ModalController } from 'ionic-angular';
 
@@ -130,6 +131,8 @@ export class HomePage {
   //   }
   // ];
 
+  category: any;
+
   constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
   }
 
@@ -146,8 +149,8 @@ export class HomePage {
                   .present();
   }
 
-  openGallery(){
-    this.navCtrl.push('WardrobePage');
+  openGallery(category){
+    this.navCtrl.push(WardrobePage, {category});
   }
 
 }

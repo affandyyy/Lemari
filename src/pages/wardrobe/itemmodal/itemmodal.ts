@@ -40,8 +40,10 @@ export class ItemmodalPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, private database: AngularFireDatabase, private zone: NgZone, private alert: AlertController) {
     this.uid = firebase.auth().currentUser.uid;
+    this.category = this.navParams.get('category');
     this.newPostKey = this.navParams.get('id');
-    this.detailRef = this.database.object(`users/${this.uid}/lemari_category/${this.newPostKey}`);
+
+    this.detailRef = this.database.object(`users/${this.uid}/lemari_category/${this.category}/${this.newPostKey}`);
     this.details = this.detailRef.valueChanges();
     this.getImage();
   }

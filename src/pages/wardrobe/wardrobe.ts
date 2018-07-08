@@ -77,20 +77,26 @@ export class WardrobePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private database: AngularFireDatabase) {
     this.uid = firebase.auth().currentUser.uid;
-    this.detailRef = this.database.list(`users/${this.uid}/lemari_category`);
+
+    //get category
+    this.category = this.navParams.get('category');
+    console.log("Category : " + this.category);
+
+    this.detailRef = this.database.list(`users/${this.uid}/lemari_category/${this.category}`);
     this.details = this.detailRef.valueChanges();
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WardrobePage');
   }
 
-  openThis(id) {
-    this.openModal(ItemmodalPage,id);
+  openThis(category, id) {
+    this.openModal(ItemmodalPage,category,id);
   }
 
-  openModal(pageName,id) {
-    this.modalCtrl.create(pageName, {id}, { cssClass: 'inset-modal' })
+  openModal(pageName, category, id) {
+    this.modalCtrl.create(pageName, {category,id}, { cssClass: 'inset-modal' })
                   .present();
   }
 

@@ -13,7 +13,7 @@
 
 <ion-content text-center>
   <ion-card *ngFor="let item of details | async" style="border-radius: 7px 7px 7px 7px;">
-    <ion-card-content (click)="openThis(item.id)">
+    <ion-card-content (click)="openThis(item.category,item.id)">
 
       <!-- <button ion-item (click)="openDetailActivity(item)">            
             More info

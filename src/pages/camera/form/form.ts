@@ -66,20 +66,11 @@ export class FormPage {
     //init data
     this.uid = firebase.auth().currentUser.uid;
     this.newPostKey = firebase.database().ref().child(`users/${this.uid}/lemari_category`).push().key;
-    this.detailRef = this.database.object(`users/${this.uid}/lemari_category/${this.newPostKey}`);
-    this.details = this.detailRef.valueChanges();
-    this.getData();
     
     //get Image from Edit Page
     this.img = this.navParams.get('uploadImage');
     this.mypicref=firebase.storage().ref('/');
     // console.log("Form Page image: " +this.img);
-  }
-
-  getData(){
-    this.details.subscribe(response => {
-      console.log(response);
-    });
   }
 
   saveDetail() {
@@ -89,7 +80,7 @@ export class FormPage {
       this.img=savepic.downloadURL;
 
       let imageUrl = savepic.downloadURL;
-      this.detailRef.set({
+      this.database.object(`users/${this.uid}/lemari_category/${this.category}/${this.newPostKey}`).set({
         id: this.newPostKey,
         category:this.category,
         image_url:imageUrl,

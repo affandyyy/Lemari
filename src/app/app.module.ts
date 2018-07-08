@@ -1,3 +1,4 @@
+import { WardrobePage } from './../pages/wardrobe/wardrobe';
 import { ItemmodalPage } from './../pages/wardrobe/itemmodal/itemmodal';
 import { FormPage } from './../pages/camera/form/form';
 import { NgModule, ErrorHandler } from '@angular/core';
@@ -49,6 +50,7 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     TabsPage,
     EditPage,
     FormPage,
+    WardrobePage,
     ItemmodalPage
     // IntroPage
   ],
@@ -72,6 +74,7 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     EditPage,
     FormPage,
     LoginPage,
+    WardrobePage,
     ItemmodalPage
     // IntroPage
   ],

@@ -26,7 +26,7 @@
   </div>
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let item of listOne" style="border-radius: 7px 7px 7px 7px;">
-      <ion-card-content (click)="openGallery()">
+      <ion-card-content (click)="openGallery('tops')">
         <!-- <button ion-item (click)="openDetailActivity(item)">            
           More info
           <ion-icon name="arrow-forward" item-right color="primary"></ion-icon>
@@ -43,7 +43,7 @@
   </div>
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let itemTwo of listTwo" style="border-radius: 7px 7px 7px 7px;">
-      <ion-card-content (click)="openGallery()">
+      <ion-card-content (click)="openGallery('bottom')">
         <div *ngIf="itemTwo.image">
           <img [src]="itemTwo.image" />
         </div>
@@ -56,7 +56,7 @@
   </div>
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let itemThree of listThree" style="border-radius: 7px 7px 7px 7px;">
-      <ion-card-content (click)="openGallery()">
+      <ion-card-content (click)="openGallery('shoes')">
         <div *ngIf="itemThree.image">
           <img [src]="itemThree.image" />
         </div>
@@ -69,7 +69,7 @@
   </div>
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let itemFour of listFour" style="border-radius: 7px 7px 7px 7px;">
-      <ion-card-content (click)="openGallery()">
+      <ion-card-content (click)="openGallery('accessories')">
         <div *ngIf="itemFour.image">
           <img [src]="itemFour.image" />
         </div>
