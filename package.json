@@ -34,6 +34,7 @@
     "angularfire2": "^5.0.0-rc.5-next",
     "com.synconset.imagepicker": "^2.1.10",
     "cordova-android": "6.4.0",
+    "cordova-ios": "4.5.4",
     "cordova-plugin-camera": "^4.0.3",
     "cordova-plugin-camera-preview": "^0.9.0",
     "cordova-plugin-crop": "^0.4.0",
@@ -84,7 +85,8 @@
       }
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   }
 }

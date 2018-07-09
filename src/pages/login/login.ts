@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, LoadingController, AlertController, Tab } from 'ionic-angular';
 
-// import { HomePage } from '../home/home';
-import { TabsPage } from '../tabs/tabs';
+
 // import { CameraPage } from '../camera/camera';
 //Pages
 
 import firebase from 'firebase'; //firebase connection
 import { Facebook } from "@ionic-native/facebook"; //facebook connection
 import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
 
 
 /**
@@ -53,10 +53,10 @@ export class LoginPage {
                 email: firebase.auth().currentUser.email,
                 profile_picture: firebase.auth().currentUser.photoURL,
               })
-              this.navCtrl.setRoot(TabsPage)
+              this.navCtrl.setRoot(TabsPage);
             }
             else{
-              this.navCtrl.setRoot(TabsPage);
+              this.navCtrl.setRoot(LoginPage);
             }
           })
       })

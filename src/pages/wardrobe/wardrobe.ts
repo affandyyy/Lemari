@@ -84,7 +84,6 @@ export class WardrobePage {
 
     this.detailRef = this.database.list(`users/${this.uid}/lemari_category/${this.category}`);
     this.details = this.detailRef.valueChanges();
-
   }
 
   ionViewDidLoad() {
