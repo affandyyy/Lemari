@@ -28,8 +28,10 @@ export class ItemmodalPage {
   detailRef:  AngularFireObject<any>;
   details: Observable<any>;
 
-  newPostKey: any;
+  mypicref:any;
+  mypic:Observable<any>;
 
+  newPostKey: any;
   imageUrl: any;
   category:any;
   brand:any;
@@ -46,6 +48,8 @@ export class ItemmodalPage {
     this.detailRef = this.database.object(`users/${this.uid}/lemari_category/${this.category}/${this.newPostKey}`);
     this.details = this.detailRef.valueChanges();
     this.getImage();
+
+    this.mypicref=firebase.storage().ref('/').child(`users/${this.uid}/${this.category}/${this.newPostKey}`).child('image.jpeg');
   }
 
   getImage(){
@@ -102,6 +106,7 @@ export class ItemmodalPage {
           handler: () => {
             this.navCtrl.push(TabsPage);
             this.detailRef.remove();
+            this.mypicref.delete();
           }
         }
       ]

@@ -56,7 +56,7 @@ export class LoginPage {
               this.navCtrl.setRoot(TabsPage);
             }
             else{
-              this.navCtrl.setRoot(LoginPage);
+              this.navCtrl.setRoot(TabsPage);
             }
           })
       })

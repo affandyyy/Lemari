@@ -74,7 +74,7 @@ export class FormPage {
   }
 
   saveDetail() {
-    this.mypicref.child(this.imageUid()).child('lemari.jpeg')
+    this.mypicref.child(`users/${this.uid}/${this.category}/${this.newPostKey}`).child('image.jpeg')
     .putString(this.img, firebase.storage.StringFormat.DATA_URL)
     .then(savepic=>{
       this.img=savepic.downloadURL;
@@ -93,15 +93,15 @@ export class FormPage {
     })
   }
   
-  imageUid() {
-    var d = new Date().getTime();
-    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx'.replace(/[xy]/g, function (c) {
-      var r = (d + Math.random() * 16) % 16 | 0;
-      d = Math.floor(d / 16);
-      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-    });
-    return uuid;
-  }
+  // imageUid() {
+  //   var d = new Date().getTime();
+  //   var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx'.replace(/[xy]/g, function (c) {
+  //     var r = (d + Math.random() * 16) % 16 | 0;
+  //     d = Math.floor(d / 16);
+  //     return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+  //   });
+  //   return uuid;
+  // }
 
   alertImage() {
     const alertItem =  this.alert.create({
