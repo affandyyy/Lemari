@@ -90,12 +90,12 @@ export class WardrobePage {
     console.log('ionViewDidLoad WardrobePage');
   }
 
-  openThis(category, id, brand, price) {
-    this.openModal(ItemmodalPage,category,id,brand,price);
+  openThis(category, id, image_url, brand, price, color, tag, location) {
+    this.openModal(ItemmodalPage,category,id,image_url,brand,price, color, tag, location);
   }
 
-  openModal(pageName, category, id, brand, price) {
-    this.modalCtrl.create(pageName, {category,id,brand,price}, { cssClass: 'inset-modal' })
+  openModal(pageName, category, id, image_url, brand, price, color, tag, location) {
+    this.modalCtrl.create(pageName, {category,id,image_url,brand,price, color, tag, location}, { cssClass: 'inset-modal' })
                   .present();
   }
 

@@ -7,6 +7,8 @@ import { Platform, ActionSheetController, LoadingController, NavParams } from 'i
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Crop } from '@ionic-native/crop';
 
+import {AngularFireObject} from "angularfire2/database";
+
 
 /**
  * Generated class for the EditPage page.
@@ -30,6 +32,14 @@ export class EditPage {
   // variable for data to firebase
   mypicref:any;
 
+  newPostKey: any;
+  category:any;
+  brand:any;
+  color:AngularFireObject<any>;
+  price:any;
+  tag:any;
+  location:any;
+
   image: string = '';
   _zone: any;
 
@@ -43,6 +53,7 @@ export class EditPage {
 
   showEditFilters: boolean = false;
   imageBefore: boolean = true;
+  imageAfter: boolean = true;
   
   constructor(
     public navCtrl: NavController, 
@@ -54,6 +65,23 @@ export class EditPage {
     public imagePicker: ImagePicker,
     public actionsheetCtrl: ActionSheetController) {
       this._zone = new NgZone({ enableLongStackTrace: false });
+      this.imageReplace();
+  }
+
+  imageReplace(){
+    if(this.image = this.navParams.get('image')){
+      this.imageBefore = false;
+      this.category = this.navParams.get('obj_category');
+      this.newPostKey = this.navParams.get('obj_id');
+      this.brand = this.navParams.get('obj_brand');
+      this.price = this.navParams.get('obj_price');
+      this.color = this.navParams.get('obj_color');
+      this.tag = this.navParams.get('obj_tag');
+      this.location = this.navParams.get('obj_location');
+    }
+    else if(this.image = ''){
+      this.imageAfter = false;
+    }
   }
 
    /// Execute a menu 
@@ -251,9 +279,16 @@ export class EditPage {
   }
 
   goPost(){
+    let obj_category = this.category;
+    let obj_id = this.newPostKey;
     let uploadImage = this.image;
-    // console.log("Edit Page image: " + uploadImage);
-    this.navCtrl.push(FormPage, {uploadImage});
+    let obj_brand = this.brand;
+    let obj_price = this.price;
+    let obj_color = this.color;
+    let obj_tag = this.tag;
+    let obj_location = this.location;
+  
+    this.navCtrl.push(FormPage, {obj_category,obj_id,uploadImage,obj_brand,obj_price,obj_color,obj_tag,obj_location});
   }
 
 }

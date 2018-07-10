@@ -56,7 +56,7 @@
 
   <ion-card (click)="openMenu()">
     <ion-card-content text-center>
-      <img [src]="image" #imageResult />
+      <img [src]="image" *ngIf="imageAfter" #imageResult />
       <img src="./assets/imgs/card/sample.png" *ngIf="imageBefore" />
     </ion-card-content>
   </ion-card>

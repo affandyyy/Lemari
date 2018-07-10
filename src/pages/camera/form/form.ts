@@ -65,32 +65,56 @@ export class FormPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private database: AngularFireDatabase, private alert: AlertController) {
     //init data
     this.uid = firebase.auth().currentUser.uid;
-    this.newPostKey = firebase.database().ref().child(`users/${this.uid}/lemari_category`).push().key;
+    this.getId();
     
     //get Image from Edit Page
     this.img = this.navParams.get('uploadImage');
     this.mypicref=firebase.storage().ref('/');
-    // console.log("Form Page image: " +this.img);
+    console.log("Form Page image: " +this.img);
+  }
+
+  getId(){
+    if(this.newPostKey = this.navParams.get('obj_id')){
+      this.category = this.navParams.get('obj_category');
+      this.brand = this.navParams.get('obj_brand');
+      this.price = this.navParams.get('obj_price');
+      this.color = this.navParams.get('obj_color');
+      this.tag = this.navParams.get('obj_tag');
+      this.location = this.navParams.get('obj_location');
+    }
+    else {
+      this.newPostKey = firebase.database().ref().child(`users/${this.uid}/lemari_category`).push().key;
+    }
   }
 
   saveDetail() {
-    this.mypicref.child(`users/${this.uid}/${this.category}/${this.newPostKey}`).child('image.jpeg')
-    .putString(this.img, firebase.storage.StringFormat.DATA_URL)
-    .then(savepic=>{
-      this.img=savepic.downloadURL;
-
-      let imageUrl = savepic.downloadURL;
       this.database.object(`users/${this.uid}/lemari_category/${this.category}/${this.newPostKey}`).set({
         id: this.newPostKey,
         category:this.category,
-        image_url:imageUrl,
+        image_url:this.img,
         brand:this.brand,
         color:this.color,
         price:this.price,
         tag:this.tag,
         location:this.location
       })
-    })
+    //   this.mypicref.child(`users/${this.uid}/${this.category}/${this.newPostKey}`).child('image.jpeg')
+    //   .putString(this.img, firebase.storage.StringFormat.DATA_URL)
+    //   .then(savepic=>{
+    //     this.img=savepic.downloadURL;
+
+    //     let imageUrl = savepic.downloadURL;
+    //     this.database.object(`users/${this.uid}/lemari_category/${this.category}/${this.newPostKey}`).set({
+    //       id: this.newPostKey,
+    //       category:this.category,
+    //       image_url:imageUrl,
+    //       brand:this.brand,
+    //       color:this.color,
+    //       price:this.price,
+    //       tag:this.tag,
+    //       location:this.location
+    //     })
+    //   })
   }
   
   // imageUid() {
