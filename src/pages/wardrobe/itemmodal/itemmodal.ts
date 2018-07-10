@@ -40,10 +40,15 @@ export class ItemmodalPage {
   tag:any;
   location:any;
 
+  item:any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, private database: AngularFireDatabase, private zone: NgZone, private alert: AlertController) {
     this.uid = firebase.auth().currentUser.uid;
+    
     this.category = this.navParams.get('category');
     this.newPostKey = this.navParams.get('id');
+    this.brand = this.navParams.get('brand');
+    this.price = this.navParams.get('price');
 
     this.detailRef = this.database.object(`users/${this.uid}/lemari_category/${this.category}/${this.newPostKey}`);
     this.details = this.detailRef.valueChanges();
@@ -58,42 +63,42 @@ export class ItemmodalPage {
         this.zone.run(() => {
           this.imageUrl = response.image_url;
         });
-        this.brand = response.brand;
-        this.price = response.price;  
 
-        console.log(this.price);
+        // console.log(this.price);
     });
   }
   
   editDetail(){
-    const alertItem =  this.alert.create({
-      title: 'Edit Image Detail',
-      inputs: [
-        {
-          name: 'brand',
-          placeholder: 'Brand'
-        },
-        {
-          name: 'price',
-          placeholder: 'Price'
-        }
-      ],
-      buttons: [
-        {
-          text: 'Okay',
-          handler: data => {
-            console.log(data);
-            this.detailRef.update(data);
+      const alertItem =  this.alert.create({
+        
+        title: 'Edit Image Detail',
+        inputs: [
+          {
+            name: 'brand',
+            placeholder: 'Brand',
+            value: this.brand
+          },
+          {
+            name: 'price',
+            placeholder: 'Price',
+            value: this.price 
           }
-        },
-        {
-          text: 'Cancel',
-          role: 'cancel'
-        }
-      ]
-    });
-    
-    alertItem.present();
+        ],
+        buttons: [
+          {
+            text: 'Okay',
+            handler: data => {
+              console.log(data);
+              this.detailRef.update(data);
+            }
+          },
+          {
+            text: 'Cancel',
+            role: 'cancel'
+          }
+        ]
+      });
+      alertItem.present();
   }
 
   removeDetail(){
