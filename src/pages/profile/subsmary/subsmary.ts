@@ -22,6 +22,7 @@ export class SubsmaryPage {
   detailTops;
   detailBottom;
   detailShoes;
+  detailAccessories;
 
   uid: string;
 
@@ -31,10 +32,13 @@ export class SubsmaryPage {
   bottom: Observable<any>;
   shoesRef:  AngularFireList<any>;
   shoes: Observable<any>;
+  accessoriesRef: AngularFireList<any>;
+  accessories: Observable<any>;
 
   sumTopsPrice = 0;
   sumBottomPrice = 0;
   sumShoesPrice = 0;
+  sumAccessoriesPrice = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private database: AngularFireDatabase) {
     this.uid = firebase.auth().currentUser.uid;
@@ -50,6 +54,10 @@ export class SubsmaryPage {
     //Shoes Data
     this.shoesRef = this.database.list(`users/${this.uid}/lemari_category/shoes/`);
     this.shoes = this.shoesRef.valueChanges();
+
+    //Accessories Data
+    this.accessoriesRef = this.database.list(`users/${this.uid}/lemari_category/accessories/`);
+    this.accessories = this.accessoriesRef.valueChanges();
 
     this.calc();
   }
@@ -98,17 +106,28 @@ export class SubsmaryPage {
 
         this.detailShoes = [
           {
-            image: 'assets/imgs/card/acc.jpg',
-            desc: 'Accessories',
+            image: 'assets/imgs/card/shoes.jpg',
+            desc: 'Shoes',
             quan: response.length,
             value: 'RM ' + this.sumShoesPrice
           },
+        ];
+      });
+    });
+    //Accessories Value
+    this.accessories.subscribe(response => {
+      console.log(response);
+      response.forEach(item => {
+        // sum here
+        this.sumAccessoriesPrice = this.sumAccessoriesPrice + parseInt(item.price);
+
+        this.detailAccessories = [
           {
-            image: 'assets/imgs/card/shoes.jpg',
-            desc: 'Shoes',
-            quan: '50',
-            value: 'RM2590'
-          },
+            image: 'assets/imgs/card/acc.jpg',
+            desc: 'Accessories',
+            quan: response.length,
+            value: 'RM ' + this.sumAccessoriesPrice
+          }
         ];
       });
     });

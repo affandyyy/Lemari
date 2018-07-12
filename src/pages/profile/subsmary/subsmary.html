@@ -83,4 +83,27 @@
       </div>
     </ion-card-content>
   </ion-card>
+   <!-- Accessories Display -->
+   <ion-card *ngFor="let accessories of detailAccessories" style="border-radius: 7px 7px 7px 7px;">
+    <ion-card-content>
+
+      <!-- <button ion-item (click)="openDetailActivity(item)">            
+            More info
+            <ion-icon name="arrow-forward" item-right color="primary"></ion-icon>
+          </button> -->
+      <div text-center *ngIf="accessories.image">
+        <img [src]="accessories.image" />
+        <br>
+        <ion-list>
+          <div class="bold">
+            {{ accessories.desc }}</div>
+          <div>
+            {{ accessories.quan }}</div>
+          <div class="val">
+            {{ accessories.value }}
+          </div>
+        </ion-list>
+      </div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

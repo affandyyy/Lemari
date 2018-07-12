@@ -29,8 +29,11 @@ export class ProfilePage {
   bottom: Observable<any>;
   shoesRef:  AngularFireList<any>;
   shoes: Observable<any>;
+  accessoriesRef: AngularFireList<any>;
+  accessories: Observable<any>;
 
   counter = 0;
+  totalPrice = 0;
 
   constructor(public navCtrl: NavController, private database: AngularFireDatabase, private zone: NgZone, private alert: AlertController) {
     this.uid = firebase.auth().currentUser.uid;
@@ -50,6 +53,10 @@ export class ProfilePage {
     this.shoesRef = this.database.list(`users/${this.uid}/lemari_category/shoes/`);
     this.shoes = this.shoesRef.valueChanges();
 
+    //Accessories Data
+    this.accessoriesRef = this.database.list(`users/${this.uid}/lemari_category/accessories/`);
+    this.accessories = this.accessoriesRef.valueChanges();
+
     this.calc();
    }
 
@@ -65,21 +72,37 @@ export class ProfilePage {
   calc(){
     //Tops Value
     this.tops.subscribe(response => {
-        this.calculateSum(response.length);
+      response.forEach(item => {
+        this.counter++;
+        this.calculateSum(this.counter,item.price);
+      });
     });
     //Bottom Value
     this.bottom.subscribe(response => {
-        this.calculateSum(response.length);
+      response.forEach(item => {
+        this.counter++;
+        this.calculateSum(this.counter,item.price);
+      });
     });
     //Shoes Value
     this.shoes.subscribe(response => {
-        this.calculateSum(response.length);
+      response.forEach(item => {
+        this.counter++;
+        this.calculateSum(this.counter,item.price);
+      });
+    });
+    //Accessories Value
+    this.accessories.subscribe(response => {
+      response.forEach(item => {
+        this.counter++;
+        this.calculateSum(this.counter,item.price);
+      });
     });
   }
 
-  calculateSum(value) {
-    this.counter = this.counter + parseInt(value);
-    console.log("Counter : " + this.counter);
+  calculateSum(value,price) {
+    this.counter = parseInt(value);
+    this.totalPrice = this.totalPrice + parseInt(price);
 
     this.user = [
       {
@@ -89,7 +112,7 @@ export class ProfilePage {
         // occupation: 'Specialist',
         // location: 'Mont Kiara, MY',
         items: this.counter,
-        value: '0',
+        value: this.totalPrice,
         subs: 'Basic'
       }
     ];
