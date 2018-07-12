@@ -69,7 +69,7 @@ export class SubsmaryPage {
 
         this.detailTops = [
           {
-            image: '../assets/imgs/card/example.png',
+            image: 'assets/imgs/card/example.png',
             desc: 'Tops',
             quan: this.sumTopsQuantity,
             value: 'RM ' + this.sumTopsPrice
@@ -87,7 +87,7 @@ export class SubsmaryPage {
 
         this.detailBottom = [
           {
-            image: '../assets/imgs/card/bottom.jpg',
+            image: 'assets/imgs/card/bottom.jpg',
             desc: 'Bottoms',
             quan: this.sumBottomQuantity,
             value: 'RM ' + this.sumBottomPrice
@@ -105,13 +105,13 @@ export class SubsmaryPage {
 
         this.detailShoes = [
           {
-            image: '../assets/imgs/card/acc.jpg',
+            image: 'assets/imgs/card/acc.jpg',
             desc: 'Accessories',
             quan: this.sumShoesQuantity,
             value: 'RM ' + this.sumShoesPrice
           },
           {
-            image: '../assets/imgs/card/shoes.jpg',
+            image: 'assets/imgs/card/shoes.jpg',
             desc: 'Shoes',
             quan: '50',
             value: 'RM2590'
