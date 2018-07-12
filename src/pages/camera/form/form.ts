@@ -70,7 +70,7 @@ export class FormPage {
     //get Image from Edit Page
     this.img = this.navParams.get('uploadImage');
     this.mypicref=firebase.storage().ref('/');
-    console.log("Form Page image: " +this.img);
+    // console.log("Form Page image: " +this.img);
   }
 
   getId(){

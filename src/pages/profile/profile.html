@@ -4,20 +4,20 @@
   <div class="circular"> <img style="border-radius: 50%" width="200%" *ngIf="imageUrl" [src]="imageUrl" /> </div>
     <h2>{{ (userFB | async)?.username }}</h2>
     <p>{{ (userFB | async)?.email }}</p>
-    <p class="profile-description">{{user.description}}</p>
+    <p *ngFor="let users of user" class="profile-description">{{users.description}}</p>
 
-    <ion-row class="profile-numbers">
+    <ion-row *ngFor="let users of user" class="profile-numbers">
       <ion-col col-4 (click)="openSum()">
         <p>Items</p>
-        <span>{{user.items}}</span>
+        <span>{{users.items}}</span>
       </ion-col>
       <ion-col col-4>
         <p>Value</p>
-        <span>{{user.value}}</span>
+        <span>{{users.value}}</span>
       </ion-col>
       <ion-col col-4 (click)="openSubs()">
         <p>Subscription</p>
-        <span>{{user.subs}}</span>
+        <span>{{users.subs}}</span>
       </ion-col>
     </ion-row>
   </div>

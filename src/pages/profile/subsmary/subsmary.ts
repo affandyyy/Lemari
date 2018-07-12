@@ -32,10 +32,6 @@ export class SubsmaryPage {
   shoesRef:  AngularFireList<any>;
   shoes: Observable<any>;
 
-  sumTopsQuantity = 0;
-  sumBottomQuantity= 0;
-  sumShoesQuantity= 0;
-
   sumTopsPrice = 0;
   sumBottomPrice = 0;
   sumShoesPrice = 0;
@@ -64,14 +60,13 @@ export class SubsmaryPage {
       console.log(response);
       response.forEach(item => {
         // sum here
-        this.sumTopsQuantity++;
         this.sumTopsPrice = this.sumTopsPrice + parseInt(item.price);
 
         this.detailTops = [
           {
             image: 'assets/imgs/card/example.png',
             desc: 'Tops',
-            quan: this.sumTopsQuantity,
+            quan: response.length,
             value: 'RM ' + this.sumTopsPrice
           }
         ];
@@ -82,14 +77,13 @@ export class SubsmaryPage {
       console.log(response);
       response.forEach(item => {
         // sum here
-        this.sumBottomQuantity++
         this.sumBottomPrice = this.sumBottomPrice + parseInt(item.price);
 
         this.detailBottom = [
           {
             image: 'assets/imgs/card/bottom.jpg',
             desc: 'Bottoms',
-            quan: this.sumBottomQuantity,
+            quan: response.length,
             value: 'RM ' + this.sumBottomPrice
           }
         ];
@@ -100,14 +94,13 @@ export class SubsmaryPage {
       console.log(response);
       response.forEach(item => {
         // sum here
-        this.sumShoesQuantity++
         this.sumShoesPrice = this.sumShoesPrice + parseInt(item.price);
 
         this.detailShoes = [
           {
             image: 'assets/imgs/card/acc.jpg',
             desc: 'Accessories',
-            quan: this.sumShoesQuantity,
+            quan: response.length,
             value: 'RM ' + this.sumShoesPrice
           },
           {
