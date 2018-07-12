@@ -57,7 +57,6 @@ export class ItemmodalPage {
     this.details = this.detailRef.valueChanges();
     this.getImage();
 
-    this.mypicref=firebase.storage().ref('/').child(`users/${this.uid}/${this.category}/${this.newPostKey}`).child('image.jpeg');
   }
 
   getImage(){
@@ -92,7 +91,6 @@ export class ItemmodalPage {
           handler: () => {
             this.navCtrl.push(TabsPage);
             this.detailRef.remove();
-            // this.mypicref.delete();
           }
         }
       ]

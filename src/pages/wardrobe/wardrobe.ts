@@ -75,6 +75,8 @@ export class WardrobePage {
   tag:any;
   location:any;
 
+  counter:any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private database: AngularFireDatabase) {
     this.uid = firebase.auth().currentUser.uid;
 
@@ -84,6 +86,8 @@ export class WardrobePage {
 
     this.detailRef = this.database.list(`users/${this.uid}/lemari_category/${this.category}`);
     this.details = this.detailRef.valueChanges();
+
+    
   }
 
   ionViewDidLoad() {

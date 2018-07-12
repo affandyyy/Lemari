@@ -14,23 +14,70 @@
 
 
 <ion-content text-center>
-  <ion-card *ngFor="let item of listOne" style="border-radius: 7px 7px 7px 7px;">
+  <!-- Tops Display -->
+  <ion-card *ngFor="let top of detailTops" style="border-radius: 7px 7px 7px 7px;">
     <ion-card-content>
 
       <!-- <button ion-item (click)="openDetailActivity(item)">            
             More info
             <ion-icon name="arrow-forward" item-right color="primary"></ion-icon>
           </button> -->
-      <div text-center *ngIf="item.image">
-        <img [src]="item.image" />
+      <div text-center *ngIf="top.image">
+        <img [src]="top.image" />
         <br>
         <ion-list>
           <div class="bold">
-            {{ item.desc }}</div>
+            {{ top.desc }}</div>
           <div>
-            {{ item.quan }}</div>
+            {{ top.quan }}</div>
           <div class="val">
-            {{ item.value }}
+            {{ top.value }}
+          </div>
+        </ion-list>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <!-- Bottom Display -->
+  <ion-card *ngFor="let bottom of detailBottom" style="border-radius: 7px 7px 7px 7px;">
+    <ion-card-content>
+
+      <!-- <button ion-item (click)="openDetailActivity(item)">            
+            More info
+            <ion-icon name="arrow-forward" item-right color="primary"></ion-icon>
+          </button> -->
+      <div text-center *ngIf="bottom.image">
+        <img [src]="bottom.image" />
+        <br>
+        <ion-list>
+          <div class="bold">
+            {{ bottom.desc }}</div>
+          <div>
+            {{ bottom.quan }}</div>
+          <div class="val">
+            {{ bottom.value }}
+          </div>
+        </ion-list>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <!-- Shoes Display -->
+  <ion-card *ngFor="let shoes of detailShoes" style="border-radius: 7px 7px 7px 7px;">
+    <ion-card-content>
+
+      <!-- <button ion-item (click)="openDetailActivity(item)">            
+            More info
+            <ion-icon name="arrow-forward" item-right color="primary"></ion-icon>
+          </button> -->
+      <div text-center *ngIf="shoes.image">
+        <img [src]="shoes.image" />
+        <br>
+        <ion-list>
+          <div class="bold">
+            {{ shoes.desc }}</div>
+          <div>
+            {{ shoes.quan }}</div>
+          <div class="val">
+            {{ shoes.value }}
           </div>
         </ion-list>
       </div>
