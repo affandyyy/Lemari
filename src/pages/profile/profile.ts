@@ -22,12 +22,12 @@ export class ProfilePage {
   user = {
     name: 'Uvuwewe Osas',
     profileImage: '',
-    coverImage: './assets/imgs/card/wardrobebg.jpeg',
+    coverImage: '../assets/imgs/card/tnc.jpg',
     occupation: 'Specialist',
     location: 'Mont Kiara, MY',
-    items: 100,
-    value: '700',
-    subs: 'Emerald'
+    items: 0,
+    value: '0',
+    subs: 'Basic'
 
   };
 
@@ -35,10 +35,10 @@ export class ProfilePage {
   customLoc = ['Wardrobe', 'Chestdrawer', 'Headboard', 'Laundry'];
 
   constructor(public navCtrl: NavController, private database: AngularFireDatabase, private zone: NgZone, private alert: AlertController) {
-    this.uid = firebase.auth().currentUser.uid;
-    this.userFBRef = this.database.object(`users/${this.uid}`);
-    this.userFB = this.userFBRef.valueChanges();
-    this.userFBFunc();
+    // this.uid = firebase.auth().currentUser.uid;
+    // this.userFBRef = this.database.object(`users/${this.uid}`);
+    // this.userFB = this.userFBRef.valueChanges();
+    // this.userFBFunc();
    }
 
    userFBFunc() {
