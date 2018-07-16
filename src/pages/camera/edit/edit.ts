@@ -212,7 +212,7 @@ export class EditPage {
       targetHeight: 1000,
       sourceType: 1,
       allowEdit: true,
-      saveToPhotoAlbum: true,
+      saveToPhotoAlbum: false,
       correctOrientation: true
     }).then((imageURI) => {
       loader.dismissAll();
