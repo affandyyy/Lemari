@@ -1,5 +1,5 @@
 import { Component, NgZone } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 
 import  * as firebase from "firebase";
 import {AngularFireDatabase, AngularFireObject, AngularFireList} from "angularfire2/database";
@@ -34,11 +34,17 @@ export class ProfilePage {
 
   counter = 0;
   totalPrice = 0;
+  loading: any;
 
-  constructor(public navCtrl: NavController, private database: AngularFireDatabase, private zone: NgZone, private alert: AlertController) {
+  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, private database: AngularFireDatabase, private zone: NgZone, private alert: AlertController) {
     this.uid = firebase.auth().currentUser.uid;
     this.userFBRef = this.database.object(`users/${this.uid}`);
     this.userFB = this.userFBRef.valueChanges();
+    this.loading = this.loadingCtrl.create({
+      spinner: 'ios',
+      content: 'Loading'
+    });
+    this.loading.present();
     this.userFBFunc();
 
     //Tops Data
@@ -58,6 +64,7 @@ export class ProfilePage {
     this.accessories = this.accessoriesRef.valueChanges();
 
     this.calc();
+    this.loading.dismiss();
    }
 
    userFBFunc() {

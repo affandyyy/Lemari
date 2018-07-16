@@ -31,7 +31,10 @@ export class TabsPage {
     public camera: Camera,
     public cropService: Crop,
     public navCtrl: NavController
-  ) {}
+  ) {
+
+  
+  }
 
 
 

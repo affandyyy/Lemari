@@ -25,9 +25,7 @@ var canvas: any;
 })
 export class EditPage {
   @ViewChild('imageResult') private imageResult: ElementRef; // reference to DOM element
-  // private brightness = 50;
-  // private contrast = 50;
-  // private saturation = 50;
+
 
   // variable for data to firebase
   mypicref:any;

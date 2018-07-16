@@ -22,45 +22,7 @@ import {Observable} from "rxjs/Observable";
 })
 export class WardrobePage {
 
-  listOne = [
-        {
-          name: 'Red Blouse',
-          image: '../assets/imgs/card/example.png'
-        },
-        {
-          title: '2',
-        },
-        {
-          title: '3',
-        },
-        {
-          title: '4',
-        },
-        {
-          title: '5',
-        },
-        {
-          title: '6',
-        },
-        {
-          title: '7',
-        },
-        {
-          title: '8',
-        },
-        {
-          title: '9',
-        },
-        {
-          title: '10',
-        },
-        {
-          title: '11',
-        },
-        {
-          title: '12',
-        },
-      ];
+ 
 
   uid: string;
   newPostKey: string;
@@ -86,8 +48,6 @@ export class WardrobePage {
 
     this.detailRef = this.database.list(`users/${this.uid}/lemari_category/${this.category}`);
     this.details = this.detailRef.valueChanges();
-
-    
   }
 
   ionViewDidLoad() {
@@ -107,4 +67,45 @@ export class WardrobePage {
     this.navCtrl.push('WardrobePage');
   }
 
+
+  listOne = [
+    {
+      name: 'Red Blouse',
+      image: '../assets/imgs/card/example.png'
+    },
+    {
+      title: '2',
+    },
+    {
+      title: '3',
+    },
+    {
+      title: '4',
+    },
+    {
+      title: '5',
+    },
+    {
+      title: '6',
+    },
+    {
+      title: '7',
+    },
+    {
+      title: '8',
+    },
+    {
+      title: '9',
+    },
+    {
+      title: '10',
+    },
+    {
+      title: '11',
+    },
+    {
+      title: '12',
+    },
+  ];
+  
 }

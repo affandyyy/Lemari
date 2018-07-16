@@ -3,6 +3,7 @@ import { Component, ViewChild} from '@angular/core';
 import { NavController, Slides, ModalController } from 'ionic-angular';
 
 import "rxjs/add/operator/take";
+import { StatusBar } from '../../../node_modules/@ionic-native/status-bar';
 
 @Component({
   selector: 'page-home',
@@ -10,6 +11,33 @@ import "rxjs/add/operator/take";
 })
 export class HomePage {
   @ViewChild('slider') slider: Slides;
+
+
+  category: any;
+
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController, public statusBar: StatusBar) {
+      this.statusBar.backgroundColorByHexString("#500E6F");
+      this.statusBar.overlaysWebView(true);
+  }
+
+  openShuffle(){
+    this.navCtrl.push('ShufflePage');
+  }
+  
+  openThis() {
+    this.openModal('ItemmodalPage');
+  }
+
+  openModal(pageName) {
+    this.modalCtrl.create(pageName, null, { cssClass: 'inset-modal' })
+                  .present();
+  }
+
+  openGallery(category){
+    this.navCtrl.push(WardrobePage, {category});
+  }
+
+
 
   listOne = [
     {
@@ -130,27 +158,5 @@ export class HomePage {
   //     private: true
   //   }
   // ];
-
-  category: any;
-
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
-  }
-
-  openProfile(){
-    this.navCtrl.push('ShufflePage');
-  }
-  
-  openThis() {
-    this.openModal('ItemmodalPage');
-  }
-
-  openModal(pageName) {
-    this.modalCtrl.create(pageName, null, { cssClass: 'inset-modal' })
-                  .present();
-  }
-
-  openGallery(category){
-    this.navCtrl.push(WardrobePage, {category});
-  }
 
 }

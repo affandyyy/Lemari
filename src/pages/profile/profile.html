@@ -1,7 +1,8 @@
 <ion-content parallax-header no-bounce class="bg-modal" >
   <div class="header-image"></div>
   <div class="main-content" text-wrap text-center>
-  <div class="circular"> <img style="border-radius: 50%" width="200%" *ngIf="imageUrl" [src]="imageUrl" /> </div>
+    <ion-icon name="create"></ion-icon>
+    <div class="circular"> <img style="border-radius: 50%" width="200%" *ngIf="imageUrl" [src]="imageUrl" /> </div>
     <h2>{{ (userFB | async)?.username }}</h2>
     <p>{{ (userFB | async)?.email }}</p>
     <p *ngFor="let users of user" class="profile-description">{{users.description}}</p>
@@ -42,15 +43,15 @@
         <ion-label class="label">Notifications </ion-label>
         <ion-icon name='notifications' item-start></ion-icon>
       </ion-item>
-      <ion-item>
+      <!-- <ion-item>
         <ion-toggle [(ngModel)]="autoSavePhotos" (click)="toggleautoSavePhotos()"></ion-toggle>
         <ion-label class="label">Auto-save Photos </ion-label>
         <ion-icon name='md-photos' item-start></ion-icon>
-      </ion-item>
+      </ion-item> -->
     </ion-list>
 
     <!-- List yang kedua for settings -->
-    <ion-list>
+    <ion-list style="margin-bottom: 0">
       <ion-list-header>
         Wardrobe
       </ion-list-header>

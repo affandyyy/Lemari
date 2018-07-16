@@ -35,6 +35,7 @@ import {
 })
 export class ShufflePage {
   
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

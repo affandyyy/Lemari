@@ -12,22 +12,25 @@
 
 
 <ion-content text-center>
-  <ion-card *ngFor="let item of listOne" style="border-radius: 7px 7px 7px 7px;">
-      <ion-card-content (click)="openThis()">
-  <!-- <ion-card *ngFor="let item of details | async" style="border-radius: 0px 0px 7px 0px;">
-    <ion-card-content (click)="openThis(item.category,item.id,item.image_url,item.brand,item.price,item.color,item.tag,item.location)"> -->
-      <!-- <button ion-item (click)="openDetailActivity(item)">            
-            More info
-            <ion-icon name="arrow-forward" item-right color="primary"></ion-icon>
-          </button> -->
-      <div *ngIf="item.image">
-          <img [src]="item.image" />
-      <!-- <div *ngIf="item.image_url">
+
+  <!-- <ion-card *ngFor="let item of listOne" style="border-radius: 0px 0px 7px 0px">
+      <ion-card-content (click)="openThis()"> -->
+
+  <ion-card *ngFor="let item of details | async" style="border-radius: 0px 0px 7px 0px;">
+    <ion-card-content (click)="openThis(item.category,item.id,item.image_url,item.brand,item.price,item.color,item.tag,item.location)">
+      
+
+      <!-- <div *ngIf="item.image">
+          <img [src]="item.image" style="width: 100%; height: 100px;	background: no-repeat center center; 
+          background-size: cover; " /> -->
+
+      <div *ngIf="item.image_url">
         <img [src]="item.image_url" style="width: 100%; height: 100px;	background: no-repeat center center; 
-        background-size: cover; " /> -->
+        background-size: cover; " />
       </div>
-      <div style="font-size: 9px; margin-top: 10px;">{{item.name}}</div>
-      <!-- <div style="font-size: 9px; margin-top: 10px;">{{item.brand}}</div> -->
+
+      <!-- <div style="font-size: 9px; margin-top: 10px;">{{item.name}}</div> -->
+      <div style="font-size: 9px; margin-top: 10px;">{{item.brand}}</div>
     </ion-card-content>
   </ion-card>
 </ion-content>
