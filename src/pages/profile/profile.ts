@@ -1,3 +1,4 @@
+import { SubsmaryPage } from './subsmary/subsmary';
 import { TranslateService } from '@ngx-translate/core';
 import { Component, NgZone } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
@@ -177,7 +178,7 @@ export class ProfilePage {
   }
 
   openSum(){
-    this.navCtrl.push('SubsmaryPage');
+    this.navCtrl.push(SubsmaryPage);
   }
 
   logOut(){

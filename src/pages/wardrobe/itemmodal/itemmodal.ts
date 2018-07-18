@@ -5,6 +5,8 @@ import { Component, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ViewController } from 'ionic-angular/navigation/view-controller';
 
+import { TranslateService } from '@ngx-translate/core';
+
 import  * as firebase from "firebase";
 import {AngularFireDatabase, AngularFireObject} from "angularfire2/database";
 import "rxjs/add/operator/take";
@@ -41,7 +43,13 @@ export class ItemmodalPage {
   tag:any;
   location:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, private database: AngularFireDatabase, private zone: NgZone, private alert: AlertController) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              public viewCtrl: ViewController, 
+              private database: AngularFireDatabase, 
+              private zone: NgZone, 
+              private alert: AlertController,
+              public translate:TranslateService) {
     this.uid = firebase.auth().currentUser.uid;
     
     this.category = this.navParams.get('category');

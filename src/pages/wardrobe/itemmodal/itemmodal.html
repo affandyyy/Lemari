@@ -25,7 +25,7 @@
     </ion-list-header>
     <ion-item>
       <ion-label>
-        Price
+        {{ 'Price' | translate }}
       </ion-label>
       <ion-label end>
         RM {{ this.price }}
@@ -33,7 +33,7 @@
     </ion-item>
     <ion-item>
       <ion-label>
-        Size
+        {{ 'Size' | translate }}
       </ion-label>
       <ion-label end>
         XS
@@ -41,7 +41,7 @@
     </ion-item>
     <ion-item>
       <ion-label>
-        Date Purchase
+       {{ 'Date Purchase' | translate }}
       </ion-label>
       <ion-label end>
         September 2018
@@ -52,10 +52,10 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <button ion-button block color="secondary" (click)="editDetail()">Edit Clothes</button>
+        <button ion-button block color="secondary" (click)="editDetail()">{{ 'Edit Clothes' | translate }}</button>
       </ion-col>
       <ion-col>
-        <button  ion-button color="danger" (click)="removeDetail()">Delete Clothes</button>
+        <button  ion-button color="danger" (click)="removeDetail()">{{ 'Delete Clothes' | translate }}</button>
       </ion-col>
     </ion-row>
   </ion-grid>

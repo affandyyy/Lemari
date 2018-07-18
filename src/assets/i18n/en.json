@@ -1,4 +1,13 @@
 {
+    "Tops":"Tops",
+    "Bottom":"Bottom",
+    "Shoes":"Shoes",
+    "Accessories":"Accessories",
+    "Price":"Price",
+    "Size":"Size",
+    "Date Purchase":"Date Purchase",
+    "Edit Clothes":"Edit Clothes",
+    "Delete Clothes":"Delete Clothes",
     "Items":"Items",
     "Value":"Value",
     "Subscription":"Subscription",

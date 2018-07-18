@@ -3,6 +3,8 @@ import { Component} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 
+import { TranslateService } from '@ngx-translate/core';
+
 import  * as firebase from "firebase";
 import {AngularFireDatabase, AngularFireObject, AngularFireList} from "angularfire2/database";
 import "rxjs/add/operator/take";
@@ -39,7 +41,7 @@ export class WardrobePage {
 
   counter:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private database: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private database: AngularFireDatabase, public translate:TranslateService) {
     this.uid = firebase.auth().currentUser.uid;
 
     //get category

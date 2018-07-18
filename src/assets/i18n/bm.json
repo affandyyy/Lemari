@@ -1,4 +1,13 @@
 {
+    "Tops":"Bahagian Atas",
+    "Bottom":"Bahagian Bawah",
+    "Shoes":"Kasut",
+    "Accessories":"Perhiasan",
+    "Price":"Harga",
+    "Size":"Saiz",
+    "Date Purchase":"Tarikh Pembelian",
+    "Edit Clothes":"Ubah Pakaian",
+    "Delete Clothes":"Buang Pakaian",
     "Items":"Barang",
     "Value":"Nilai",
     "Subscription":"Langganan",

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { TranslateService } from '@ngx-translate/core';
+
 import  * as firebase from "firebase";
 import {AngularFireDatabase, AngularFireObject, AngularFireList} from "angularfire2/database";
 import {Observable} from "rxjs/Observable";
@@ -40,7 +42,7 @@ export class SubsmaryPage {
   sumShoesPrice = 0;
   sumAccessoriesPrice = 0;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private database: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private database: AngularFireDatabase, public translate:TranslateService) {
     this.uid = firebase.auth().currentUser.uid;
 
     //Tops Data
@@ -90,7 +92,7 @@ export class SubsmaryPage {
         this.detailBottom = [
           {
             image: 'assets/imgs/card/bottom.jpg',
-            desc: 'Bottoms',
+            desc: 'Bottom',
             quan: response.length,
             value: 'RM ' + this.sumBottomPrice
           }

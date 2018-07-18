@@ -4,6 +4,7 @@ import { NavController, Slides, ModalController } from 'ionic-angular';
 
 import "rxjs/add/operator/take";
 import { StatusBar } from '../../../node_modules/@ionic-native/status-bar';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'page-home',
@@ -15,7 +16,7 @@ export class HomePage {
 
   category: any;
 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController, public statusBar: StatusBar) {
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController, public statusBar: StatusBar, public translate:TranslateService) {
       this.statusBar.backgroundColorByHexString("#500E6F");
       this.statusBar.overlaysWebView(true);
   }
