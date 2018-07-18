@@ -1,6 +1,6 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component, NgZone } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
-
 import  * as firebase from "firebase";
 import {AngularFireDatabase, AngularFireObject, AngularFireList} from "angularfire2/database";
 import "rxjs/add/operator/take";
@@ -20,7 +20,7 @@ export class ProfilePage {
 
   user;
 
-  languages = ['English', 'Bahasa', '中文'];
+  language:any;
   customLoc = ['Wardrobe', 'Chestdrawer', 'Headboard', 'Laundry'];
 
   topsRef:  AngularFireList<any>;
@@ -36,7 +36,17 @@ export class ProfilePage {
   totalPrice = 0;
   loading: any;
 
-  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, private database: AngularFireDatabase, private zone: NgZone, private alert: AlertController) {
+  constructor(public loadingCtrl: LoadingController, 
+              public navCtrl: NavController, 
+              private database: AngularFireDatabase, 
+              private zone: NgZone, 
+              private alert: AlertController, 
+              public translate:TranslateService) {
+
+    this.language = 'en';
+    this.translate.setDefaultLang('en');
+    this.translate.use('en');
+
     this.uid = firebase.auth().currentUser.uid;
     this.userFBRef = this.database.object(`users/${this.uid}`);
     this.userFB = this.userFBRef.valueChanges();
@@ -44,6 +54,7 @@ export class ProfilePage {
       spinner: 'ios',
       content: 'Loading'
     });
+    
     this.loading.present();
     this.userFBFunc();
 
@@ -66,6 +77,10 @@ export class ProfilePage {
     this.calc();
     this.loading.dismiss();
    }
+
+   switchLanguage() {
+    this.translate.use(this.language);
+  }
 
    userFBFunc() {
     this.userFB.subscribe(response => {

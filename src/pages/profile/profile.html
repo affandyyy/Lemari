@@ -9,15 +9,15 @@
 
     <ion-row *ngFor="let users of user" class="profile-numbers">
       <ion-col col-4 (click)="openSum()">
-        <p>Items</p>
+        <p>{{ 'Items' | translate }}</p>
         <span>{{users.items}}</span>
       </ion-col>
       <ion-col col-4>
-        <p>Value</p>
+        <p>{{ 'Value' | translate }}</p>
         <span>{{users.value}}</span>
       </ion-col>
       <ion-col col-4 (click)="openSubs()">
-        <p>Subscription</p>
+        <p>{{ 'Subscription' | translate }}</p>
         <span>{{users.subs}}</span>
       </ion-col>
     </ion-row>
@@ -29,18 +29,19 @@
   <div class="main-content-two">
     <ion-list no-border>
       <ion-list-header>
-        General
+      {{ 'General' | translate }}
       </ion-list-header>
       <ion-item>
         <ion-icon name='settings' item-start></ion-icon>
-        <ion-label>Language</ion-label>
-        <ion-select [(ngModel)]="language">
-          <ion-option *ngFor="let language of languages" [value]="language">{{language}}</ion-option>
+        <ion-label>{{ 'Language' | translate }}</ion-label>
+        <ion-select [(ngModel)]="language" (ionChange)="switchLanguage()">
+          <ion-option value="en">English</ion-option>
+          <ion-option value="bm">Bahasa</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-toggle [(ngModel)]="enableNotifications" (click)="toggleNotifications()"></ion-toggle>
-        <ion-label class="label">Notifications </ion-label>
+        <ion-label class="label">{{ 'Notifications' | translate }}</ion-label>
         <ion-icon name='notifications' item-start></ion-icon>
       </ion-item>
       <!-- <ion-item>
@@ -53,11 +54,11 @@
     <!-- List yang kedua for settings -->
     <ion-list style="margin-bottom: 0">
       <ion-list-header>
-        Wardrobe
+        {{ 'Wardrobe' | translate }}
       </ion-list-header>
       <ion-item>
         <ion-icon name='ios-navigate' item-start></ion-icon>
-        <ion-label>Custom Location</ion-label>
+        <ion-label>{{ 'Custom Location' | translate }}</ion-label>
         <ion-select [(ngModel)]="loc">
           <ion-option *ngFor="let loc of customLoc" [value]="loc">{{loc}}</ion-option>
         </ion-select>
@@ -80,10 +81,10 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-          <button ion-button block color="primary" (click)="editProfile()">Edit Profile</button>
+          <button ion-button block color="primary" (click)="editProfile()">{{ 'Edit Profile' | translate }}</button>
         </ion-col>
         <ion-col>
-          <button ion-button block color="danger" (click)="logOut()">Logout</button>
+          <button ion-button block color="danger" (click)="logOut()">{{ 'Logout' | translate }}</button>
         </ion-col>
       </ion-row>
     </ion-grid>

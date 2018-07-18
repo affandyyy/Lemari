@@ -35,11 +35,16 @@ import {AngularFireAuthModule} from "angularfire2/auth";
 import { IonicStorageModule } from '@ionic/storage';
 import { LoginPageModule } from '../pages/login/login.module';
 
+import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 //initial between firebase and Lemari App
 firebase.initializeApp(FIREBASE_CREDENTIALS)
-
 
 @NgModule({
   declarations: [
@@ -62,7 +67,15 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     AngularFireModule.initializeApp(FIREBASE_CREDENTIALS),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    LoginPageModule
+    HttpClientModule,
+    LoginPageModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: createTranslateLoader,
+          deps: [HttpClient]
+      }
+  })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
