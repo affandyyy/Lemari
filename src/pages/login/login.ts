@@ -47,25 +47,11 @@ export class LoginPage {
 
         firebase.auth().signInWithCredential(facebookCredential)
           .then((success) => {
-            if(firebase.auth().currentUser.uid == null){
-              firebase.database().ref('users/' + firebase.auth().currentUser.uid).set({
-                username: firebase.auth().currentUser.displayName,
-                email: firebase.auth().currentUser.email,
-                profile_picture: firebase.auth().currentUser.photoURL,
-              })
-              this.navCtrl.setRoot(TabsPage);
-            }
-            else{
-              this.navCtrl.setRoot(TabsPage);
-            }
-          })
+            this.navCtrl.push(TabsPage);
+        })
       })
       .catch((error) => { this.createAlert(error) })
   }
-
-  // login(){
-  //   this.navCtrl.push(TabsPage);
-  // }
 
   createAlert(err) {
     let alert = this.alt.create({

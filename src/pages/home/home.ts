@@ -1,3 +1,7 @@
+import firebase from 'firebase'; //firebase connection
+import { Observable } from 'rxjs/Observable';
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
+import { Facebook } from '@ionic-native/facebook';
 import { WardrobePage } from './../wardrobe/wardrobe';
 import { Component, ViewChild} from '@angular/core';
 import { NavController, Slides, ModalController } from 'ionic-angular';
@@ -13,12 +17,41 @@ import { TranslateService } from '@ngx-translate/core';
 export class HomePage {
   @ViewChild('slider') slider: Slides;
 
+  userFBRef: AngularFireObject<any>;
+  userFB: Observable<any>;
+  uid:any;
 
   category: any;
 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController, public statusBar: StatusBar, public translate:TranslateService) {
+  constructor(public navCtrl: NavController, 
+              public modalCtrl: ModalController, 
+              public statusBar: StatusBar, 
+              public translate:TranslateService,
+              public facebook: Facebook,
+              private database: AngularFireDatabase) {
       this.statusBar.backgroundColorByHexString("#500E6F");
       this.statusBar.overlaysWebView(true);
+
+      this.uid = firebase.auth().currentUser.uid;
+      this.userFBRef = this.database.object(`users/${this.uid}`);
+      this.userFB = this.userFBRef.valueChanges();
+
+      this.newUser();
+  }
+
+  newUser(){
+    this.userFB.subscribe(response => {
+      console.log("Response : " + response);
+      
+      if(response == null){
+        this.database.object('users/' + firebase.auth().currentUser.uid).set({
+          username: firebase.auth().currentUser.displayName,
+          email: firebase.auth().currentUser.email,
+          profile_picture: firebase.auth().currentUser.photoURL,
+          language:"en",
+        })
+      }
+    });  
   }
 
   openShuffle(){

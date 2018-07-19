@@ -80,6 +80,9 @@ export class ProfilePage {
    }
 
    switchLanguage() {
+    this.database.object(`users/${this.uid}`).update({
+      language:this.language
+    })
     this.translate.use(this.language);
   }
 
