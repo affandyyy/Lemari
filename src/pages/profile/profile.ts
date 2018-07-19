@@ -43,14 +43,12 @@ export class ProfilePage {
               private zone: NgZone, 
               private alert: AlertController, 
               public translate:TranslateService) {
-
-    this.language = 'en';
-    this.translate.setDefaultLang('en');
-    this.translate.use('en');
-
     this.uid = firebase.auth().currentUser.uid;
     this.userFBRef = this.database.object(`users/${this.uid}`);
     this.userFB = this.userFBRef.valueChanges();
+
+    this.defaultLanguage();
+
     this.loading = this.loadingCtrl.create({
       spinner: 'ios',
       content: 'Loading'
@@ -79,11 +77,23 @@ export class ProfilePage {
     this.loading.dismiss();
    }
 
+   defaultLanguage(){
+    this.userFB.subscribe(response => {
+      console.log(response);
+      this.language = response.language;
+      this.translate.setDefaultLang(response.language);
+      this.translate.use(response.language);
+    });
+   }
+
    switchLanguage() {
     this.database.object(`users/${this.uid}`).update({
       language:this.language
     })
-    this.translate.use(this.language);
+    this.userFB.subscribe(response => {
+      console.log(response);
+      this.translate.use(response.language);
+    });
   }
 
    userFBFunc() {
@@ -132,11 +142,6 @@ export class ProfilePage {
 
     this.user = [
       {
-        // name: 'Uvuwewe Osas',
-        // profileImage: '',
-        // coverImage: '../assets/imgs/card/tnc.jpg',
-        // occupation: 'Specialist',
-        // location: 'Mont Kiara, MY',
         items: this.counter,
         value: this.totalPrice,
         subs: 'Basic'

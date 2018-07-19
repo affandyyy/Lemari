@@ -36,13 +36,16 @@ export class HomePage {
       this.userFBRef = this.database.object(`users/${this.uid}`);
       this.userFB = this.userFBRef.valueChanges();
 
-      this.newUser();
+      this.getUserData();
   }
 
-  newUser(){
+  getUserData(){
     this.userFB.subscribe(response => {
       console.log("Response : " + response);
       
+      this.translate.setDefaultLang(response.language);
+      this.translate.use(response.language);
+
       if(response == null){
         this.database.object('users/' + firebase.auth().currentUser.uid).set({
           username: firebase.auth().currentUser.displayName,
