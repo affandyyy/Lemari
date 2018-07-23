@@ -17,5 +17,17 @@
     "Wardrobe":"Almari Pakaian",
     "Custom Location":"Ubah Lokasi",
     "Edit Profile":"Ubah Profil",
-    "Logout":"Keluar"
+    "Logout":"Keluar",
+    "FormPage":"Borang",
+    "EditPage":"Tambah/Ubah Baju Baru",
+    "Category":"Kategori",
+    "Brand":"Jenama",
+    "#Tag":"#Tag",
+    "Location":"Lokasi",
+    "ValidCategory":"Sila masukkan Kategori yang betul.",
+    "ValidBrand":"Sila masukkan Jenama yang betul.",
+    "ValidColour":"Sila masukkan Warna yang betul.",
+    "ValidPrice":"Sila masukkan Harga yang betul.",
+    "ValidTag":"Sila masukkan Tag yang betul.",
+    "ValidLocation":"Sila masukkan Lokasi yang betul."
 }
