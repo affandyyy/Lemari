@@ -17,7 +17,7 @@ export class SubscribePage {
 
   cards = [
     {
-      imageUrl: 'assets/imgs/card/emerald.jpg',
+      imageUrl: 'assets/imgs/card/emerald.png',
       title: 'Emerald 20',
       subtitle: 'Free'
     },
