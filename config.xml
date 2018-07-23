@@ -3,7 +3,11 @@
     <name>Lemari</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+<<<<<<< HEAD
+    <content original-src="index.html" src="http://192.168.0.173:8100" />
+=======
     <content original-src="index.html" src="http://192.168.137.1:8100" />
+>>>>>>> 18b8d2cf187d236b64c268e60711cb9f35d95133
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
