@@ -65,7 +65,7 @@ export class FormPage {
   details: Observable<any>;
 
   inputForm:FormGroup;
-  submitAttempt: boolean = false;
+  falseAttempt: boolean = false;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
@@ -150,10 +150,11 @@ export class FormPage {
  
   goPost(){
     if(!this.inputForm.valid){
+      this.falseAttempt = true;
       this.invalidInput();
     }
     else{
-      this.submitAttempt = true;
+      // this.submitAttempt = true;
       this.saveDetail();
       this.validInput();
     }
