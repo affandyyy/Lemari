@@ -17,5 +17,17 @@
     "Wardrobe":"Wardrobe",
     "Custom Location":"Custom Location",
     "Edit Profile":"Edit Profile",
-    "Logout":"Logout"
+    "Logout":"Logout",
+    "FormPage":"Add/Edit New Clothes",
+    "EditPage":"Borang",
+    "Category":"Category",
+    "Brand":"Brand",
+    "#Tag":"#Tag",
+    "Location":"Lokasi",
+    "ValidCategory":"Please enter a valid Category.",
+    "ValidBrand":"Please enter a valid Brand.",
+    "ValidColour":"Please enter a valid Colour.",
+    "ValidPrice":"Please enter a valid Price.",
+    "ValidTag":"Please enter a valid Tag.",
+    "ValidLocation":"Please enter a valid Location."
 }

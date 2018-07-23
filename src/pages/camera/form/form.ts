@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { TabsPage } from './../../tabs/tabs';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -66,7 +67,12 @@ export class FormPage {
   inputForm:FormGroup;
   submitAttempt: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private database: AngularFireDatabase, private alert: AlertController, private builder: FormBuilder) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              private database: AngularFireDatabase, 
+              private alert: AlertController, 
+              private builder: FormBuilder,
+              public translate:TranslateService) {
     //init data
     this.uid = firebase.auth().currentUser.uid;
     this.getId();

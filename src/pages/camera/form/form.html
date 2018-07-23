@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-<ion-title>Form</ion-title>
+<ion-title>{{ 'FormPage' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -37,7 +37,7 @@
     <ion-list inset>
       <form [formGroup]="inputForm">
         <ion-item>
-          <ion-label>Category</ion-label>
+          <ion-label>{{ 'Category' | translate }}</ion-label>
           <ion-select formControlName="category" multiple="true" [class.invalid]="!inputForm.controls['category'].valid && (inputForm.controls['category'].dirty || submitAttempt)">
             <ion-option value="tops">Tops</ion-option>
             <ion-option value="bottom">Bottom</ion-option>
@@ -45,32 +45,32 @@
             <ion-option value="accessories">Accessories</ion-option>
           </ion-select>
         </ion-item>
-          <p style="color:red;" *ngIf="!inputForm.controls['category'].valid && (inputForm.controls['category'].dirty || submitAttempt)"><strong>Please enter a valid Category.</strong></p> 
+          <p style="color:red;" *ngIf="!inputForm.controls['category'].valid && (inputForm.controls['category'].dirty || submitAttempt)"><strong>{{ 'ValidCategory' | translate }}</strong></p> 
 
         <ion-item>
-          <ion-input formControlName="brand" type="text" placeholder="Brand" [class.invalid]="!inputForm.controls['brand'].valid && (inputForm.controls['brand'].dirty || submitAttempt)"></ion-input>
+          <ion-input formControlName="brand" type="text" placeholder="{{ 'Brand' | translate }}" [class.invalid]="!inputForm.controls['brand'].valid && (inputForm.controls['brand'].dirty || submitAttempt)"></ion-input>
         </ion-item>
-          <p style="color:red;" *ngIf="!inputForm.controls['brand'].valid && (inputForm.controls['brand'].dirty || submitAttempt)"><strong>Please enter a valid Brand.</strong></p> 
+          <p style="color:red;" *ngIf="!inputForm.controls['brand'].valid && (inputForm.controls['brand'].dirty || submitAttempt)"><strong>{{ 'ValidBrand' | translate }}</strong></p> 
 
         <ion-item>
           <ion-input formControlName="color" type="color" placeholder="Color" [class.invalid]="!inputForm.controls['color'].valid && (inputForm.controls['color'].dirty || submitAttempt)"></ion-input>
         </ion-item>
-          <p style="color:red;" *ngIf="!inputForm.controls['color'].valid && (inputForm.controls['color'].dirty || submitAttempt)"><strong>Please enter a valid Colour.</strong></p> 
+          <p style="color:red;" *ngIf="!inputForm.controls['color'].valid && (inputForm.controls['color'].dirty || submitAttempt)"><strong>{{ 'ValidColour' | translate }}</strong></p> 
 
         <ion-item>
-          <ion-input formControlName="price" type="price" placeholder="Price" type="number" [class.invalid]="!inputForm.controls['price'].valid && (inputForm.controls['price'].dirty || submitAttempt)"></ion-input>
+          <ion-input formControlName="price" type="price" placeholder="{{ 'Price' | translate }}" type="number" [class.invalid]="!inputForm.controls['price'].valid && (inputForm.controls['price'].dirty || submitAttempt)"></ion-input>
         </ion-item>
-          <p style="color:red;" *ngIf="!inputForm.controls['price'].valid && (inputForm.controls['price'].dirty || submitAttempt)"><strong>Please enter a valid Price.</strong></p> 
+          <p style="color:red;" *ngIf="!inputForm.controls['price'].valid && (inputForm.controls['price'].dirty || submitAttempt)"><strong>{{ 'ValidPrice' | translate }}</strong></p> 
 
         <ion-item>
-          <ion-input formControlName="tag" type="tag" placeholder="#TAG" [class.invalid]="!inputForm.controls['tag'].valid && (inputForm.controls['tag'].dirty || submitAttempt)"></ion-input>
+          <ion-input formControlName="tag" type="tag" placeholder="{{ '#TAG' | translate }}" [class.invalid]="!inputForm.controls['tag'].valid && (inputForm.controls['tag'].dirty || submitAttempt)"></ion-input>
         </ion-item>
-          <p style="color:red;" *ngIf="!inputForm.controls['tag'].valid && (inputForm.controls['tag'].dirty || submitAttempt)"><strong>Please enter a valid Tag.</strong></p> 
+          <p style="color:red;" *ngIf="!inputForm.controls['tag'].valid && (inputForm.controls['tag'].dirty || submitAttempt)"><strong>{{ 'ValidTag' | translate }}</strong></p> 
 
         <ion-item>
-          <ion-input formControlName="location" type="location" placeholder="Location" [class.invalid]="!inputForm.controls['location'].valid && (inputForm.controls['location'].dirty || submitAttempt)"></ion-input>
+          <ion-input formControlName="location" type="location" placeholder="{{ 'Location' | translate }}" [class.invalid]="!inputForm.controls['location'].valid && (inputForm.controls['location'].dirty || submitAttempt)"></ion-input>
         </ion-item>
-          <p style="color:red;" *ngIf="!inputForm.controls['location'].valid && (inputForm.controls['location'].dirty || submitAttempt)"><strong>Please enter a valid Location.</strong></p> 
+          <p style="color:red;" *ngIf="!inputForm.controls['location'].valid && (inputForm.controls['location'].dirty || submitAttempt)"><strong>{{ 'ValidLocation' | translate }}</strong></p> 
       </form>
 
     </ion-list>

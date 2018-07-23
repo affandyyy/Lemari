@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { FormPage } from './../form/form';
 import { Component, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { NavController } from 'ionic-angular';
@@ -61,7 +62,8 @@ export class EditPage {
     public loadingCtrl: LoadingController,
     public cropService: Crop,
     public imagePicker: ImagePicker,
-    public actionsheetCtrl: ActionSheetController) {
+    public actionsheetCtrl: ActionSheetController,
+    public translate:TranslateService) {
       this._zone = new NgZone({ enableLongStackTrace: false });
       this.imageReplace();
   }
