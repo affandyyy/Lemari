@@ -25,6 +25,7 @@ import { TabsPage } from '../tabs/tabs';
 })
 export class LoginPage {
   public backgroundImage = "./assets/imgs/tnc.jpg";
+  loading: any;
 
   constructor(
     private alt: AlertController, 
@@ -43,19 +44,30 @@ export class LoginPage {
   login(): Promise<any> {
     return this.facebook.login(['email', 'public_profile'])
       .then(response => {
+        this.loading = this.loadingCtrl.create({
+          spinner: 'ios',
+          content: 'Loading'
+        });
+        
+        this.loading.present();
         const facebookCredential = firebase.auth.FacebookAuthProvider.credential(response.authResponse.accessToken);
-
         firebase.auth().signInWithCredential(facebookCredential)
           .then((success) => {
-            this.navCtrl.push(TabsPage);
+            this.navCtrl.setRoot(TabsPage);
+            this.loading.dismiss();
         })
+      this.loading.dismiss();
       })
-      .catch((error) => { this.createAlert(error) })
+      .catch((error) => { this.createAlert("Sign in failed. Please try again") })
+  }
+
+  loginHome(){
+    this.navCtrl.push(TabsPage);
   }
 
   createAlert(err) {
     let alert = this.alt.create({
-      title: 'Errors',
+      title: 'Ops !',
       message: err
     }).present();
   }
@@ -68,5 +80,8 @@ export class LoginPage {
     this.modal.create(pageName, null, { cssClass: 'inset-modal' })
       .present();
   }
+
+
+
 
 }
