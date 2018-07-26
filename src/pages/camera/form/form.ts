@@ -49,23 +49,33 @@ export class FormPage {
     }
   ];
   
-  img: any;
-  mypicref:any;
-
-  category:any;
-  brand:any;
-  color:AngularFireObject<any>;;
-  price:any;
-  tag:any;
-  location:any;
-  
   uid: string;
   newPostKey: string;
   detailRef: AngularFireObject<any>;
   details: Observable<any>;
 
+  img: any;
+  // category:any;
+  brand:any;
+  color:AngularFireObject<any>;
+  price:any;
+  tag:any;
+  location:any;
+
   inputForm:FormGroup;
   falseAttempt: boolean = false;
+
+  category: any[];
+  subCategory: any[];
+  
+  selectedCategory: any[];
+  selectedsubCategory: any[];
+  
+  sCategory: any;
+  ssubCategory: any;
+
+  categoryValue:any;
+  subCategoryValue:any;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
@@ -75,20 +85,50 @@ export class FormPage {
               public translate:TranslateService) {
     //init data
     this.uid = firebase.auth().currentUser.uid;
-    this.getId();
-    
-    //get Image from Edit Page
-    this.img = this.navParams.get('uploadImage');
-    this.mypicref=firebase.storage().ref('/');
 
+    //get image from Edit Page
+    this.img = this.navParams.get('uploadImage');
+
+    this.getId();
     this.inputValidator();
-  
+
+    this.initializeCategory();
+    this.initializeSubCategory(); 
+
+    console.log("Key : " + this.newPostKey);
   }
+
+  initializeCategory(){
+    this.category = [
+      {id: 1, name: 'Tops', value: 'tops'},
+      {id: 2, name: 'Bottom', value: 'bottom'},
+      {id: 3, name: 'Shoes', value: 'shoes'},
+      {id: 4, name: 'Accessories', value: 'accessories'}
+    ];
+  }
+  
+  initializeSubCategory(){
+    this.subCategory = [
+      {id: 1, name: 'T-Shirt', value: 'tshirt', category_id: 1, category_name: 'tops'},
+      {id: 2, name: 'Shirt', value: 'shirt', category_id: 1, category_name: 'tops'},
+      {id: 3, name: 'Tank Top', value: 'tanktop', category_id: 1, category_name: 'tops'},
+      {id: 4, name: 'Jeans', value: 'jeans', category_id: 2, category_name: 'bottom'},
+      {id: 5, name: 'Dress Pants', value: 'dresspants', category_id: 2, category_name: 'bottom'},
+      {id: 6, name: 'Sneakers', value: 'sneakers', category_id: 3, category_name: 'shoes'},
+      {id: 7, name: 'Sandals', value: 'sandals', category_id: 3, category_name: 'shoes'},
+      {id: 8, name: 'Hat', value: 'hat', category_id: 4, category_name: 'accessories'},
+      {id: 9, name: 'Cap', value: 'cap', category_id: 4, category_name: 'accessories'}
+    ];
+  }
+  
+   setsubCategoryValues(sCategory) {
+    this.selectedsubCategory = this.subCategory.filter(subCategory => subCategory.category_id == sCategory.id)
+   }
 
   inputValidator(){
       this.inputForm = this.builder.group({
-        category: [this.category, Validators.required],
-        brand: [this.brand, Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+        // category: [this.category, Validators.required],
+        brand: [this.brand, Validators.compose([Validators.maxLength(30), Validators.required])],
         price: [this.price, Validators.required],
         color: [this.color, Validators.required],
         tag: [this.tag, Validators.compose([Validators.maxLength(30), Validators.required])],
@@ -98,12 +138,20 @@ export class FormPage {
 
   getId(){
     if(this.newPostKey = this.navParams.get('obj_id')){
-      this.category = this.navParams.get('obj_category');
+      this.categoryValue = this.navParams.get('obj_category');
+      this.subCategoryValue = this.navParams.get('obj_subCategory');
       this.brand = this.navParams.get('obj_brand');
       this.price = this.navParams.get('obj_price');
       this.color = this.navParams.get('obj_color');
       this.tag = this.navParams.get('obj_tag');
       this.location = this.navParams.get('obj_location');
+      
+      this.detailRef = this.database.object(`users/${this.uid}/lemari_category/${this.categoryValue}/${this.subCategoryValue}/${this.newPostKey}`);
+      this.details = this.detailRef.valueChanges();
+      this.details.subscribe(response => {
+        this.sCategory = this.category.filter(category => category.id == response.category.id);
+        this.ssubCategory = this.subCategory.filter(subCategory => subCategory.value == response.subCategory.value);   
+      });
     }
     else {
       this.newPostKey = firebase.database().ref().child(`users/${this.uid}/lemari_category`).push().key;
@@ -111,9 +159,10 @@ export class FormPage {
   }
 
   saveDetail() {
-    this.database.object(`users/${this.uid}/lemari_category/${this.category}/${this.newPostKey}`).set({
+    this.database.object(`users/${this.uid}/lemari_category/${this.sCategory.value}/${this.ssubCategory.value}/${this.newPostKey}`).set({
       id: this.newPostKey,
-      category:this.inputForm.value.category,
+      category:this.sCategory,
+      subCategory:this.ssubCategory,
       image_url:this.img,
       brand:this.inputForm.value.brand,
       color:this.inputForm.value.color,

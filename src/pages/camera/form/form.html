@@ -35,18 +35,35 @@
 
 
     <ion-list inset>
-      <form [formGroup]="inputForm">
-        <ion-item>
+      <!-- <form [formGroup]="inputForm"> -->
+        <!-- <ion-item>
           <ion-label>{{ 'Category' | translate }}</ion-label>
-          <ion-select formControlName="category" multiple="true" [class.invalid]="!inputForm.controls['category'].valid && (inputForm.controls['category'].dirty || falseAttempt)">
+          <ion-select  [(ngModel)]="category">
             <ion-option value="tops">Tops</ion-option>
             <ion-option value="bottom">Bottom</ion-option>
             <ion-option value="shoes">Shoes</ion-option>
             <ion-option value="accessories">Accessories</ion-option>
           </ion-select>
-        </ion-item>
-          <p style="color:red;" *ngIf="!inputForm.controls['category'].valid && (inputForm.controls['category'].dirty || falseAttempt)"><strong>{{ 'ValidCategory' | translate }}</strong></p> 
+        </ion-item> -->
 
+        <ion-item>
+          <ion-label>{{ 'Category' | translate }}</ion-label>
+          <ion-select (ionChange)="setsubCategoryValues(sCategory)" [(ngModel)]="sCategory">
+               <ion-option [value]="sCategory" *ngFor = "let sCategory of category"> {{sCategory.name}}  </ion-option> 
+         </ion-select>
+        </ion-item>
+        
+        <ion-item *ngIf="selectedsubCategory">
+          <ion-label>{{ 'SubCategory' | translate }}</ion-label>
+          <ion-select [(ngModel)]="ssubCategory">
+                <ion-option [value]="ssubCategory" *ngFor = "let ssubCategory of selectedsubCategory"> {{ssubCategory.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <!-- [class.invalid]="!inputForm.controls['category'].valid && (inputForm.controls['category'].dirty || falseAttempt)" -->
+          <!-- <p style="color:red;" *ngIf="!inputForm.controls['category'].valid && (inputForm.controls['category'].dirty || falseAttempt)"><strong>{{ 'ValidCategory' | translate }}</strong></p>  -->
+
+      <form [formGroup]="inputForm">
         <ion-item>
           <ion-input formControlName="brand" type="text" placeholder="{{ 'Brand' | translate }}" [class.invalid]="!inputForm.controls['brand'].valid && (inputForm.controls['brand'].dirty || falseAttempt)"></ion-input>
         </ion-item>

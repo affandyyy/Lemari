@@ -17,7 +17,7 @@
       <ion-card-content (click)="openThis()"> -->
 
   <ion-card *ngFor="let item of details | async" style="border-radius: 0px 0px 7px 0px;">
-    <ion-card-content (click)="openThis(item.category,item.id,item.image_url,item.brand,item.price,item.color,item.tag,item.location)">
+    <ion-card-content (click)="openThis(item.category.value,item.subCategory.value,item.id,item.image_url,item.brand,item.price,item.color,item.tag,item.location)">
       
 
       <!-- <div *ngIf="item.image">

@@ -22,6 +22,7 @@ export class HomePage {
   uid:any;
 
   category: any;
+  subCategory: any;
 
   constructor(public navCtrl: NavController, 
               public modalCtrl: ModalController, 
@@ -70,102 +71,150 @@ export class HomePage {
                   .present();
   }
 
-  openGallery(category){
-    this.navCtrl.push(WardrobePage, {category});
+  openGallery(category,subCategory){
+    this.navCtrl.push(WardrobePage, {category,subCategory});
   }
 
 
 
   listOne = [
     {
-      title: '1',
-      image: './assets/imgs/card/example.png',
+      id:'1',
+      title: 'tops',
+      subTitle:'tshirt',
+      image: './assets/imgs/card/example.png'
       ///./assets/imgs/card/example.png
     },
     {
-      title: '2',
-      image: './assets/imgs/card/sweat.jpg',
+      id:'2',
+      title: 'tops',
+      subTitle:'shirt',
+      image: './assets/imgs/card/shirt.jpg'
     },
     {
-      title: '3',
-      image: './assets/imgs/card/tank.jpeg',
+      id:'3',
+      title: 'tops',
+      subTitle:'tanktop',
+      image: './assets/imgs/card/tank.jpeg'
     },
     {
-      title: '4',
-      image: './assets/imgs/card/tee.jpg',
+      id:'4',
+      title: 'tops',
+      subTitle:'sweatshirt',
+      image: './assets/imgs/card/tee.jpg'
     },
     {
-      title: '5',
-      image: './assets/imgs/card/cardigan.jpeg',
+      id:'5',
+      title: 'tops',
+      subTitle:'cardigan',
+      image: './assets/imgs/card/cardigan.jpeg'
     },
     {
-      title: '6',
-      image: './assets/imgs/card/shirt.jpg',
+      id:'5',
+      title: 'tops',
+      subTitle:'sweater',
+      image: './assets/imgs/card/sweat.jpg'
     }
   ];
 
   listTwo = [
     {
-      title: '1',
+      id:'1',
+      title: 'bottom',
+      subTitle:'jeans',
       image: './assets/imgs/card/trou.jpeg',
     },
     {
-      title: '2',
+      id:'2',
+      title: 'bottom',
+      subTitle:'cargopants',
     },
     {
-      title: '3',
+      id:'3',
+      title: 'bottom',
+      subTitle:'dresspants',
     },
     {
-      title: '4',
+      id:'4',
+      title: 'bottom',
+      subTitle:'shorts',
     },
     {
-      title: '5',
+      id:'5',
+      title: 'bottom',
+      subTitle:'sweatpants',
     },
     {
-      title: '6',
+      id:'6',
+      title: 'bottom',
+      subTitle:'skirt',
     }
   ];
 
   listThree = [
     {
-      title: '1',
+      id:'1',
+      title: 'shoes',
+      subTitle:'sneakers',
       image: './assets/imgs/card/shoes.jpg',
     },
     {
-      title: '2',
+      id:'2',
+      title: 'shoes',
+      subTitle:'sandals',
     },
     {
-      title: '3',
+      id:'3',
+      title: 'shoes',
+      subTitle:'flats',
     },
     {
-      title: '4',
+      id:'4',
+      title: 'shoes',
+      subTitle:'heels',
     },
     {
-      title: '5',
+      id:'5',
+      title: 'shoes',
+      subTitle:'slippers',
     },
     {
-      title: '6',
+      id:'6',
+      title: 'shoes',
+      subTitle:'boots',
     }
   ];
 
   listFour = [
     {
-      title: '1',
+      id:'1',
+      title: 'accessories',
+      subTitle:'hat',
     },
     {
-      title: '2',
+      id:'2',
+      title: 'accessories',
+      subTitle:'cap',
     },
     {
-      title: '3',
+      id:'3',
+      title: 'accessories',
+      subTitle:'sunglasses',
     },
     {
-      title: '4',
+      id:'4',
+      title: 'accessories',
+      subTitle:'tie',
     },
     {
-      title: '5',
+      id:'5',
+      title: 'accessories',
+      subTitle:'bowtie',
     },
     {
-      title: '6',
+      id:'6',
+      title: 'accessories',
+      subTitle:'scarf',
     }
   ];
 

@@ -33,6 +33,7 @@ export class WardrobePage {
 
   image_url: any;
   category:any;
+  subCategory:any;
   brand:any;
   color:AngularFireObject<any>;
   price:any;
@@ -46,22 +47,22 @@ export class WardrobePage {
 
     //get category
     this.category = this.navParams.get('category');
-    console.log("Category : " + this.category);
+    this.subCategory = this.navParams.get('subCategory');
 
-    this.detailRef = this.database.list(`users/${this.uid}/lemari_category/${this.category}`);
+    this.detailRef = this.database.list(`users/${this.uid}/lemari_category/${this.category}/${this.subCategory}`);
     this.details = this.detailRef.valueChanges();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad WardrobePage');
+    // console.log('ionViewDidLoad WardrobePage');
   }
 
-  openThis(category, id, image_url, brand, price, color, tag, location) {
-    this.openModal(ItemmodalPage,category,id,image_url,brand,price, color, tag, location);
+  openThis(category, subCategory, id, image_url, brand, price, color, tag, location) {
+    this.openModal(ItemmodalPage,category,subCategory,id,image_url,brand,price, color, tag, location);
   }
 
-  openModal(pageName, category, id, image_url, brand, price, color, tag, location) {
-    this.modalCtrl.create(pageName, {category,id,image_url,brand,price, color, tag, location}, { cssClass: 'inset-modal' })
+  openModal(pageName, category, subCategory, id, image_url, brand, price, color, tag, location) {
+    this.modalCtrl.create(pageName, {category,subCategory,id,image_url,brand,price, color, tag, location}, { cssClass: 'inset-modal' })
                   .present();
   }
 
