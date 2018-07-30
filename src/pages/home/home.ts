@@ -78,94 +78,98 @@ export class HomePage {
 
   listOne = [
     {
-      title: '1',
-      image: './assets/imgs/card/example.png',
-      ///./assets/imgs/card/example.png
+      image: './assets/imgs/card/blouse.jpg',
+      name: 'Blouse'
     },
     {
-      title: '2',
-      image: './assets/imgs/card/sweat.jpg',
+      image: './assets/imgs/card/sweater.png',
+      name: 'Sweat'
     },
     {
-      title: '3',
-      image: './assets/imgs/card/tank.jpeg',
+      image: './assets/imgs/card/tank.jpg',
+      name: 'Tank'
+
     },
     {
-      title: '4',
-      image: './assets/imgs/card/tee.jpg',
-    },
-    {
-      title: '5',
-      image: './assets/imgs/card/cardigan.jpeg',
-    },
-    {
-      title: '6',
       image: './assets/imgs/card/shirt.jpg',
+      name: 'Shirt'
+
+    },
+    {
+      image: './assets/imgs/card/cardigan.jpg',
+      name: 'Cardigan'
+
+    },
+    {
+      image: './assets/imgs/card/shirt.jpg',
+      name: 'Shirt'
+
     }
   ];
 
   listTwo = [
     {
-      title: '1',
-      image: './assets/imgs/card/trou.jpeg',
+      image: './assets/imgs/card/pants.jpg',
+      name: 'Pants'
     },
     {
-      title: '2',
+      image: './assets/imgs/card/jeans.jpg',
+      name: 'Jeans'
     },
     {
-      title: '3',
+      image: './assets/imgs/card/shorts.jpg',
+      name: 'Shorts'
     },
     {
-      title: '4',
+      image: './assets/imgs/card/skirts.jpg',
+      name: 'Skirts'
     },
     {
-      title: '5',
-    },
-    {
-      title: '6',
+      image: './assets/imgs/card/sweat.jpg',
+      name: 'Sweat Pant'
     }
   ];
 
   listThree = [
     {
-      title: '1',
-      image: './assets/imgs/card/shoes.jpg',
+      image: './assets/imgs/card/sandals.jpg',
+      name: 'Sandal'
     },
     {
-      title: '2',
+      name: 'Sneakers'
     },
     {
-      title: '3',
+      name: 'Flats'
     },
     {
-      title: '4',
+      name: 'Sports'
     },
     {
-      title: '5',
+      name: 'Slippers'
     },
     {
-      title: '6',
+      name: 'Boots'
     }
   ];
 
   listFour = [
     {
-      title: '1',
+      name: ' '
     },
     {
-      title: '2',
+      name: ' '
     },
     {
-      title: '3',
+      name: ' '
     },
     {
-      title: '4',
+      name: ' '
     },
     {
-      title: '5',
+      name: ' '
     },
     {
-      title: '6',
+      name: ' '
     }
   ];
 

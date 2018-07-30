@@ -7,13 +7,16 @@
 
 
 <ion-content class="transparent-header" [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
-  
+<!-- <ion-content fullscreen padding text-center> -->
+
   <div padding text-center>
-        <img class="kepala" src="assets/imgs/logo.png" (click)="loginHome()">
+    <img class="kepala" src="assets/imgs/logo.png" (click)="loginHome()">
   </div>
   <button ion-button block color="fb-button" (click)="login()" class="login-button">
     <ion-icon name="logo-facebook"></ion-icon> Login with Facebook</button>
-
+    <!-- <video #player playsinline autoplay muted loop poster="assets/imgs/tnc.jpg" id="bgvid">
+      <source src="assets/video/clothing.mp4" type="video/mp4"> Your browser does not support the video tag.
+    </video> -->
 </ion-content>
 
 <ion-footer>
