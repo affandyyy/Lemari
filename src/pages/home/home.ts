@@ -78,35 +78,33 @@ export class HomePage {
 
 
   listOne = [
-    {
-<<<<<<< HEAD
-      image: './assets/imgs/card/blouse.jpg',
-      name: 'Blouse'
-    },
-    {
-      image: './assets/imgs/card/sweater.png',
-      name: 'Sweat'
-    },
-    {
-      image: './assets/imgs/card/tank.jpg',
-      name: 'Tank'
+    // {
+    //   image: './assets/imgs/card/blouse.jpg',
+    //   name: 'Blouse'
+    // },
+    // {
+    //   image: './assets/imgs/card/sweater.png',
+    //   name: 'Sweat'
+    // },
+    // {
+    //   image: './assets/imgs/card/tank.jpg',
+    //   name: 'Tank'
 
-    },
-    {
-      image: './assets/imgs/card/shirt.jpg',
-      name: 'Shirt'
+    // },
+    // {
+    //   image: './assets/imgs/card/shirt.jpg',
+    //   name: 'Shirt'
 
-    },
-    {
-      image: './assets/imgs/card/cardigan.jpg',
-      name: 'Cardigan'
+    // },
+    // {
+    //   image: './assets/imgs/card/cardigan.jpg',
+    //   name: 'Cardigan'
 
-    },
+    // },
+    // {
+    //   image: './assets/imgs/card/shirt.jpg',
+    //   name: 'Shirt'
     {
-      image: './assets/imgs/card/shirt.jpg',
-      name: 'Shirt'
-
-=======
       id:'1',
       title: 'tops',
       subTitle:'tshirt',
@@ -142,32 +140,30 @@ export class HomePage {
       title: 'tops',
       subTitle:'sweater',
       image: './assets/imgs/card/sweat.jpg'
->>>>>>> 58e24b11cacfeb6f5b091cbcc7b5f48a1e418924
     }
   ];
 
   listTwo = [
+    // {
+    //   image: './assets/imgs/card/pants.jpg',
+    //   name: 'Pants'
+    // },
+    // {
+    //   image: './assets/imgs/card/jeans.jpg',
+    //   name: 'Jeans'
+    // },
+    // {
+    //   image: './assets/imgs/card/shorts.jpg',
+    //   name: 'Shorts'
+    // },
+    // {
+    //   image: './assets/imgs/card/skirts.jpg',
+    //   name: 'Skirts'
+    // },
+    // {
+    //   image: './assets/imgs/card/sweat.jpg',
+    //   name: 'Sweat Pant'
     {
-<<<<<<< HEAD
-      image: './assets/imgs/card/pants.jpg',
-      name: 'Pants'
-    },
-    {
-      image: './assets/imgs/card/jeans.jpg',
-      name: 'Jeans'
-    },
-    {
-      image: './assets/imgs/card/shorts.jpg',
-      name: 'Shorts'
-    },
-    {
-      image: './assets/imgs/card/skirts.jpg',
-      name: 'Skirts'
-    },
-    {
-      image: './assets/imgs/card/sweat.jpg',
-      name: 'Sweat Pant'
-=======
       id:'1',
       title: 'bottom',
       subTitle:'jeans',
@@ -197,31 +193,28 @@ export class HomePage {
       id:'6',
       title: 'bottom',
       subTitle:'skirt',
->>>>>>> 58e24b11cacfeb6f5b091cbcc7b5f48a1e418924
     }
   ];
 
   listThree = [
     {
-<<<<<<< HEAD
-      image: './assets/imgs/card/sandals.jpg',
-      name: 'Sandal'
-    },
-    {
-      name: 'Sneakers'
-    },
-    {
-      name: 'Flats'
-    },
-    {
-      name: 'Sports'
-    },
-    {
-      name: 'Slippers'
-    },
-    {
-      name: 'Boots'
-=======
+    //   image: './assets/imgs/card/sandals.jpg',
+    //   name: 'Sandal'
+    // },
+    // {
+    //   name: 'Sneakers'
+    // },
+    // {
+    //   name: 'Flats'
+    // },
+    // {
+    //   name: 'Sports'
+    // },
+    // {
+    //   name: 'Slippers'
+    // },
+    // {
+    //   name: 'Boots'
       id:'1',
       title: 'shoes',
       subTitle:'sneakers',
@@ -251,30 +244,27 @@ export class HomePage {
       id:'6',
       title: 'shoes',
       subTitle:'boots',
->>>>>>> 58e24b11cacfeb6f5b091cbcc7b5f48a1e418924
     }
   ];
 
   listFour = [
     {
-<<<<<<< HEAD
-      name: ' '
-    },
-    {
-      name: ' '
-    },
-    {
-      name: ' '
-    },
-    {
-      name: ' '
-    },
-    {
-      name: ' '
-    },
-    {
-      name: ' '
-=======
+    //   name: ' '
+    // },
+    // {
+    //   name: ' '
+    // },
+    // {
+    //   name: ' '
+    // },
+    // {
+    //   name: ' '
+    // },
+    // {
+    //   name: ' '
+    // },
+    // {
+    //   name: ' '
       id:'1',
       title: 'accessories',
       subTitle:'hat',
@@ -303,7 +293,6 @@ export class HomePage {
       id:'6',
       title: 'accessories',
       subTitle:'scarf',
->>>>>>> 58e24b11cacfeb6f5b091cbcc7b5f48a1e418924
     }
   ];
 
