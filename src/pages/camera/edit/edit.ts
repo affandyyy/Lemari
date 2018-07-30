@@ -33,6 +33,7 @@ export class EditPage {
 
   newPostKey: any;
   category:any;
+  subCategory:any;
   brand:any;
   color:AngularFireObject<any>;
   price:any;
@@ -72,6 +73,7 @@ export class EditPage {
     if(this.image = this.navParams.get('image')){
       this.imageBefore = false;
       this.category = this.navParams.get('obj_category');
+      this.subCategory = this.navParams.get('obj_subCategory');
       this.newPostKey = this.navParams.get('obj_id');
       this.brand = this.navParams.get('obj_brand');
       this.price = this.navParams.get('obj_price');
@@ -212,7 +214,7 @@ export class EditPage {
       targetHeight: 1000,
       sourceType: 1,
       allowEdit: true,
-      saveToPhotoAlbum: false,
+      saveToPhotoAlbum: true,
       correctOrientation: true
     }).then((imageURI) => {
       loader.dismissAll();
@@ -280,6 +282,7 @@ export class EditPage {
 
   goPost(){
     let obj_category = this.category;
+    let obj_subCategory = this.subCategory;
     let obj_id = this.newPostKey;
     let uploadImage = this.image;
     let obj_brand = this.brand;
@@ -288,7 +291,7 @@ export class EditPage {
     let obj_tag = this.tag;
     let obj_location = this.location;
   
-    this.navCtrl.push(FormPage, {obj_category,obj_id,uploadImage,obj_brand,obj_price,obj_color,obj_tag,obj_location});
+    this.navCtrl.push(FormPage, {obj_category,obj_subCategory,obj_id,uploadImage,obj_brand,obj_price,obj_color,obj_tag,obj_location});
   }
 
 }

@@ -22,6 +22,7 @@ export class HomePage {
   uid:any;
 
   category: any;
+  subCategory: any;
 
   constructor(public navCtrl: NavController, 
               public modalCtrl: ModalController, 
@@ -70,14 +71,15 @@ export class HomePage {
                   .present();
   }
 
-  openGallery(category){
-    this.navCtrl.push(WardrobePage, {category});
+  openGallery(category,subCategory){
+    this.navCtrl.push(WardrobePage, {category,subCategory});
   }
 
 
 
   listOne = [
     {
+<<<<<<< HEAD
       image: './assets/imgs/card/blouse.jpg',
       name: 'Blouse'
     },
@@ -104,11 +106,49 @@ export class HomePage {
       image: './assets/imgs/card/shirt.jpg',
       name: 'Shirt'
 
+=======
+      id:'1',
+      title: 'tops',
+      subTitle:'tshirt',
+      image: './assets/imgs/card/example.png'
+      ///./assets/imgs/card/example.png
+    },
+    {
+      id:'2',
+      title: 'tops',
+      subTitle:'shirt',
+      image: './assets/imgs/card/shirt.jpg'
+    },
+    {
+      id:'3',
+      title: 'tops',
+      subTitle:'tanktop',
+      image: './assets/imgs/card/tank.jpeg'
+    },
+    {
+      id:'4',
+      title: 'tops',
+      subTitle:'sweatshirt',
+      image: './assets/imgs/card/tee.jpg'
+    },
+    {
+      id:'5',
+      title: 'tops',
+      subTitle:'cardigan',
+      image: './assets/imgs/card/cardigan.jpeg'
+    },
+    {
+      id:'5',
+      title: 'tops',
+      subTitle:'sweater',
+      image: './assets/imgs/card/sweat.jpg'
+>>>>>>> 58e24b11cacfeb6f5b091cbcc7b5f48a1e418924
     }
   ];
 
   listTwo = [
     {
+<<<<<<< HEAD
       image: './assets/imgs/card/pants.jpg',
       name: 'Pants'
     },
@@ -127,11 +167,43 @@ export class HomePage {
     {
       image: './assets/imgs/card/sweat.jpg',
       name: 'Sweat Pant'
+=======
+      id:'1',
+      title: 'bottom',
+      subTitle:'jeans',
+      image: './assets/imgs/card/trou.jpeg',
+    },
+    {
+      id:'2',
+      title: 'bottom',
+      subTitle:'cargopants',
+    },
+    {
+      id:'3',
+      title: 'bottom',
+      subTitle:'dresspants',
+    },
+    {
+      id:'4',
+      title: 'bottom',
+      subTitle:'shorts',
+    },
+    {
+      id:'5',
+      title: 'bottom',
+      subTitle:'sweatpants',
+    },
+    {
+      id:'6',
+      title: 'bottom',
+      subTitle:'skirt',
+>>>>>>> 58e24b11cacfeb6f5b091cbcc7b5f48a1e418924
     }
   ];
 
   listThree = [
     {
+<<<<<<< HEAD
       image: './assets/imgs/card/sandals.jpg',
       name: 'Sandal'
     },
@@ -149,11 +221,43 @@ export class HomePage {
     },
     {
       name: 'Boots'
+=======
+      id:'1',
+      title: 'shoes',
+      subTitle:'sneakers',
+      image: './assets/imgs/card/shoes.jpg',
+    },
+    {
+      id:'2',
+      title: 'shoes',
+      subTitle:'sandals',
+    },
+    {
+      id:'3',
+      title: 'shoes',
+      subTitle:'flats',
+    },
+    {
+      id:'4',
+      title: 'shoes',
+      subTitle:'heels',
+    },
+    {
+      id:'5',
+      title: 'shoes',
+      subTitle:'slippers',
+    },
+    {
+      id:'6',
+      title: 'shoes',
+      subTitle:'boots',
+>>>>>>> 58e24b11cacfeb6f5b091cbcc7b5f48a1e418924
     }
   ];
 
   listFour = [
     {
+<<<<<<< HEAD
       name: ' '
     },
     {
@@ -170,6 +274,36 @@ export class HomePage {
     },
     {
       name: ' '
+=======
+      id:'1',
+      title: 'accessories',
+      subTitle:'hat',
+    },
+    {
+      id:'2',
+      title: 'accessories',
+      subTitle:'cap',
+    },
+    {
+      id:'3',
+      title: 'accessories',
+      subTitle:'sunglasses',
+    },
+    {
+      id:'4',
+      title: 'accessories',
+      subTitle:'tie',
+    },
+    {
+      id:'5',
+      title: 'accessories',
+      subTitle:'bowtie',
+    },
+    {
+      id:'6',
+      title: 'accessories',
+      subTitle:'scarf',
+>>>>>>> 58e24b11cacfeb6f5b091cbcc7b5f48a1e418924
     }
   ];
 

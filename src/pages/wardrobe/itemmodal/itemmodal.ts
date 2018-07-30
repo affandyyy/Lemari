@@ -37,6 +37,7 @@ export class ItemmodalPage {
   newPostKey: any;
   imageUrl: any;
   category:any;
+  subCategory:any;
   brand:any;
   colour:AngularFireObject<any>;
   price:any;
@@ -53,6 +54,7 @@ export class ItemmodalPage {
     this.uid = firebase.auth().currentUser.uid;
     
     this.category = this.navParams.get('category');
+    this.subCategory = this.navParams.get('subCategory');
     this.newPostKey = this.navParams.get('id');
     this.imageUrl= this.navParams.get('image_url');
     this.brand = this.navParams.get('brand');
@@ -61,7 +63,7 @@ export class ItemmodalPage {
     this.tag = this.navParams.get('tag');
     this.location = this.navParams.get('location');
 
-    this.detailRef = this.database.object(`users/${this.uid}/lemari_category/${this.category}/${this.newPostKey}`);
+    this.detailRef = this.database.object(`users/${this.uid}/lemari_category/${this.category}/${this.subCategory}/${this.newPostKey}`);
     this.details = this.detailRef.valueChanges();
     this.getImage();
 
@@ -78,6 +80,7 @@ export class ItemmodalPage {
   
   editDetail(){
     let obj_category = this.category;
+    let obj_subCategory = this.subCategory;
     let obj_id = this.newPostKey;
     let image = this.imageUrl;
     let obj_brand = this.brand;
@@ -86,7 +89,7 @@ export class ItemmodalPage {
     let obj_tag = this.tag;
     let obj_location = this.location;
 
-    this.navCtrl.push(EditPage, {obj_category,obj_id,image,obj_brand,obj_price,obj_color,obj_tag,obj_location});
+    this.navCtrl.push(EditPage, {obj_category,obj_subCategory,obj_id,image,obj_brand,obj_price,obj_color,obj_tag,obj_location});
   }
 
   removeDetail(){

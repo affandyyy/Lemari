@@ -27,9 +27,13 @@
   <ion-scroll scrollX="true" direction="x">
 
     <ion-card *ngFor="let item of listOne" style="border-radius: 7px 7px 7px 7px;">
+<<<<<<< HEAD
       <ion-card-content  (click)="openGallery('tops')">
           <div padding-horizontal padding-top text-center class="tengah">{{item.name}}</div>
         
+=======
+      <ion-card-content (click)="openGallery(item.title,item.subTitle)">
+>>>>>>> 58e24b11cacfeb6f5b091cbcc7b5f48a1e418924
         <!-- <button ion-item (click)="openDetailActivity(item)">            
           More info
           <ion-icon name="arrow-forward" item-right color="primary"></ion-icon>
@@ -49,8 +53,12 @@
   </div>
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let itemTwo of listTwo" style="border-radius: 7px 7px 7px 7px;">
+<<<<<<< HEAD
       <ion-card-content (click)="openGallery('bottom')">
           <div padding-horizontal padding-top text-center class="tengah">{{itemTwo.name}}</div>
+=======
+      <ion-card-content (click)="openGallery(itemTwo.title,itemTwo.subTitle)">
+>>>>>>> 58e24b11cacfeb6f5b091cbcc7b5f48a1e418924
         <div *ngIf="itemTwo.image">
           <img [src]="itemTwo.image" />
         </div>
@@ -63,9 +71,13 @@
   </div>
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let itemThree of listThree" style="border-radius: 7px 7px 7px 7px;">
+<<<<<<< HEAD
       <ion-card-content (click)="openGallery('shoes')">
           <div padding-horizontal padding-top text-center class="tengah">{{itemThree.name}}</div>
 
+=======
+      <ion-card-content (click)="openGallery(itemThree.title,itemThree.subTitle)">
+>>>>>>> 58e24b11cacfeb6f5b091cbcc7b5f48a1e418924
         <div *ngIf="itemThree.image">
           <img [src]="itemThree.image" />
         </div>
@@ -78,9 +90,13 @@
   </div>
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let itemFour of listFour" style="border-radius: 7px 7px 7px 7px;">
+<<<<<<< HEAD
       <ion-card-content (click)="openGallery('accessories')">
           <div padding-horizontal padding-top text-center class="tengah">{{itemFour.name}}</div>
 
+=======
+      <ion-card-content (click)="openGallery(itemFour.title,itemFour.subTitle)">
+>>>>>>> 58e24b11cacfeb6f5b091cbcc7b5f48a1e418924
         <div *ngIf="itemFour.image">
           <img [src]="itemFour.image" />
         </div>
