@@ -1,6 +1,7 @@
 page-itemmodal {
     .round {
-        border-radius: 8%;
+      border-bottom-left-radius: 8%;
+      border-bottom-right-radius: 8%;
       }
       .scroll-content {
         overflow-y: scroll;

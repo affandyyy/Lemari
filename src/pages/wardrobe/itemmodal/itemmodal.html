@@ -5,7 +5,7 @@
   Ionic pages and navigation.
 -->
 
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <ion-buttons end>
       <button ion-button icon-only (click)="closeModal()">
@@ -13,12 +13,17 @@
       </button>
     </ion-buttons>
   </ion-navbar>
-</ion-header>
-
+</ion-header> -->
+<ion-fab top right>
+    <button ion-fab icon-only (click)="closeModal()">
+        <ion-icon item-right name="ios-close-outline"></ion-icon>
+      </button>
+  </ion-fab>
 <ion-content [style.background-color]="color" class="round" text-center>
 
-  <br>
-  <img [src]="imageUrl" width="40%" />
+     
+
+  <img [src]="imageUrl" width="100%" />
   <ion-list>
     <ion-list-header>
       {{ this.brand }}
@@ -41,7 +46,7 @@
     </ion-item>
     <ion-item>
       <ion-label>
-       {{ 'Date Purchase' | translate }}
+        {{ 'Date Purchase' | translate }}
       </ion-label>
       <ion-label end>
         September 2018
@@ -55,9 +60,10 @@
         <button ion-button block color="secondary" (click)="editDetail()">{{ 'Edit Clothes' | translate }}</button>
       </ion-col>
       <ion-col>
-        <button  ion-button color="danger" (click)="removeDetail()">{{ 'Delete Clothes' | translate }}</button>
+        <button ion-button color="danger" (click)="removeDetail()">{{ 'Delete Clothes' | translate }}</button>
       </ion-col>
     </ion-row>
   </ion-grid>
-
+  <br>
+  <br>
 </ion-content>
