@@ -78,221 +78,175 @@ export class HomePage {
 
 
   listOne = [
-    // {
-    //   image: './assets/imgs/card/blouse.jpg',
-    //   name: 'Blouse'
-    // },
-    // {
-    //   image: './assets/imgs/card/sweater.png',
-    //   name: 'Sweat'
-    // },
-    // {
-    //   image: './assets/imgs/card/tank.jpg',
-    //   name: 'Tank'
-
-    // },
-    // {
-    //   image: './assets/imgs/card/shirt.jpg',
-    //   name: 'Shirt'
-
-    // },
-    // {
-    //   image: './assets/imgs/card/cardigan.jpg',
-    //   name: 'Cardigan'
-
-    // },
-    // {
-    //   image: './assets/imgs/card/shirt.jpg',
-    //   name: 'Shirt'
     {
       id:'1',
       title: 'tops',
-      subTitle:'tshirt',
-      image: './assets/imgs/card/example.png'
-      ///./assets/imgs/card/example.png
+      subTitle:'blouse',
+      name:'Blouse',
+      image: './assets/imgs/card/blouse.jpg'
     },
     {
       id:'2',
       title: 'tops',
-      subTitle:'shirt',
-      image: './assets/imgs/card/shirt.jpg'
+      subTitle:'sweater',
+      name:'Sweater',
+      image: './assets/imgs/card/sweater.png'
     },
     {
       id:'3',
       title: 'tops',
-      subTitle:'tanktop',
-      image: './assets/imgs/card/tank.jpeg'
+      subTitle:'tank',
+      name:'Tank',
+      image: './assets/imgs/card/tank.jpg'
     },
     {
       id:'4',
       title: 'tops',
-      subTitle:'sweatshirt',
-      image: './assets/imgs/card/tee.jpg'
+      subTitle:'shirt',
+      name:'Shirt',
+      image: './assets/imgs/card/shirt.jpg'
     },
     {
       id:'5',
       title: 'tops',
       subTitle:'cardigan',
+      name:'Cardigan',
       image: './assets/imgs/card/cardigan.jpeg'
     },
     {
-      id:'5',
+      id:'6',
       title: 'tops',
-      subTitle:'sweater',
-      image: './assets/imgs/card/sweat.jpg'
+      subTitle:'tshirt',
+      name:'T-Shirt',
+      image: './assets/imgs/card/shirt.jpg'
     }
   ];
 
   listTwo = [
-    // {
-    //   image: './assets/imgs/card/pants.jpg',
-    //   name: 'Pants'
-    // },
-    // {
-    //   image: './assets/imgs/card/jeans.jpg',
-    //   name: 'Jeans'
-    // },
-    // {
-    //   image: './assets/imgs/card/shorts.jpg',
-    //   name: 'Shorts'
-    // },
-    // {
-    //   image: './assets/imgs/card/skirts.jpg',
-    //   name: 'Skirts'
-    // },
-    // {
-    //   image: './assets/imgs/card/sweat.jpg',
-    //   name: 'Sweat Pant'
     {
       id:'1',
       title: 'bottom',
-      subTitle:'jeans',
-      image: './assets/imgs/card/trou.jpeg',
+      subTitle:'pants',
+      name:'Pants',
+      image: './assets/imgs/card/pants.jpg',
     },
     {
       id:'2',
       title: 'bottom',
-      subTitle:'cargopants',
+      subTitle:'jeans',
+      name:'Jeans',
+      image:'./assets/imgs/card/jeans.jpg'
     },
     {
       id:'3',
       title: 'bottom',
-      subTitle:'dresspants',
+      subTitle:'shorts',
+      name:'Shorts',
+      image:'./assets/imgs/card/shorts.jpg'
     },
     {
       id:'4',
       title: 'bottom',
-      subTitle:'shorts',
+      subTitle:'skirts',
+      name:'Skirts',
+      image:'./assets/imgs/card/skirts.jpg'
     },
     {
       id:'5',
       title: 'bottom',
-      subTitle:'sweatpants',
-    },
-    {
-      id:'6',
-      title: 'bottom',
-      subTitle:'skirt',
+      subTitle:'sweatpant',
+      name:'Sweat Pant',
+      image:'./assets/imgs/card/sweat.jpg'
     }
   ];
 
   listThree = [
     {
-    //   image: './assets/imgs/card/sandals.jpg',
-    //   name: 'Sandal'
-    // },
-    // {
-    //   name: 'Sneakers'
-    // },
-    // {
-    //   name: 'Flats'
-    // },
-    // {
-    //   name: 'Sports'
-    // },
-    // {
-    //   name: 'Slippers'
-    // },
-    // {
-    //   name: 'Boots'
       id:'1',
       title: 'shoes',
       subTitle:'sneakers',
+      name:'Sneakers',
       image: './assets/imgs/card/shoes.jpg',
     },
     {
       id:'2',
       title: 'shoes',
-      subTitle:'sandals',
+      subTitle:'sandal',
+      name:'Sandal',
+      image:'./assets/imgs/card/sandals.jpg'
     },
     {
       id:'3',
       title: 'shoes',
       subTitle:'flats',
+      name:'Flats',
+      image:''
     },
     {
       id:'4',
       title: 'shoes',
-      subTitle:'heels',
+      subTitle:'sports',
+      name:'Sports',
+      image:''
     },
     {
       id:'5',
       title: 'shoes',
       subTitle:'slippers',
+      name:'Slippers',
+      image:''
     },
     {
       id:'6',
       title: 'shoes',
       subTitle:'boots',
+      name:'Boots',
+      image:''
     }
   ];
 
   listFour = [
     {
-    //   name: ' '
-    // },
-    // {
-    //   name: ' '
-    // },
-    // {
-    //   name: ' '
-    // },
-    // {
-    //   name: ' '
-    // },
-    // {
-    //   name: ' '
-    // },
-    // {
-    //   name: ' '
       id:'1',
       title: 'accessories',
       subTitle:'hat',
+      name:'Hat',
+      image:''
     },
     {
       id:'2',
       title: 'accessories',
       subTitle:'cap',
+      name:'Cap',
+      image:''
     },
     {
       id:'3',
       title: 'accessories',
       subTitle:'sunglasses',
+      name:'Sunglasses',
+      image:''
     },
     {
       id:'4',
       title: 'accessories',
       subTitle:'tie',
+      name:'Tie',
+      image:''
     },
     {
       id:'5',
       title: 'accessories',
       subTitle:'bowtie',
+      name:'Bowtie',
+      image:''
     },
     {
       id:'6',
       title: 'accessories',
       subTitle:'scarf',
+      name:'Scarf',
+      image:''
     }
   ];
 

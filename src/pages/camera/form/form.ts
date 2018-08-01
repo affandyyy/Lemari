@@ -109,15 +109,29 @@ export class FormPage {
   
   initializeSubCategory(){
     this.subCategory = [
-      {id: 1, name: 'T-Shirt', value: 'tshirt', category_id: 1, category_name: 'tops'},
-      {id: 2, name: 'Shirt', value: 'shirt', category_id: 1, category_name: 'tops'},
-      {id: 3, name: 'Tank Top', value: 'tanktop', category_id: 1, category_name: 'tops'},
-      {id: 4, name: 'Jeans', value: 'jeans', category_id: 2, category_name: 'bottom'},
-      {id: 5, name: 'Dress Pants', value: 'dresspants', category_id: 2, category_name: 'bottom'},
-      {id: 6, name: 'Sneakers', value: 'sneakers', category_id: 3, category_name: 'shoes'},
-      {id: 7, name: 'Sandals', value: 'sandals', category_id: 3, category_name: 'shoes'},
-      {id: 8, name: 'Hat', value: 'hat', category_id: 4, category_name: 'accessories'},
-      {id: 9, name: 'Cap', value: 'cap', category_id: 4, category_name: 'accessories'}
+      {id: 1, name: 'Blouse', value: 'blouse', category_id: 1, category_name: 'tops'},
+      {id: 2, name: 'Sweater', value: 'sweater', category_id: 1, category_name: 'tops'},
+      {id: 3, name: 'Tank', value: 'tank', category_id: 1, category_name: 'tops'},
+      {id: 4, name: 'Shirt', value: 'shirt', category_id: 1, category_name: 'tops'},
+      {id: 5, name: 'Cardigan', value: 'cardigan', category_id: 1, category_name: 'tops'},
+      {id: 6, name: 'T-Shirt', value: 'tshirt', category_id: 1, category_name: 'tops'},
+      {id: 7, name: 'Pants', value: 'pants', category_id: 2, category_name: 'bottom'},
+      {id: 8, name: 'Jeans', value: 'jeans', category_id: 2, category_name: 'bottom'},
+      {id: 9, name: 'Shorts', value: 'shorts', category_id: 2, category_name: 'bottom'},
+      {id: 10, name: 'Skirts', value: 'skirts', category_id: 2, category_name: 'bottom'},
+      {id: 11, name: 'Sweat Pant', value: 'sweatpant', category_id: 2, category_name: 'bottom'},
+      {id: 12, name: 'Sneakers', value: 'sneakers', category_id: 3, category_name: 'shoes'},
+      {id: 13, name: 'Sandals', value: 'sandals', category_id: 3, category_name: 'shoes'},
+      {id: 14, name: 'Flats', value: 'flats', category_id: 3, category_name: 'shoes'},
+      {id: 15, name: 'Sandal', value: 'sports', category_id: 3, category_name: 'shoes'},
+      {id: 16, name: 'Slippers', value: 'slippers', category_id: 3, category_name: 'shoes'},
+      {id: 17, name: 'Boots', value: 'boots', category_id: 3, category_name: 'shoes'},
+      {id: 18, name: 'Hat', value: 'hat', category_id: 4, category_name: 'accessories'},
+      {id: 19, name: 'Cap', value: 'cap', category_id: 4, category_name: 'accessories'},
+      {id: 20, name: 'Sunglasses', value: 'sunglasses', category_id: 4, category_name: 'accessories'},
+      {id: 21, name: 'Tie', value: 'tie', category_id: 4, category_name: 'accessories'},
+      {id: 22, name: 'Bowtie', value: 'bowtie', category_id: 4, category_name: 'accessories'},
+      {id: 23, name: 'Scarf', value: 'scarf', category_id: 4, category_name: 'accessories'}
     ];
   }
   
