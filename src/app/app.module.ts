@@ -39,6 +39,7 @@ import {HttpClientModule, HttpClient} from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { SubsmaryPage } from '../pages/profile/subsmary/subsmary';
+import { SubsuccessPage } from '../pages/subscribe/subsuccess/subsuccess';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -58,7 +59,8 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     FormPage,
     WardrobePage,
     ItemmodalPage,
-    SubsmaryPage
+    SubsmaryPage,
+    SubsuccessPage
     // IntroPage
   ],
   imports: [
@@ -91,7 +93,8 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     LoginPage,
     WardrobePage,
     ItemmodalPage,
-    SubsmaryPage
+    SubsmaryPage,
+    SubsuccessPage
     // IntroPage
   ],
   providers: [

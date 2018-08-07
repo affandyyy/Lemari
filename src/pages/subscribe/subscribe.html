@@ -4,12 +4,14 @@
     </ion-navbar>
   </ion-header>
   <ion-content>
-      <br>
+      <p style="padding: 0px 10px 0px 10px; font-size: 1.5rem" text-center>
+        You have <b>5 slots</b> left. Upgrade to upload more !
+      </p>
       <!-- <div text-center>
         <img width="60%" src="../assets/imgs/braintree.png"/>
       </div> -->
     <ion-card *ngFor="let card of cards" (click)="cardTapped(card)">
-      <img height="120px" [src]="card.imageUrl" />
+      <img height="105px" [src]="card.imageUrl" />
       <div class="card-title">{{card.title}}</div>
       <div class="card-subtitle">{{card.subtitle}}</div>
     </ion-card>

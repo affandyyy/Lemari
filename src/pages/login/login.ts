@@ -16,6 +16,7 @@ import firebase from "firebase"; //firebase connection
 import { Facebook } from "@ionic-native/facebook"; //facebook connection
 import { HomePage } from "../home/home";
 import { TabsPage } from "../tabs/tabs";
+import { SubsuccessPage } from "../subscribe/subsuccess/subsuccess";
 
 /**
  * Generated class for the LoginPage page.
@@ -86,7 +87,7 @@ export class LoginPage {
   }
 
   loginHome() {
-    this.navCtrl.push(TabsPage);
+    this.navCtrl.push(SubsuccessPage);
   }
 
   createAlert(err) {

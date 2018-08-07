@@ -111,7 +111,7 @@ export class HomePage {
       title: 'tops',
       subTitle:'cardigan',
       name:'Cardigan',
-      image: './assets/imgs/card/cardigan.jpeg'
+      image: './assets/imgs/card/cardigan.jpg'
     },
     {
       id:'6',
@@ -135,7 +135,7 @@ export class HomePage {
       title: 'bottom',
       subTitle:'jeans',
       name:'Jeans',
-      image:'./assets/imgs/card/jeans.jpg'
+      image:'./assets/imgs/card/jeans.png'
     },
     {
       id:'3',
@@ -166,7 +166,7 @@ export class HomePage {
       title: 'shoes',
       subTitle:'sneakers',
       name:'Sneakers',
-      image: './assets/imgs/card/shoes.jpg',
+      image: './assets/imgs/card/sneakers.png',
     },
     {
       id:'2',
@@ -180,28 +180,28 @@ export class HomePage {
       title: 'shoes',
       subTitle:'flats',
       name:'Flats',
-      image:''
+      image:'./assets/imgs/card/flat.jpg'      
     },
     {
       id:'4',
       title: 'shoes',
       subTitle:'sports',
       name:'Sports',
-      image:''
+      image:'./assets/imgs/card/sport.jpg'            
     },
     {
       id:'5',
       title: 'shoes',
       subTitle:'slippers',
       name:'Slippers',
-      image:''
+      image:'./assets/imgs/card/slipper.jpg'            
     },
     {
       id:'6',
       title: 'shoes',
       subTitle:'boots',
       name:'Boots',
-      image:''
+      image:'./assets/imgs/card/boots.jpg'                  
     }
   ];
 
@@ -209,44 +209,37 @@ export class HomePage {
     {
       id:'1',
       title: 'accessories',
-      subTitle:'hat',
-      name:'Hat',
-      image:''
-    },
-    {
-      id:'2',
-      title: 'accessories',
-      subTitle:'cap',
+      subTitle:'Cap',
       name:'Cap',
-      image:''
+      image:'./assets/imgs/card/hat.png'                        
     },
     {
-      id:'3',
+      id:'3a',
       title: 'accessories',
       subTitle:'sunglasses',
       name:'Sunglasses',
-      image:''
+      image:'./assets/imgs/card/glass.png' 
     },
     {
       id:'4',
       title: 'accessories',
       subTitle:'tie',
       name:'Tie',
-      image:''
+      image:'./assets/imgs/card/tie.jpg' 
     },
     {
       id:'5',
       title: 'accessories',
       subTitle:'bowtie',
       name:'Bowtie',
-      image:''
+      image:'./assets/imgs/card/bow.jpg'       
     },
     {
       id:'6',
       title: 'accessories',
       subTitle:'scarf',
       name:'Scarf',
-      image:''
+      image:'./assets/imgs/card/scarf.png'      
     }
   ];
 
