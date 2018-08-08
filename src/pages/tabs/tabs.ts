@@ -110,13 +110,14 @@ export class TabsPage {
       // bind the URI returned by API
       this.image = 'data:image/jpeg;base64,' + imageURI;
 
+      let uploadImage = this.image;
+
+      this.navCtrl.push(FormPage, {uploadImage});
+
     }, (err) => {
       console.log(`ERROR -> ${JSON.stringify(err)}`);
     });
-    
-    let uploadImage = this.image;
 
-    this.navCtrl.push(FormPage, {uploadImage});
   }
 
 
