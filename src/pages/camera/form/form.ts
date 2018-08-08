@@ -55,6 +55,7 @@ export class FormPage {
   details: Observable<any>;
 
   img: any;
+  image: string = '';
   // category:any;
   brand:any;
   color:AngularFireObject<any>;

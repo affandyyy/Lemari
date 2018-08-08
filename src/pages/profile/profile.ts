@@ -51,7 +51,8 @@ export class ProfilePage {
 
     this.loading = this.loadingCtrl.create({
       spinner: 'ios',
-      content: 'Loading'
+      content: 'Loading',
+      duration: 3000
     });
     
     this.loading.present();
@@ -74,7 +75,6 @@ export class ProfilePage {
     this.accessories = this.accessoriesRef.valueChanges();
 
     this.calc();
-    this.loading.dismiss();
    }
 
    defaultLanguage(){
@@ -190,6 +190,13 @@ export class ProfilePage {
   }
 
   logOut(){
+    this.loading = this.loadingCtrl.create({
+      spinner: 'ios',
+      content: 'Signing you out',
+      duration: 2000
+    });
+    
+    this.loading.present();
     firebase.auth().signOut();
   }
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActionSheetController, NavController } from "ionic-angular";
+import { ActionSheetController, NavController, LoadingController } from "ionic-angular";
 
 
 import { CameraPage } from '../camera/camera';
@@ -10,13 +10,16 @@ import { HomePage } from '../home/home';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Crop } from '@ionic-native/crop';
 import { Camera } from '@ionic-native/camera';
-import { EditPage } from '../camera/edit/edit';
+import { FormPage } from '../camera/form/form';
+
 
 @Component({
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
   
+  image: string = '';
+  imageBefore: boolean = true;
 
   public base64Image: string;
   photos : Array<string>;
@@ -30,7 +33,8 @@ export class TabsPage {
     public imagePicker: ImagePicker,
     public camera: Camera,
     public cropService: Crop,
-    public navCtrl: NavController
+    public navCtrl: NavController,
+    public loadingCtrl: LoadingController,
   ) {
 
   
@@ -80,8 +84,39 @@ export class TabsPage {
   //   });
   // }
 
-  takePicture(){
-    this.navCtrl.push(EditPage)
+  // takePicture(){
+  //   this.navCtrl.push(EditPage)
+  // }
+
+  takePicture() {
+    let loader = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loader.present();
+
+    // Take a picture saving in device, as jpg and allows edit
+    this.camera.getPicture({
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      targetHeight: 1000,
+      sourceType: 1,
+      allowEdit: true,
+      saveToPhotoAlbum: true,
+      correctOrientation: true
+    }).then((imageURI) => {
+      loader.dismissAll();
+
+      // bind the URI returned by API
+      this.image = 'data:image/jpeg;base64,' + imageURI;
+
+    }, (err) => {
+      console.log(`ERROR -> ${JSON.stringify(err)}`);
+    });
+    
+    let uploadImage = this.image;
+
+    this.navCtrl.push(FormPage, {uploadImage});
   }
 
 

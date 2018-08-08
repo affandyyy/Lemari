@@ -43,7 +43,32 @@ export class MyApp {
     platform.ready().then(() => {
       this.storage.get('introShown').then((result) => {
         if(result){
-          this.rootPage = 'LoginPage';
+          this.auth.authState.subscribe(auth => {
+            if (!auth) {
+              this.storage.get('introShown').then((result) => {
+                if (result) {
+                  this.nav.setRoot(LoginPage)
+                  // this.rootPage = 'LoginPage';
+                } else {
+                  // this.rootPage = 'IntroPage';
+                  this.nav.setRoot(IntroPage)
+                  this.storage.set('introShown', true);
+                }
+                // this.loader.dismiss();
+              });
+              // this.nav.setRoot(LoginPage)
+              // this.rootPage = LoginPage;
+              // this.openModal('SignupModalPage');
+            } else {
+              this.nav.setRoot(TabsPage)
+              this.uid = firebase.auth().currentUser.uid;
+              this.userFBRef = this.database.object(`users/${this.uid}`);
+              this.userFB = this.userFBRef.valueChanges();
+              
+            }
+          })
+
+
         } else {
           this.rootPage = 'IntroPage';
           this.storage.set('introShown', true);
@@ -64,30 +89,7 @@ export class MyApp {
       this.splashScreen.hide();
 
 
-      this.auth.authState.subscribe(auth => {
-        if (!auth) {
-          this.storage.get('introShown').then((result) => {
-            if (result) {
-              this.nav.setRoot(LoginPage)
-              // this.rootPage = 'LoginPage';
-            } else {
-              // this.rootPage = 'IntroPage';
-              this.nav.setRoot(IntroPage)
-              this.storage.set('introShown', true);
-            }
-            // this.loader.dismiss();
-          });
-          // this.nav.setRoot(LoginPage)
-          // this.rootPage = LoginPage;
-          // this.openModal('SignupModalPage');
-        } else {
-          this.nav.setRoot(TabsPage)
-          this.uid = firebase.auth().currentUser.uid;
-          this.userFBRef = this.database.object(`users/${this.uid}`);
-          this.userFB = this.userFBRef.valueChanges();
-          
-        }
-      })
+
 
   }
 

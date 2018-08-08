@@ -65,7 +65,8 @@ export class LoginPage {
       .then(response => {
         this.loading = this.loadingCtrl.create({
           spinner: "ios",
-          content: "Loading"
+          content: "Loading",
+          duration: 3000
         });
 
         this.loading.present();
@@ -77,9 +78,7 @@ export class LoginPage {
           .signInWithCredential(facebookCredential)
           .then(success => {
             this.navCtrl.setRoot(TabsPage);
-            this.loading.dismiss();
           });
-        this.loading.dismiss();
       })
       .catch(error => {
         this.createAlert("Sign in failed. Please try again");
