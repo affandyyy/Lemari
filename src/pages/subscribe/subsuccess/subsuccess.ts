@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TabsPage } from '../../tabs/tabs';
 
 /**
  * Generated class for the SubsuccessPage page.
@@ -20,6 +21,14 @@ export class SubsuccessPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SubsuccessPage');
+  }
+
+  openShuffle() {
+    this.navCtrl.push("ShufflePage");
+  }
+
+  goHome(){
+    this.navCtrl.setRoot(TabsPage);
   }
 
 }
