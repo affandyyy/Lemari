@@ -7,6 +7,7 @@ import {AngularFireDatabase, AngularFireObject, AngularFireList} from "angularfi
 import "rxjs/add/operator/take";
 import {Observable} from "rxjs/Observable";
 import {AlertController} from "ionic-angular";
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-profile',
@@ -46,6 +47,7 @@ export class ProfilePage {
     this.uid = firebase.auth().currentUser.uid;
     this.userFBRef = this.database.object(`users/${this.uid}`);
     this.userFB = this.userFBRef.valueChanges();
+    this.userFBFunc();
 
     this.defaultLanguage();
 
@@ -56,7 +58,6 @@ export class ProfilePage {
     });
     
     this.loading.present();
-    this.userFBFunc();
 
     //Tops Data
     this.topsRef = this.database.list(`users/${this.uid}/lemari_category/tops/`);
@@ -198,6 +199,7 @@ export class ProfilePage {
     
     this.loading.present();
     firebase.auth().signOut();
+    this.navCtrl.setRoot(LoginPage);
   }
 
 

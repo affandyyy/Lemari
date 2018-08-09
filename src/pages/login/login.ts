@@ -17,6 +17,7 @@ import { Facebook } from "@ionic-native/facebook"; //facebook connection
 // import { HomePage } from "../home/home";
 import { TabsPage } from "../tabs/tabs";
 import { SubsuccessPage } from "../subscribe/subsuccess/subsuccess";
+import { AngularFireDatabase } from "angularfire2/database";
 
 /**
  * Generated class for the LoginPage page.
@@ -42,7 +43,8 @@ export class LoginPage {
     public navParams: NavParams,
     public modal: ModalController,
     public loadingCtrl: LoadingController,
-    public facebook: Facebook
+    public facebook: Facebook,
+    private db: AngularFireDatabase
   ) {}
 
   // // It's interesting to remove the src and put it back
@@ -76,7 +78,14 @@ export class LoginPage {
         firebase
           .auth()
           .signInWithCredential(facebookCredential)
-          .then(success => {
+          .then((success) => {
+            firebase.database().ref(`users/${success.uid}`).set({
+              username: success.displayName,
+              email: success.email,
+              profile_picture: success.photoURL,
+              language:"en",
+            })
+  
             this.navCtrl.setRoot(TabsPage);
           });
       })

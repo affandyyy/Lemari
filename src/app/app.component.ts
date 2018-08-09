@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
 
 import { LoginPage } from '../pages/login/login';
-// import { HomePage } from '../pages/home/home';
+import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { IntroPage } from '../pages/intro/intro';
 
@@ -16,13 +16,12 @@ import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase';
 // import { TemplateBindingParseResult } from '@angular/compiler';
 
-
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage: any = LoginPage;
+  rootPage: any = TabsPage;
   loader: any;
   userFBRef: AngularFireObject<any>;
   userFB: Observable<any>;
@@ -43,32 +42,7 @@ export class MyApp {
     platform.ready().then(() => {
       this.storage.get('introShown').then((result) => {
         if(result){
-          this.auth.authState.subscribe(auth => {
-            if (!auth) {
-              this.storage.get('introShown').then((result) => {
-                if (result) {
-                  this.nav.setRoot(LoginPage)
-                  // this.rootPage = 'LoginPage';
-                } else {
-                  // this.rootPage = 'IntroPage';
-                  this.nav.setRoot(IntroPage)
-                  this.storage.set('introShown', true);
-                }
-                // this.loader.dismiss();
-              });
-              // this.nav.setRoot(LoginPage)
-              // this.rootPage = LoginPage;
-              // this.openModal('SignupModalPage');
-            } else {
-              this.nav.setRoot(TabsPage)
-              this.uid = firebase.auth().currentUser.uid;
-              this.userFBRef = this.database.object(`users/${this.uid}`);
-              this.userFB = this.userFBRef.valueChanges();
-              
-            }
-          })
-
-
+          this.rootPage = 'LoginPage';
         } else {
           this.rootPage = 'IntroPage';
           this.storage.set('introShown', true);
@@ -89,7 +63,30 @@ export class MyApp {
       this.splashScreen.hide();
 
 
-
+      this.auth.authState.subscribe(auth => {
+        if (!auth) {
+          this.storage.get('introShown').then((result) => {
+            if (result) {
+              this.nav.setRoot(LoginPage)
+              // this.rootPage = 'LoginPage';
+            } else {
+              // this.rootPage = 'IntroPage';
+              this.nav.setRoot(IntroPage)
+              this.storage.set('introShown', true);
+            }
+            // this.loader.dismiss();
+          });
+          // this.nav.setRoot(LoginPage)
+          // this.rootPage = LoginPage;
+          // this.openModal('SignupModalPage');
+        } else {
+          this.nav.setRoot(TabsPage)
+          this.uid = firebase.auth().currentUser.uid;
+          this.userFBRef = this.database.object(`users/${this.uid}`);
+          this.userFB = this.userFBRef.valueChanges();
+          
+        }
+      })
 
   }
 
