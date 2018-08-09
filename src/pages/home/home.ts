@@ -39,17 +39,26 @@ export class HomePage {
       this.userFB = this.userFBRef.valueChanges();
 
       this.getUserData();
-  }
+    }
+  
+    getUserData(){
+      this.userFB.subscribe(response => {
+        console.log("Response : " + response);
+        
+        if(response == null){
+          this.database.object('users/' + firebase.auth().currentUser.uid).set({
+            username: firebase.auth().currentUser.displayName,
+            email: firebase.auth().currentUser.email,
+            profile_picture: firebase.auth().currentUser.photoURL,
+            language:"en",
+          })
+        }
 
-  getUserData(){
-    this.userFBRef.valueChanges().subscribe(response => {
-      alert(response)
-      console.log("Response : " + response);
-      
-      this.translate.setDefaultLang(response.language);
-      this.translate.use(response.language);
-
-    });  
+        else{
+          this.translate.setDefaultLang(response.language);
+          this.translate.use(response.language);
+        }
+      });  
   }
 
   openShuffle() {

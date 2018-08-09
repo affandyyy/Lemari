@@ -78,14 +78,7 @@ export class LoginPage {
         firebase
           .auth()
           .signInWithCredential(facebookCredential)
-          .then((success) => {
-            firebase.database().ref(`users/${success.uid}`).set({
-              username: success.displayName,
-              email: success.email,
-              profile_picture: success.photoURL,
-              language:"en",
-            })
-  
+          .then((success) => {  
             this.navCtrl.setRoot(TabsPage);
           });
       })
