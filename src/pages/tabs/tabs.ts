@@ -120,23 +120,28 @@ export class TabsPage {
 
   }
 
-
-
   openImagePicker() {
-    let options = {
-      maximumImagesCount: 5
-    };
-    this.photos = new Array<string>();
-    this.imagePicker.getPictures(options).then(
-      results => {
-        this.reduceImages(results).then(() => {
-          console.log("all images cropped!!");
-        });
-      },
-      err => {
-        console.log(err);
-      }
-    );
+    this.camera.getPicture({
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      targetHeight: 1000,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      allowEdit: true,
+      correctOrientation: true
+    }).then((imageURI) => {
+
+      // bind the URI returned by API
+      this.image = 'data:image/jpeg;base64,' + imageURI;
+
+      let uploadImage = this.image;
+
+      this.navCtrl.push(FormPage, {uploadImage});
+
+      }, (err) => {
+        
+      console.log(`ERROR -> ${JSON.stringify(err)}`);
+    });
   }
 
   reduceImages(selected_pictures: any): any {

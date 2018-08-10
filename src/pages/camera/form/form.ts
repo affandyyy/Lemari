@@ -127,12 +127,11 @@ export class FormPage {
       {id: 15, name: 'Sandal', value: 'sports', category_id: 3, category_name: 'shoes'},
       {id: 16, name: 'Slippers', value: 'slippers', category_id: 3, category_name: 'shoes'},
       {id: 17, name: 'Boots', value: 'boots', category_id: 3, category_name: 'shoes'},
-      {id: 18, name: 'Hat', value: 'hat', category_id: 4, category_name: 'accessories'},
-      {id: 19, name: 'Cap', value: 'cap', category_id: 4, category_name: 'accessories'},
-      {id: 20, name: 'Sunglasses', value: 'sunglasses', category_id: 4, category_name: 'accessories'},
-      {id: 21, name: 'Tie', value: 'tie', category_id: 4, category_name: 'accessories'},
-      {id: 22, name: 'Bowtie', value: 'bowtie', category_id: 4, category_name: 'accessories'},
-      {id: 23, name: 'Scarf', value: 'scarf', category_id: 4, category_name: 'accessories'}
+      {id: 18, name: 'Cap', value: 'cap', category_id: 4, category_name: 'accessories'},
+      {id: 19, name: 'Sunglasses', value: 'sunglasses', category_id: 4, category_name: 'accessories'},
+      {id: 20, name: 'Tie', value: 'tie', category_id: 4, category_name: 'accessories'},
+      {id: 21, name: 'Bowtie', value: 'bowtie', category_id: 4, category_name: 'accessories'},
+      {id: 22, name: 'Scarf', value: 'scarf', category_id: 4, category_name: 'accessories'}
     ];
   }
   
