@@ -168,7 +168,7 @@ export class HomePage {
       title: "shoes",
       subTitle: "sneakers",
       name: "Sneakers",
-      image: "./assets/imgs/card/sneakers.png"
+      image: "./assets/imgs/card/shoes.jpg"
     },
     {
       id: "2",
