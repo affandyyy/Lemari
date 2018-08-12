@@ -320,10 +320,6 @@ export class ProfilePage {
     alertItem.present();
   }
 
-  ionViewDidLoad() {
-    console.log('Hello ProfileThree Page');
-  }
-
   openSubs(){
     this.navCtrl.push('SubscribePage');
   }
