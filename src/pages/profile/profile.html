@@ -1,7 +1,7 @@
 <ion-content parallax-header no-bounce class="bg-modal" >
   <div class="header-image"></div>
-  <div class="main-content" text-wrap text-center>
-    <ion-icon name="create"></ion-icon>
+  <div class="main-content" color="main" text-wrap text-center>
+    <!-- <ion-icon name="create"></ion-icon> -->
     <div class="circular"> <img style="border-radius: 50%" width="200%" *ngIf="imageUrl" [src]="imageUrl" /> </div>
     <h2>{{ (userFB | async)?.username }}</h2>
     <p>{{ (userFB | async)?.email }}</p>
@@ -10,15 +10,15 @@
     <ion-row *ngFor="let users of user" class="profile-numbers">
       <ion-col col-4 (click)="openSum()">
         <p>{{ 'Items' | translate }}</p>
-        <span>{{users.items}}</span>
+        <span>{{users.items}} <ion-icon name="arrow-dropright"></ion-icon></span>
       </ion-col>
       <ion-col col-4>
         <p>{{ 'Value' | translate }}</p>
         <span>{{users.value}}</span>
       </ion-col>
       <ion-col col-4 (click)="openSubs()">
-        <p>{{ 'Subscription' | translate }}</p>
-        <span>{{users.subs}}</span>
+        <p>{{ 'Subscription' | translate }} </p>
+        <span>{{users.subs}} <ion-icon name="arrow-dropright"></ion-icon></span>
       </ion-col>
     </ion-row>
   </div>
@@ -39,11 +39,11 @@
           <ion-option value="bm">Bahasa</ion-option>
         </ion-select>
       </ion-item>
-      <ion-item>
+      <!-- <ion-item>
         <ion-toggle [(ngModel)]="enableNotifications" (click)="toggleNotifications()"></ion-toggle>
         <ion-label class="label">{{ 'Notifications' | translate }}</ion-label>
         <ion-icon name='notifications' item-start></ion-icon>
-      </ion-item>
+      </ion-item> -->
       <!-- <ion-item>
         <ion-toggle [(ngModel)]="autoSavePhotos" (click)="toggleautoSavePhotos()"></ion-toggle>
         <ion-label class="label">Auto-save Photos </ion-label>
@@ -78,13 +78,18 @@
         <!--</button>-->
       <!--</ion-item>-->
     <!--</ion-list>-->
+    </div>
+
+    <br>
+    <br>
+    <div class="main-content-two">
     <ion-grid>
       <ion-row>
         <ion-col>
-          <button ion-button block color="primary" (click)="editProfile()"><ion-icon name="create"></ion-icon> {{ 'Edit Profile' | translate }}</button>
+          <button ion-button block round color="primary" (click)="editProfile()"><ion-icon name="create"></ion-icon> </button>
         </ion-col>
         <ion-col>
-          <button ion-button block color="danger" (click)="logOut()"><ion-icon name="log-out"></ion-icon> {{ 'Logout' | translate }}</button>
+          <button ion-button block round color="danger" (click)="logOut()"><ion-icon name="log-out"></ion-icon> </button>
         </ion-col>
       </ion-row>
     </ion-grid>

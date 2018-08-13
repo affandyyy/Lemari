@@ -14,18 +14,29 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header> -->
+
 <ion-fab top right>
-    <button ion-fab icon-only (click)="closeModal()">
-        <ion-icon item-right name="ios-close-outline"></ion-icon>
-      </button>
+      <button ion-fab class="pop-in" color="main"><ion-icon name="md-add"></ion-icon></button>
+      <ion-fab-list side="bottom">
+        <button ion-fab color="primary" (click)="editDetail()">
+            <ion-icon name="create"></ion-icon> 
+        </button>
+        <button ion-fab color="secondary" (click)="removeDetail()">
+            <ion-icon name="trash"></ion-icon>
+        </button>
+        <button ion-fab color="danger" (click)="closeModal()">
+            <ion-icon name="ios-close-outline"></ion-icon>
+          </button>
+      </ion-fab-list>
   </ion-fab>
-<ion-content [style.background-color]="color" class="round" text-center>
+
+<ion-content [style.background-color]="color" text-center>
 
      
 
   <img [src]="imageUrl" width="100%" height="100%" />
   <ion-list>
-    <ion-list-header>
+    <ion-list-header style="font-weight: bold">
       {{ this.brand }}
     </ion-list-header>
     <ion-item>
@@ -36,33 +47,34 @@
         RM {{ this.price }}
       </ion-label>
     </ion-item>
-    <ion-item>
+    <!-- <ion-item>
       <ion-label>
         {{ 'Size' | translate }}
       </ion-label>
       <ion-label end>
         XS
       </ion-label>
-    </ion-item>
+    </ion-item> -->
     <ion-item>
       <ion-label>
-        {{ 'Date Purchase' | translate }}
+        Tag
+        <!-- {{ 'Date Purchase' | translate }} -->
       </ion-label>
       <ion-label end>
-        September 2018
+        {{this.tag}}
       </ion-label>
     </ion-item>
   </ion-list>
 
-  <ion-grid>
+  <!-- <ion-grid>
     <ion-row>
       <ion-col>
-        <button ion-button block color="secondary" (click)="editDetail()"><ion-icon name="create"></ion-icon> {{ 'Edit ' | translate }}</button>
+        <button ion-button block color="secondary" (click)="editDetail()">{{ 'Edit ' | translate }}</button>
       </ion-col>
       <ion-col>
-          <button ion-button block color="danger" (click)="removeDetail()"><ion-icon name="trash"></ion-icon> {{ 'Delete ' | translate }}</button>
+          <button ion-button block color="danger" (click)="removeDetail()"> {{ 'Delete ' | translate }}</button>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid> -->
   <br>
 </ion-content>
