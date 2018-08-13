@@ -23,7 +23,7 @@
 
      
 
-  <img [src]="imageUrl" width="100%" />
+  <img [src]="imageUrl" width="100%" height="100%" />
   <ion-list>
     <ion-list-header>
       {{ this.brand }}
@@ -57,13 +57,12 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <button ion-button block color="secondary" (click)="editDetail()">{{ 'Edit Clothes' | translate }}</button>
+        <button ion-button block color="secondary" (click)="editDetail()"><ion-icon name="create"></ion-icon> {{ 'Edit ' | translate }}</button>
       </ion-col>
       <ion-col>
-        <button ion-button color="danger" (click)="removeDetail()">{{ 'Delete Clothes' | translate }}</button>
+          <button ion-button block color="danger" (click)="removeDetail()"><ion-icon name="trash"></ion-icon> {{ 'Delete ' | translate }}</button>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <br>
   <br>
 </ion-content>

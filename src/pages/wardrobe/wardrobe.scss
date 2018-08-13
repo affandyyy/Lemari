@@ -1,12 +1,19 @@
 page-wardrobe {
     ion-card {
-        width: 120px !important;
-        height: 150px;
+        width: 130px !important;
+        height: 160px;
         display: inline-block;
     }
 
 
     // For popup modal
+
+
+    .getstart {
+      background-image: url('../assets/imgs/tnc.jpg');
+      background-repeat: no-repeat;
+      background-size:cover;
+    }
 
 
     ion-modal,

@@ -5,19 +5,19 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title>{{ ' ' | translate }}</ion-title>
+    <ion-navbar color="main">  
+    <!-- <ion-title>{{ ' ' | translate }}</ion-title> -->
   </ion-navbar>
 </ion-header>
 
 
-<ion-content text-center>
+<ion-content text-center class="getstart">
 
   <!-- <ion-card *ngFor="let item of listOne" style="border-radius: 0px 0px 7px 0px">
       <ion-card-content (click)="openThis()"> -->
 
-  <ion-card *ngFor="let item of details | async" style="border-radius: 0px 0px 7px 0px;">
-    <ion-card-content (click)="openThis(item.category.value,item.subCategory.value,item.id,item.image_url,item.brand,item.price,item.color,item.tag,item.location)">
+  <ion-card *ngFor="let item of details | async" style="border-radius: 7px 7px 7px 7px;">
+    <ion-card-content (click)="openThis(item.category.value,item.subCategory.value,item.id,item.image_url,item.brand,item.price,item.color,item.tag,item.location)" style="padding: 0px">
       
 
       <!-- <div *ngIf="item.image">
@@ -25,7 +25,7 @@
           background-size: cover; " /> -->
 
       <div *ngIf="item.image_url">
-        <img [src]="item.image_url" style="width: 100%; height: 100px;	background: no-repeat center center; 
+        <img [src]="item.image_url" style="width: 100%; height: 130px;	background: no-repeat center center; 
         background-size: cover; " />
       </div>
 
