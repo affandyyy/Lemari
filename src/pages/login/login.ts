@@ -66,8 +66,8 @@ export class LoginPage {
       .login(["email", "public_profile"])
       .then(response => {
         this.loading = this.loadingCtrl.create({
-          spinner: "ios",
-          content: "Loading",
+          spinner: 'hide',
+          content: `<img src="assets/imgs/loading.gif" />`,
           duration: 3000
         });
 
