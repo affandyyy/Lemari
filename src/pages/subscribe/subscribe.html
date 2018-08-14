@@ -11,9 +11,11 @@
         <img width="60%" src="../assets/imgs/braintree.png"/>
       </div> -->
     <ion-card *ngFor="let card of cards" (click)="cardTapped(card)">
-      <img height="105px" [src]="card.imageUrl" />
-      <div class="card-title">{{card.title}}</div>
-      <div class="card-subtitle">{{card.subtitle}}</div>
+      <ion-card-content (click)="subscribePayment(card.id)">
+        <img height="105px" [src]="card.imageUrl" />
+        <div class="card-title">{{card.title}}</div>
+        <div class="card-subtitle">{{card.subtitle}}</div>
+      </ion-card-content>
     </ion-card>
 
   </ion-content>
