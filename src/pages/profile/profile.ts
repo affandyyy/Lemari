@@ -71,7 +71,6 @@ export class ProfilePage {
     this.loading = this.loadingCtrl.create({
       spinner: 'ios',
       content: 'Loading',
-      duration: 3000
     });
     
     this.loading.present();
@@ -107,6 +106,7 @@ export class ProfilePage {
     this.scarf = this.database.list(`users/${this.uid}/lemari_category/accessories/scarf/`);
 
     this.calc();
+    this.loading.dismiss();
    }
 
    defaultLanguage(){
