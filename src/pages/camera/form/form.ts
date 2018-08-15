@@ -65,6 +65,9 @@ export class FormPage {
 
   inputForm:FormGroup;
   falseAttempt: boolean = false;
+  
+  counterRef:Observable<any>;
+  counter=0;
 
   category: any[];
   subCategory: any[];
@@ -87,6 +90,10 @@ export class FormPage {
     //init data
     this.uid = firebase.auth().currentUser.uid;
 
+    //count clothes
+    this.counterRef = this.database.object(`users/${this.uid}/counter/`).valueChanges();
+    this.countClothes();
+
     //get image from Edit Page
     this.img = this.navParams.get('uploadImage');
 
@@ -95,8 +102,12 @@ export class FormPage {
 
     this.initializeCategory();
     this.initializeSubCategory(); 
+  }
 
-    console.log("Key : " + this.newPostKey);
+  countClothes(){
+    this.counterRef.subscribe(response => {
+     
+  });
   }
 
   initializeCategory(){
@@ -169,6 +180,11 @@ export class FormPage {
     }
     else {
       this.newPostKey = firebase.database().ref().child(`users/${this.uid}/lemari_category`).push().key;
+      this.counterRef.subscribe(response => {
+        this.counter=response;
+        this.counter++
+        console.log("Counter : " + this.counter);
+      });
     }
   }
 
@@ -194,6 +210,7 @@ export class FormPage {
         {
           text: 'Okay',
           handler: () => {
+            this.database.object(`users/${this.uid}/counter`).set(this.counter++);
             this.navCtrl.setRoot(TabsPage);
           }
         }
@@ -217,7 +234,6 @@ export class FormPage {
       this.invalidInput();
     }
     else{
-      // this.submitAttempt = true;
       this.saveDetail();
       this.validInput();
     }

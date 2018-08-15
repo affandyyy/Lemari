@@ -290,6 +290,7 @@ export class ProfilePage {
         subs: 'Basic'
       }
     ];
+    this.database.object(`users/${this.uid}/counter`).set(this.counter);
   }
 
   editProfile(){
