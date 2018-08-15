@@ -1,0 +1,189 @@
+page-payment {
+    ion-modal,
+    .show-page {
+      // transparent black background overlay
+      background-color: rgba(0, 0, 0, 0.5) !important;
+      padding: 50px !important;
+    }
+    .toolbar-background {
+      color: red !important;
+    }
+    ion-modal.modal-wrapper {
+      transform: translateY(30%) !important;
+    }
+    ion-page.modal {
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .modal-backdrop-bg {
+      background-color: #000;
+      opacity: 0;
+    }
+    .active .modal-backdrop-bg {
+      opacity: 0.5;
+    }
+  
+  
+  ion-modal.inset-modal {
+    // transparent black background overlay
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    transition: opacity 0.25s ease-in-out;
+    padding: 25vh 10vw;
+  }
+
+  .credit-card {
+    width: 100%;
+    height: auto;
+    // margin: 70px auto 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, .10);
+  }
+
+  .form-body {
+    height: 340px;
+    padding: 30px 30px 20px;
+  }
+
+  /* Common */
+.card-number,
+.cvv-input input,
+.month select,
+.year select {
+    height: 40px;
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 14px;
+    border: 2px solid #e1e8ee;
+    border-radius: 6px;
+    width: 45%;
+
+}
+ 
+.card-number,
+.month select,
+.year select {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 14px;
+}
+ 
+/* Common */
+.card-number,
+.cvv-input input,
+.month select,
+.year select {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 14px;
+}
+ 
+.card-number,
+.month select,
+.year select {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 14px;
+}
+ 
+.card-number,
+.cvv-details,
+.cvv-input input,
+.month select,
+.year select {
+    opacity: .7;
+    font-size: 12px;
+    color: #86939e;
+}
+
+/* Card Number */
+.card-number {
+    width: 100%;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border: 2px solid #e1e8ee;
+    border-radius: 6px;
+}
+
+/* Date Field */
+.month select,
+.year select {
+    width: 45%;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border: 2px solid #e1e8ee;
+    border-radius: 6px;
+    background: url('caret.png') no-repeat;
+    background-position: 85% 50%;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+ 
+.month select {
+    float: left;
+}
+ 
+.year select {
+    float: right;
+}
+
+/* Card Verification Field */
+.cvv-input input {
+    float: left;
+    width: 30%;
+    padding-left: 20px;
+    border: 2px solid #e1e8ee;
+    border-radius: 6px;
+    background: #fff;
+}
+ 
+.cvv-details {
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 16px;
+    float: right;
+    margin-bottom: 20px;
+}
+ 
+.cvv-details p {
+    margin-top: 6px;
+}
+
+/* Buttons Section */
+.paypal-btn,
+.proceed-btn {
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    border-color: transparent;
+    border-radius: 6px;
+}
+ 
+.proceed-btn {
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding: 15px;
+    background: #7dc855;
+}
+ 
+.paypal-btn a,
+.proceed-btn a {
+    text-decoration: none;
+}
+ 
+.proceed-btn a {
+    color: #fff;
+}
+ 
+.paypal-btn a {
+    color: rgba(242, 242, 242, .7);
+}
+ 
+.paypal-btn {
+    padding-right: 95px;
+    background: url('paypal-logo.svg') no-repeat 65% 56% #009cde;
+}
+
+
+}

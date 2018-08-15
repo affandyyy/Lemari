@@ -1,7 +1,7 @@
 import { Braintree, ApplePayOptions, PaymentUIOptions, PaymentUIResult } from '@ionic-native/braintree';
 import { AlertController } from 'ionic-angular';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { SubsuccessPage } from './subsuccess/subsuccess';
 
 
@@ -47,8 +47,15 @@ export class SubscribePage {
 
     subscribeId:any;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alert: AlertController, public braintree:Braintree) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public alert: AlertController, 
+    public modalCtrl: ModalController,
+    public braintree:Braintree) {
   }
+
+
 
   subscribePayment(subscribeId) {
     const alertItem =  this.alert.create({
@@ -58,7 +65,8 @@ export class SubscribePage {
         {
           text: 'Okay',
           handler: () => {
-            this.navCtrl.push(SubsuccessPage, {subscribeId});
+            this.openModal('PaymentPage');
+            // this.navCtrl.push(SubsuccessPage, {subscribeId});
             // this.paymentMethod();
           }
         },
@@ -108,6 +116,12 @@ export class SubscribePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SubscribePage');
+  }
+  
+
+  openModal(pageName) {
+    this.modalCtrl.create(pageName, null, { cssClass: 'inset-modal' })
+      .present();
   }
 
 }
