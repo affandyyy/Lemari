@@ -69,6 +69,9 @@ export class FormPage {
 
   inputForm: FormGroup;
   falseAttempt: boolean = false;
+  
+  counterRef:Observable<any>;
+  counter=0;
 
   category: any[];
   subCategory: any[];
@@ -93,6 +96,10 @@ export class FormPage {
     //init data
     this.uid = firebase.auth().currentUser.uid;
 
+    //count clothes
+    this.counterRef = this.database.object(`users/${this.uid}/counter/`).valueChanges();
+    this.countClothes();
+
     //get image from Edit Page
     this.img = this.navParams.get("uploadImage");
 
@@ -100,9 +107,17 @@ export class FormPage {
     this.inputValidator();
 
     this.initializeCategory();
+<<<<<<< HEAD
     this.initializeSubCategory();
+=======
+    this.initializeSubCategory(); 
+  }
+>>>>>>> 7d0d8f1f904f43248ce5c9728076c9ffadd0915f
 
-    console.log("Key : " + this.newPostKey);
+  countClothes(){
+    this.counterRef.subscribe(response => {
+     
+  });
   }
 
   initializeCategory() {
@@ -323,12 +338,23 @@ export class FormPage {
           subCategory => subCategory.value == response.subCategory.value
         );
       });
+<<<<<<< HEAD
     } else {
       this.newPostKey = firebase
         .database()
         .ref()
         .child(`users/${this.uid}/lemari_category`)
         .push().key;
+=======
+    }
+    else {
+      this.newPostKey = firebase.database().ref().child(`users/${this.uid}/lemari_category`).push().key;
+      this.counterRef.subscribe(response => {
+        this.counter=response;
+        this.counter++
+        console.log("Counter : " + this.counter);
+      });
+>>>>>>> 7d0d8f1f904f43248ce5c9728076c9ffadd0915f
     }
   }
 
@@ -361,6 +387,7 @@ export class FormPage {
         {
           text: "Okay",
           handler: () => {
+            this.database.object(`users/${this.uid}/counter`).set(this.counter++);
             this.navCtrl.setRoot(TabsPage);
           }
         }
@@ -382,8 +409,13 @@ export class FormPage {
     if (!this.inputForm.valid) {
       this.falseAttempt = true;
       this.invalidInput();
+<<<<<<< HEAD
     } else {
       // this.submitAttempt = true;
+=======
+    }
+    else{
+>>>>>>> 7d0d8f1f904f43248ce5c9728076c9ffadd0915f
       this.saveDetail();
       this.validInput();
     }

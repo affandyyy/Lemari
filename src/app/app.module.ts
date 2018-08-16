@@ -1,3 +1,4 @@
+import { PaymentPage } from './../pages/payment/payment';
 import { WardrobePage } from './../pages/wardrobe/wardrobe';
 import { ItemmodalPage } from './../pages/wardrobe/itemmodal/itemmodal';
 import { FormPage } from './../pages/camera/form/form';
@@ -61,7 +62,8 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     WardrobePage,
     ItemmodalPage,
     SubsmaryPage,
-    SubsuccessPage
+    SubsuccessPage,
+    PaymentPage
     // IntroPage
   ],
   imports: [
@@ -95,7 +97,8 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     WardrobePage,
     ItemmodalPage,
     SubsmaryPage,
-    SubsuccessPage
+    SubsuccessPage,
+    PaymentPage
     // IntroPage
   ],
   providers: [

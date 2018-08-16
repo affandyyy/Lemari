@@ -51,6 +51,7 @@ export class HomePage {
             email: firebase.auth().currentUser.email,
             profile_picture: firebase.auth().currentUser.photoURL,
             language:"en",
+            counter:0,
           })
         }
 
