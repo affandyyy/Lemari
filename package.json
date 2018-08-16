@@ -40,7 +40,7 @@
     "cordova-ios": "^4.5.5",
     "cordova-plugin-braintree": "git+https://github.com/taracque/cordova-plugin-braintree.git",
     "cordova-plugin-camera": "^4.0.3",
-    "cordova-plugin-camera-preview": "^0.9.0",
+    "cordova-plugin-camera-preview": "^0.10.0",
     "cordova-plugin-crop": "^0.4.0",
     "cordova-plugin-device": "^1.1.7",
     "cordova-plugin-facebook4": "^2.1.0",

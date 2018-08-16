@@ -12,6 +12,7 @@ import {AngularFireDatabase, AngularFireObject} from "angularfire2/database";
 import "rxjs/add/operator/take";
 import {Observable} from "rxjs/Observable";
 import {AlertController} from "ionic-angular";
+import { FormPage } from '../../camera/form/form';
 
 /**
  * Generated class for the ItemmodalPage page.

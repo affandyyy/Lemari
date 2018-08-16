@@ -54,7 +54,7 @@
 
 <ion-content padding>
 
-  <ion-card (click)="openMenu()">
+  <ion-card>
     <ion-card-content text-center>
       <img [src]="image" *ngIf="imageAfter" #imageResult />
       <img src="./assets/imgs/card/sample.png" *ngIf="imageBefore" />
@@ -63,7 +63,7 @@
 
   <!-- <img src="{{picurl}}"/> -->
 
-  <ion-list *ngIf="">
+  <!-- <ion-list *ngIf="">
     <ion-list-header>
       Adjust Image Filters
     </ion-list-header>
@@ -93,7 +93,7 @@
       </ion-range>
     </ion-item>
 
-  </ion-list>
+  </ion-list> -->
 
   <ion-fab right bottom>
     <button ion-fab color="edit" (click)="goPost()" >
