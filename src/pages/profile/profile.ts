@@ -55,6 +55,10 @@ export class ProfilePage {
   totalPrice = 0;
   loading: any;
 
+  subscribeIdRef:AngularFireObject<any>;
+  subscribeId:any;
+  subscribeName:any;
+
   constructor(public loadingCtrl: LoadingController, 
               public navCtrl: NavController, 
               private database: AngularFireDatabase, 
@@ -65,6 +69,10 @@ export class ProfilePage {
     this.userFBRef = this.database.object(`users/${this.uid}`);
     this.userFB = this.userFBRef.valueChanges();
     this.userFBFunc();
+
+    this.subscribeIdRef = this.database.object(`users/${this.uid}/subscribeId/`);
+    this.subscribeEvent();
+    console.log("Subscribe : " + this.subscribeName);
 
     this.defaultLanguage();
 
@@ -125,6 +133,23 @@ export class ProfilePage {
     this.userFB.subscribe(response => {
       console.log(response);
       this.translate.use(response.language);
+    });
+  }
+
+  subscribeEvent(){
+    this.subscribeIdRef.valueChanges().subscribe(response =>{
+      if(response == '1'){
+        this.subscribeName = "Emerald";
+      }
+      else if(response == '2'){
+        this.subscribeName = "Sapphire";
+      }
+      else if(response == '3'){
+        this.subscribeName = "Ruby";
+      }
+      else if(response == '4'){
+        this.subscribeName = "Diamond";
+      }
     });
   }
 
@@ -287,7 +312,7 @@ export class ProfilePage {
       {
         items: this.counter,
         value: this.totalPrice,
-        subs: 'Basic'
+        subs: this.subscribeName
       }
     ];
     this.database.object(`users/${this.uid}/counter`).set(this.counter);
