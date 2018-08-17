@@ -82,7 +82,7 @@ export class FormPage {
   sCategory: any;
   ssubCategory: any;
 
-  categoryValue: any;
+  categoryValue:any;
   subCategoryValue: any;
 
   constructor(
@@ -96,28 +96,17 @@ export class FormPage {
     //init data
     this.uid = firebase.auth().currentUser.uid;
 
-    //count clothes
-    this.counterRef = this.database.object(`users/${this.uid}/counter/`).valueChanges();
-    this.countClothes();
-
     //get image from Edit Page
     this.img = this.navParams.get("uploadImage");
+
+    this.initializeCategory();
+    this.initializeSubCategory();
 
     this.getId();
     this.inputValidator();
 
-    this.initializeCategory();
-<<<<<<< HEAD
-    this.initializeSubCategory();
-=======
-    this.initializeSubCategory(); 
-  }
->>>>>>> 7d0d8f1f904f43248ce5c9728076c9ffadd0915f
-
-  countClothes(){
-    this.counterRef.subscribe(response => {
-     
-  });
+    //count clothes
+    // this.counterRef = this.database.object(`users/${this.uid}/counter/`).valueChanges();
   }
 
   initializeCategory() {
@@ -315,7 +304,7 @@ export class FormPage {
   }
 
   getId() {
-    if ((this.newPostKey = this.navParams.get("obj_id"))) {
+    if((this.newPostKey = this.navParams.get("obj_id"))) {
       this.categoryValue = this.navParams.get("obj_category");
       this.subCategoryValue = this.navParams.get("obj_subCategory");
       this.brand = this.navParams.get("obj_brand");
@@ -324,37 +313,21 @@ export class FormPage {
       this.tag = this.navParams.get("obj_tag");
       this.location = this.navParams.get("obj_location");
 
-      this.detailRef = this.database.object(
-        `users/${this.uid}/lemari_category/${this.categoryValue}/${
-          this.subCategoryValue
-        }/${this.newPostKey}`
-      );
-      this.details = this.detailRef.valueChanges();
-      this.details.subscribe(response => {
-        this.sCategory = this.category.filter(
-          category => category.id == response.category.id
-        );
-        this.ssubCategory = this.subCategory.filter(
-          subCategory => subCategory.value == response.subCategory.value
-        );
-      });
-<<<<<<< HEAD
-    } else {
-      this.newPostKey = firebase
-        .database()
-        .ref()
-        .child(`users/${this.uid}/lemari_category`)
-        .push().key;
-=======
+      this.sCategory = this.category.filter(category => category.value == this.categoryValue);
+      this.sCategory.value = this.categoryValue;
+      this.ssubCategory = this.subCategory.filter(subCategory => subCategory.value == this.subCategoryValue);
+      this.ssubCategory.value = this.subCategoryValue;
+      
+      console.log("Category : " + this.sCategory);
+      console.log("Category : " + this.sCategory.value);
     }
     else {
       this.newPostKey = firebase.database().ref().child(`users/${this.uid}/lemari_category`).push().key;
-      this.counterRef.subscribe(response => {
-        this.counter=response;
-        this.counter++
-        console.log("Counter : " + this.counter);
-      });
->>>>>>> 7d0d8f1f904f43248ce5c9728076c9ffadd0915f
+      // this.counterRef.subscribe(response => {
+      //   this.counter=response;
+      //   this.counter++
+      //   console.log("Counter : " + this.counter);
+      // });
     }
   }
 
@@ -376,7 +349,6 @@ export class FormPage {
         tag: this.inputForm.value.tag,
         location: this.inputForm.value.location
       });
-    console.log(this.color);
   }
 
   validInput() {
@@ -409,13 +381,8 @@ export class FormPage {
     if (!this.inputForm.valid) {
       this.falseAttempt = true;
       this.invalidInput();
-<<<<<<< HEAD
-    } else {
-      // this.submitAttempt = true;
-=======
     }
     else{
->>>>>>> 7d0d8f1f904f43248ce5c9728076c9ffadd0915f
       this.saveDetail();
       this.validInput();
     }
