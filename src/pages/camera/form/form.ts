@@ -104,9 +104,6 @@ export class FormPage {
 
     this.getId();
     this.inputValidator();
-
-    //count clothes
-    // this.counterRef = this.database.object(`users/${this.uid}/counter/`).valueChanges();
   }
 
   initializeCategory() {
@@ -323,11 +320,6 @@ export class FormPage {
     }
     else {
       this.newPostKey = firebase.database().ref().child(`users/${this.uid}/lemari_category`).push().key;
-      // this.counterRef.subscribe(response => {
-      //   this.counter=response;
-      //   this.counter++
-      //   console.log("Counter : " + this.counter);
-      // });
     }
   }
 
@@ -359,7 +351,6 @@ export class FormPage {
         {
           text: "Okay",
           handler: () => {
-            this.database.object(`users/${this.uid}/counter`).set(this.counter++);
             this.navCtrl.setRoot(TabsPage);
           }
         }

@@ -1,10 +1,7 @@
-import { AngularFireDatabase } from 'angularfire2/database';
 import { PaymentPage } from './../payment/payment';
-import { Braintree, ApplePayOptions, PaymentUIOptions, PaymentUIResult } from '@ionic-native/braintree';
 import { AlertController } from 'ionic-angular';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-import { SubsuccessPage } from './subsuccess/subsuccess';
 
 
 /**
@@ -56,8 +53,7 @@ export class SubscribePage {
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public alert: AlertController, 
-    public modalCtrl: ModalController,
-    private database: AngularFireDatabase) {
+    public modalCtrl: ModalController) {
   }
 
   subscribePayment(subscribeId) {

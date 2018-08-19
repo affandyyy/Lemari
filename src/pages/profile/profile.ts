@@ -55,8 +55,7 @@ export class ProfilePage {
   totalPrice = 0;
   loading: any;
 
-  subscribeIdRef:AngularFireObject<any>;
-  subscribeId:any;
+  subscribeId:AngularFireObject<any>;
   subscribeName:any;
 
   constructor(public loadingCtrl: LoadingController, 
@@ -70,9 +69,8 @@ export class ProfilePage {
     this.userFB = this.userFBRef.valueChanges();
     this.userFBFunc();
 
-    this.subscribeIdRef = this.database.object(`users/${this.uid}/subscribeId/`);
+    this.subscribeId = this.database.object(`users/${this.uid}/subscribeId/`);
     this.subscribeEvent();
-    console.log("Subscribe : " + this.subscribeName);
 
     this.defaultLanguage();
 
@@ -137,7 +135,7 @@ export class ProfilePage {
   }
 
   subscribeEvent(){
-    this.subscribeIdRef.valueChanges().subscribe(response =>{
+    this.subscribeId.valueChanges().subscribe(response =>{
       if(response == '1'){
         this.subscribeName = "Emerald";
       }
@@ -315,7 +313,6 @@ export class ProfilePage {
         subs: this.subscribeName
       }
     ];
-    this.database.object(`users/${this.uid}/counter`).set(this.counter);
   }
 
   editProfile(){

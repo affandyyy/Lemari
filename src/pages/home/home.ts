@@ -1,3 +1,4 @@
+import { AngularFireList } from 'angularfire2/database';
 import firebase from 'firebase'; //firebase connection
 import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
@@ -41,39 +42,30 @@ export class HomePage {
       this.getUserData();
     }
   
-    getUserData(){
-      this.userFB.subscribe(response => {
-        console.log("Response : " + response);
-        
-        if(response == null){
-          this.database.object('users/' + firebase.auth().currentUser.uid).set({
-            username: firebase.auth().currentUser.displayName,
-            email: firebase.auth().currentUser.email,
-            profile_picture: firebase.auth().currentUser.photoURL,
-            language:"en",
-            counter:0,
-          })
-        }
+  getUserData(){
+    this.userFB.subscribe(response => {
+      console.log("Response : " + response);
+      
+      if(response == null){
+        this.database.object('users/' + firebase.auth().currentUser.uid).set({
+          username: firebase.auth().currentUser.displayName,
+          email: firebase.auth().currentUser.email,
+          profile_picture: firebase.auth().currentUser.photoURL,
+          language:"en",
+          counter:0,
+          subscribeId:'1'
+        })
+      }
 
-        else{
-          this.translate.setDefaultLang(response.language);
-          this.translate.use(response.language);
-        }
-      });  
+      else{
+        this.translate.setDefaultLang(response.language);
+        this.translate.use(response.language);
+      }
+    });  
   }
 
   openShuffle() {
     this.navCtrl.push("ShufflePage");
-  }
-
-  openThis() {
-    this.openModal("ItemmodalPage");
-  }
-
-  openModal(pageName) {
-    this.modalCtrl
-      .create(pageName, null, { cssClass: "inset-modal" })
-      .present();
   }
 
   openGallery(category, subCategory) {

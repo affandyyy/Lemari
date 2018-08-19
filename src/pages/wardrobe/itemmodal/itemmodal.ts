@@ -101,8 +101,8 @@ export class ItemmodalPage {
         {
           text: 'Okay',
           handler: () => {
-            this.navCtrl.push(TabsPage);
             this.detailRef.remove();
+            this.navCtrl.push(TabsPage);
           }
         }
       ]
