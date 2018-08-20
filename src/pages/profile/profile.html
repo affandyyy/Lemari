@@ -2,7 +2,7 @@
   <div class="header-image"></div>
   <div class="main-content" color="main" text-wrap text-center>
     <!-- <ion-icon name="create"></ion-icon> -->
-    <div class="circular"> <img style="border-radius: 50%" width="200%" *ngIf="imageUrl" [src]="imageUrl" /> </div>
+    <div class="circular"> <img style="border-radius: 50%" width="200%" *ngIf="imageUrl" [src]="imageUrl" > </div>
     <h2>{{ (userFB | async)?.username }}</h2>
     <p>{{ (userFB | async)?.email }}</p>
     <p *ngFor="let users of user" class="profile-description">{{users.description}}</p>
@@ -89,7 +89,7 @@
           <button ion-button block round color="primary" (click)="editProfile()"><ion-icon name="create"></ion-icon> </button>
         </ion-col>
         <ion-col>
-          <button ion-button block round color="danger" (click)="logOut()"><ion-icon name="log-out"></ion-icon> </button>
+          <button ion-button block round color="danger" (click)="openSubs()"><ion-icon name="log-out"></ion-icon> </button>
         </ion-col>
       </ion-row>
     </ion-grid>

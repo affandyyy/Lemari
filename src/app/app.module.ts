@@ -26,6 +26,7 @@ import { Crop } from '@ionic-native/crop';
 import { Camera } from '@ionic-native/camera';
 import { Braintree } from '@ionic-native/braintree';
 
+
 //After Facebook
 import { Facebook } from '@ionic-native/facebook'; //facebook connection
 import firebase from 'firebase/app'; //firebase connection
