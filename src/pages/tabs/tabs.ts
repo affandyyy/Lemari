@@ -3,7 +3,7 @@ import { AngularFireList } from 'angularfire2/database';
 import { AngularFireObject, AngularFireDatabase } from 'angularfire2/database';
 import firebase from "firebase";
 import { Component } from '@angular/core';
-import { ActionSheetController, NavController, LoadingController } from "ionic-angular";
+import { ActionSheetController, NavController, NavParams, LoadingController } from "ionic-angular";
 
 import { AlertController } from "ionic-angular";
 import { CameraPage } from '../camera/camera';
@@ -29,42 +29,16 @@ export class TabsPage {
   public base64Image: string;
   photos : Array<string>;
 
-  uid:any;
-  subscribeIdRef:AngularFireObject<any>;
-  counterRef:AngularFireObject<any>;
-
   tab1Root = HomePage;
   tab2Root = CameraPage;
   tab3Root = ProfilePage;
 
-  blouse:  AngularFireList<any>;
-  sweater:  AngularFireList<any>;
-  tank:  AngularFireList<any>;
-  shirt:  AngularFireList<any>;
-  cardigan:  AngularFireList<any>;
-  tshirt:  AngularFireList<any>;
-
-  pants:  AngularFireList<any>;
-  jeans:  AngularFireList<any>;
-  shorts:  AngularFireList<any>;
-  skirts:  AngularFireList<any>;
-  sweatpant:  AngularFireList<any>;
-
-  sneakers:  AngularFireList<any>;
-  sandals:  AngularFireList<any>;
-  flats:  AngularFireList<any>;
-  sports:  AngularFireList<any>;
-  slippers:  AngularFireList<any>;
-  boots:  AngularFireList<any>;
-  
-  cap:  AngularFireList<any>;
-  sunglasses:  AngularFireList<any>;
-  tie:  AngularFireList<any>;
-  bowtie:  AngularFireList<any>;
-  scarf:  AngularFireList<any>;
+  uid:any;
+  subscribeIdRef:AngularFireObject<any>;
+  counterRef:AngularFireObject<any>;
 
   counter = 0;
-  total = 0;
+
   loading: any;
 
   constructor(
@@ -74,144 +48,19 @@ export class TabsPage {
     public viewCtrl: ViewController, 
     public cropService: Crop,
     public navCtrl: NavController,
+    public navParams: NavParams,
     public loadingCtrl: LoadingController,
     public database: AngularFireDatabase,
     private alert: AlertController
   ) {
-
-    this.uid = firebase.auth().currentUser.uid;
-
-    //Tops Data
-    this.blouse = this.database.list(`users/${this.uid}/lemari_category/tops/blouse/`);
-    this.sweater = this.database.list(`users/${this.uid}/lemari_category/tops/sweater/`);
-    this.tank = this.database.list(`users/${this.uid}/lemari_category/tops/tank/`);
-    this.shirt = this.database.list(`users/${this.uid}/lemari_category/tops/shirt/`);
-    this.cardigan = this.database.list(`users/${this.uid}/lemari_category/tops/cardigan/`);
-    this.tshirt = this.database.list(`users/${this.uid}/lemari_category/tops/tshirt/`);
-
-    //Bottoms Data
-    this.pants = this.database.list(`users/${this.uid}/lemari_category/bottom/pants/`);
-    this.jeans = this.database.list(`users/${this.uid}/lemari_category/bottom/jeans/`);
-    this.shorts = this.database.list(`users/${this.uid}/lemari_category/bottom/shorts/`);
-    this.skirts = this.database.list(`users/${this.uid}/lemari_category/bottom/skirts/`);
-    this.sweatpant = this.database.list(`users/${this.uid}/lemari_category/bottom/sweatpant/`);
-
-    //Shoes Data
-    this.sneakers = this.database.list(`users/${this.uid}/lemari_category/shoes/sneakers/`);
-    this.sandals = this.database.list(`users/${this.uid}/lemari_category/shoes/sandals/`);
-    this.flats = this.database.list(`users/${this.uid}/lemari_category/shoes/flats/`);
-    this.sports = this.database.list(`users/${this.uid}/lemari_category/shoes/sports/`);
-    this.slippers = this.database.list(`users/${this.uid}/lemari_category/shoes/slippers/`);
-    this.boots = this.database.list(`users/${this.uid}/lemari_category/shoes/boots/`);
-
-    //Accessories Data
-    this.cap = this.database.list(`users/${this.uid}/lemari_category/accessories/cap/`);
-    this.sunglasses = this.database.list(`users/${this.uid}/lemari_category/accessories/sunglasses/`);
-    this.tie = this.database.list(`users/${this.uid}/lemari_category/accessories/tie/`);
-    this.bowtie = this.database.list(`users/${this.uid}/lemari_category/accessories/bowtie/`);
-    this.scarf = this.database.list(`users/${this.uid}/lemari_category/accessories/scarf/`);
-    
-    //for count 
-    this.conditionCounter();
-
-    this.subscribeIdRef = this.database.object(`users/${this.uid}/subscribeId/`);
-    this.counterRef = this.database.object(`users/${this.uid}/counter/`);
-  }
-
-  conditionCounter(){
-    if(this.calc() == null){
-      this.database.object(`users/${this.uid}/counter`).set(0);
+    this.counter = this.navParams.get("obj_counter");
+    if(this.counter == null){
+      this.counter = 0;
     }
     else{
-      this.calc();
+      this.database.object(`users/${firebase.auth().currentUser.uid}`).update({counter:this.counter});
     }
-  }
-
-  calc(){
-    //Tops Value
-    this.blouse.valueChanges().subscribe(response => {
-        this.calculateSum(response.length);
-    });
-    this.sweater.valueChanges().subscribe(response => {
-      this.calculateSum(response.length);
-    });
-    this.tank.valueChanges().subscribe(response => {
-      this.calculateSum(response.length);
-    });
-    this.shirt.valueChanges().subscribe(response => {
-      this.calculateSum(response.length);
-    });
-    this.cardigan.valueChanges().subscribe(response => {
-      this.calculateSum(response.length);
-    });
-    this.tshirt.valueChanges().subscribe(response => {
-      this.calculateSum(response.length);
-    });
-    
-    //Bottom Value
-    this.pants.valueChanges().subscribe(response => {
-      this.calculateSum(response.length);
-    });
-    this.jeans.valueChanges().subscribe(response => {
-      this.calculateSum(response.length);
-    });
-    this.shorts.valueChanges().subscribe(response => {
-      this.calculateSum(response.length);
-    });
-    this.skirts.valueChanges().subscribe(response => {
-      this.calculateSum(response.length);
-    });
-    this.sweatpant.valueChanges().subscribe(response => {
-      this.calculateSum(response.length);
-    });
-
-    //Shoes Value
-    this.sneakers.valueChanges().subscribe(response => {
-      this.calculateSum(response.length);
-    });
-    this.sandals.valueChanges().subscribe(response => {
-      this.calculateSum(response.length);
-    });
-    this.flats.valueChanges().subscribe(response => {
-      this.calculateSum(response.length);
-    });
-    this.sports.valueChanges().subscribe(response => {
-      this.calculateSum(response.length);
-    });
-    this.slippers.valueChanges().subscribe(response => {
-      this.calculateSum(response.length);
-    });
-    this.boots.valueChanges().subscribe(response => {
-      this.calculateSum(response.length);
-    });
-
-    //Accessories Value
-    this.cap.valueChanges().subscribe(response => {
-      this.calculateSum(response.length);
-    });
-    this.sunglasses.valueChanges().subscribe(response => {
-      this.calculateSum(response.length);
-    });
-    this.tie.valueChanges().subscribe(response => {
-      this.calculateSum(response.length);
-    });
-    this.bowtie.valueChanges().subscribe(response => {
-      this.calculateSum(response.length);
-    });
-    this.scarf.valueChanges().subscribe(response => {
-      this.calculateSum(response.length);
-    });
-  }
-
-  calculateSum(value) {
-    this.counter += parseInt(value);
-    this.totalCount(this.counter);
-  }
-
-  totalCount(value){
-    this.total = parseInt(value);
-    //save count in firebase
-    this.database.object(`users/${this.uid}`).update({counter:this.total});
+    console.log("Counter : " + this.counter);
   }
 
   presentActionSheet() {
@@ -262,33 +111,36 @@ export class TabsPage {
 
   //condition for subscribe
   takePicture() {
+    this.uid = firebase.auth().currentUser.uid;
+    this.subscribeIdRef = this.database.object(`users/${this.uid}/subscribeId/`);
+    this.counterRef = this.database.object(`users/${this.uid}/counter/`);
     this.subscribeIdRef.valueChanges().subscribe(response =>{
       if(response == '1'){
-        this.counterRef.valueChanges().subscribe(counter =>{
-          if(counter >= 20){
+        this.counterRef.valueChanges().subscribe(data =>{
+          if(data >= 20){
             this.overlimit();
           }
-          else if(counter <= 19){
+          else if(data <= 19){
             this.openCamera();
           }
         });
       }
       else if(response == '2'){
-        this.counterRef.valueChanges().subscribe(counter =>{
-          if(counter >= 100){
+        this.counterRef.valueChanges().subscribe(data =>{
+          if(data >= 100){
             this.overlimit();
           }
-          else if(counter <= 99){
+          else if(data <= 99){
             this.openCamera();
           }
         });
       }
       else if(response == '3'){
-        this.counterRef.valueChanges().subscribe(counter =>{
-          if(counter>=300){
+        this.counterRef.valueChanges().subscribe(data =>{
+          if(data>=300){
             this.overlimit();
           }
-          else if(counter <= 299){
+          else if(data <= 299){
             this.openCamera();
           }
         });
@@ -332,6 +184,9 @@ export class TabsPage {
 
   //condition for subscribe
   openImagePicker() {
+    this.uid = firebase.auth().currentUser.uid;
+    this.subscribeIdRef = this.database.object(`users/${this.uid}/subscribeId/`);
+    this.counterRef = this.database.object(`users/${this.uid}/counter/`);
     this.subscribeIdRef.valueChanges().subscribe(response =>{
       if(response == '1'){
         this.counterRef.valueChanges().subscribe(data =>{

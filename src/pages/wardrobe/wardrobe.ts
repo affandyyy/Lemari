@@ -67,7 +67,7 @@ export class WardrobePage {
   }
 
   openGallery(){
-    this.navCtrl.push('WardrobePage');
+    this.navCtrl.push(WardrobePage);
   }
 
 
