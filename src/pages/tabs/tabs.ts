@@ -52,12 +52,13 @@ export class TabsPage {
     public loadingCtrl: LoadingController,
     public database: AngularFireDatabase,
     private alert: AlertController
-  ) {
-    this.counter = this.navParams.get("obj_counter");
+  ) {}
+
+  getCounter(){
     if(this.counter == null){
       this.counter = 0;
     }
-    else{
+    else if (this.counter = this.navParams.get("obj_counter")){
       this.database.object(`users/${firebase.auth().currentUser.uid}`).update({counter:this.counter});
     }
     console.log("Counter : " + this.counter);

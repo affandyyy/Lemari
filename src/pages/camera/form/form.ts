@@ -357,8 +357,9 @@ export class FormPage {
             this.database.object(`users/${this.uid}/counter/`).valueChanges().subscribe(data =>{
               this.counterRef=data;
               this.counterRef = this.counterRef + this.counter;
-              let obj_counter = this.counterRef
-              this.navCtrl.push(TabsPage,{obj_counter});
+              console.log("Counter : " + this.counterRef);
+              // this.database.object(`users/${firebase.auth().currentUser.uid}`).update({counter:this.counterRef});
+              this.navCtrl.push(TabsPage);
             });
             
           }
