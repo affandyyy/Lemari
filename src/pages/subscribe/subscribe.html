@@ -5,13 +5,13 @@
   </ion-header>
   <ion-content>
       <p style="padding: 0px 10px 0px 10px; font-size: 1.2rem" text-center>
-        You have <b>5 slots</b> left. Upgrade to upload more !
+        <!-- You have <b>5 slots</b> left. Upgrade to upload more ! -->
       </p>
       <!-- <div text-center>
         <img width="60%" src="../assets/imgs/braintree.png"/>
       </div> -->
     <ion-card *ngFor="let card of cards">
-      <ion-card-content (click)="subscribePayment(card.value)">
+      <ion-card-content (click)="subscribePayment(card.value)" no-padding>
         <img height="105px" [src]="card.imageUrl" />
         <div class="card-title">{{card.title}}</div>
         <div class="card-subtitle">{{card.subtitle}}</div>
