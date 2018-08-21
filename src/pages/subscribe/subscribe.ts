@@ -23,25 +23,29 @@ export class SubscribePage {
       id:'1',
       imageUrl: 'assets/imgs/card/emerald.png',
       title: 'Emerald 20',
-      subtitle: 'Free'
+      subtitle: 'Free',
+      value: 0,
     },
     {
       id:'2',
       imageUrl: 'assets/imgs/card/sapp.jpg',
       title: 'Sapphire 100',
-      subtitle: 'RM30'
+      subtitle: 'RM30',
+      value: 30
     },
     {
       id:'3',
       imageUrl: 'assets/imgs/card/ruby.jpg',
       title: 'Ruby 300',
-      subtitle: 'RM50'
+      subtitle: 'RM50',
+      value: 50
     },
     {
       id:'4',
       imageUrl: 'assets/imgs/card/diamond.jpg',
       title: 'Diamond ∞',
-      subtitle: 'RM88'
+      subtitle: 'RM88',
+      value: 88
     }];
 
     uid:any;
