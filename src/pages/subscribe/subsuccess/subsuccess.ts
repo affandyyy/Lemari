@@ -32,7 +32,7 @@ export class SubsuccessPage {
   }
 
   conditionSubscribeId(){
-    if(this.subscribeId==1){
+    if(this.subscribeId == '1'){
       this.space = '20';
     }
     else if(this.subscribeId=='2'){

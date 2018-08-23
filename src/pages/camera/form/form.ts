@@ -315,14 +315,11 @@ export class FormPage {
       this.ssubCategory = this.subCategory.filter(subCategory => subCategory.value == this.subCategoryValue);
       this.ssubCategory.value = this.subCategoryValue;
       
-      this.counter=0;
-      
-      console.log("Category : " + this.sCategory);
-      console.log("Category : " + this.sCategory.value);
+      this.counter = 0;
     }
     else {
       this.newPostKey = firebase.database().ref().child(`users/${this.uid}/lemari_category`).push().key;
-      this.counter=1;
+      this.counter = 1;
     }
   }
 
@@ -354,14 +351,9 @@ export class FormPage {
         {
           text: "Okay",
           handler: () => {
-            this.database.object(`users/${this.uid}/counter/`).valueChanges().subscribe(data =>{
-              this.counterRef=data;
-              this.counterRef = this.counterRef + this.counter;
-              console.log("Counter : " + this.counterRef);
-              // this.database.object(`users/${firebase.auth().currentUser.uid}`).update({counter:this.counterRef});
-              this.navCtrl.push(TabsPage);
-            });
-            
+            let obj_counter = this.counter;
+            console.log("Object Counter : " + obj_counter);
+            this.navCtrl.push(TabsPage, {obj_counter});
           }
         }
       ]

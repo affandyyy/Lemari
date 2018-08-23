@@ -117,7 +117,6 @@ export class ProfilePage {
 
    defaultLanguage(){
     this.userFB.subscribe(response => {
-      console.log(response);
       this.language = response.language;
       this.translate.setDefaultLang(response.language);
       this.translate.use(response.language);
@@ -129,7 +128,6 @@ export class ProfilePage {
       language:this.language
     })
     this.userFB.subscribe(response => {
-      console.log(response);
       this.translate.use(response.language);
     });
   }
@@ -153,7 +151,6 @@ export class ProfilePage {
 
    userFBFunc() {
     this.userFB.subscribe(response => {
-      console.log(response);
       this.zone.run(() => {
         this.imageUrl = response.profile_picture;
       });
@@ -329,7 +326,6 @@ export class ProfilePage {
         {
           text: 'Okay',
           handler: data => {
-            console.log(data);
             this.userFBRef.update(data);
           }
         },
