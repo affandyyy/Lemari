@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import  * as firebase from "firebase";
+import { Component, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {
   trigger, state, animate, transition,
@@ -34,56 +37,184 @@ import {
   ]
 })
 export class ShufflePage {
+
+  uid: string;
   
+  blouse:  AngularFireList<any>;
+  sweater:  AngularFireList<any>;
+  tank:  AngularFireList<any>;
+  shirt:  AngularFireList<any>;
+  cardigan:  AngularFireList<any>;
+  tshirt:  AngularFireList<any>;
+
+  pants:  AngularFireList<any>;
+  jeans:  AngularFireList<any>;
+  shorts:  AngularFireList<any>;
+  skirts:  AngularFireList<any>;
+  sweatpant:  AngularFireList<any>;
+
+  sneakers:  AngularFireList<any>;
+  sandals:  AngularFireList<any>;
+  flats:  AngularFireList<any>;
+  sports:  AngularFireList<any>;
+  slippers:  AngularFireList<any>;
+  boots:  AngularFireList<any>;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  cap:  AngularFireList<any>;
+  sunglasses:  AngularFireList<any>;
+  tie:  AngularFireList<any>;
+  bowtie:  AngularFireList<any>;
+  scarf:  AngularFireList<any>;
+
+  imageUrl: string
 
   currentIndex = 0;
   intervalInstance;
   cards = [
     { value: 'http://www.yeezycustom.cn/upload/goods/Apperal/T-Shirts/LV-T-Shirts/3/LV%20short%20round%20collar%20T%20man%20M-3XL%20Apr%2024-zo01_2664518.JPG', state: 'in', color: '#F44336' },
-    { value: 'https://uniqlo.scene7.com/is/image/UNIQLO/goods_29_199144?$detail$', state: 'out', color: '#E91E63' },
-    { value: 'http://picture-cdn.wheretoget.it/e7uryx-i.jpg', state: 'out', color: '#9C27B0' },
-    { value: 'https://media.endclothing.com/media/f_auto,q_auto,w_760,h_760/prodmedia/media/catalog/product/1/4/14-06-2017_ami_flannelovershirt_blackredcheck_h17c139-221-009_mb_1.jpg', state: 'out', color: '#673AB7' },
-    { value: 'https://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=84770043', state: 'out', color: '#3F51B5' },
-    { value: 'https://katemiddletonstyle.org/wp-content/uploads/2016/09/off-shoulder-top-stripe-257x300.jpeg', state: 'out', color: '#2196F3' },
-    { value: 'http://sm.ign.com/t/ign_in/gallery/n/nintendo-a/nintendo-and-uniqlo-fan-created-t-shirts_gunu.640.jpg', state: 'out', color: '#03A9F4' },
-    { value: 'https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_M/louis-vuitton-polka-dots-monogram-oversized-shirt-ready-to-wear--FDBL21DJC002_PM2_Front%20view.jpg?wid=614&hei=614', state: 'out', color: '#00BCD4' },
-    { value: 'https://s-media-cache-ak0.pinimg.com/originals/67/c6/71/67c67184b6501e69e157d02dfd40bf2c.jpg', state: 'out', color: '#009688' },
-    { value: 'http://supreme94.com/wp-content/uploads/2017/06/BWlc_WkVCdo.jpg', state: 'out', color: '#4CAF50' }
   ];
 
   currentIndexTWO = 0;
   intervalInstanceTWO;
   cardsTWO = [
     { value: 'https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_M/louis-vuitton-wool-and-cashmere-drawstring-pant-ready-to-wear--FDPA48DDU649_PM1_Side%20view.jpg?wid=614&hei=614', state: 'in', color: '#03A9F4' },
-    { value: 'https://www.elkor.lv/media/catalog/product/cache/0/image/9df78eab33525d08d6e5fb8d27136e95/a/d/adidas_f51112_1.jpg', state: 'out', color: '#00BCD4' },
-    { value: 'http://www.bcdjordan.com/Uploads/598039acb83fb.jpg', state: 'out', color: '#009688' },
-    { value: 'https://liberi.lv/media/products/more/3527_55_2.JPG.900x900_q85.jpg', state: 'out', color: '#4CAF50' },
-    { value: 'https://asset1.surfcdn.com/dc-snow-pants-dc-relay-youth-snow-pants-insignia-blue.jpg?w=1200&h=1200&r=4&q=80&o=E5G69DCAu4IHOpWK5dcYQkeCKGQx&V=RIdT', state: 'out', color: '#9C27B0' },
-    { value: 'https://www.redttag.com/image/rubyfrostasia/image/cache/data/all_product_images/product-1249/IMG_2038-1-700x700.jpg', state: 'out', color: '#673AB7' },
-    { value: 'http://www.seftonfashion.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/8/2/8233-edwin-grey-wool-labour-pant.jpg', state: 'out', color: '#3F51B5' },
-    { value: 'https://f.allegroimg.com/s512/03d617/b1abe7b940f5ad660f119fad46ef', state: 'out', color: '#2196F3' },
-    { value: 'https://i.pinimg.com/originals/d3/70/00/d370001e870e6b43cec00af902437cd0.jpg', state: 'out', color: '#F44336' },
-    { value: 'https://media.golfdigest.com/photos/55ad786eb01eefe207f6db90/master/w_768/golf-equipment-blogs-newstuff-GI-Uniqlo-DryTechTrsr.jpg', state: 'out', color: '#E91E63' }
   ];
-
+  
   currentIndexTHREE = 0;
   intervalInstanceTHREE;
   cardsTHREE = [
     { value: 'https://it.louisvuitton.com/images/is/image/lv/1/PP_VP_M/louis-vuitton-scarponcino-laureate-calzature--AE8U4BSC02_PM2_Front%20view.jpg?wid=614&hei=614', state: 'in', color: '#03A9F4' },
     { value: 'http://www.integrityfarmwi.com/images/1581/3502.jpg', state: 'out', color: '#00BCD4' },
-    { value: 'https://uk.louisvuitton.com/images/is/image/lv/1/PP_VP_AS/louis-vuitton--ABWQ1BSL33_PM2_Front%20view.jpg?wid=256&hei=256', state: 'out', color: '#009688' },
-    { value: 'https://media.karousell.com/media/photos/products/2015/08/31/louis_vuitton_mens_slalom_lv_monogram_leather_and_canvas__brown_athletic_shoes_1441035773_af4a1956.jpg', state: 'out', color: '#4CAF50' },
-    { value: 'http://www.teradimension.com/images/pic/254018.047_4.jpg', state: 'out', color: '#9C27B0' },
-    { value: 'https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-archlight-sneaker-shoes--AE5U1BMIBG_PM2_Front%20view.jpg', state: 'out', color: '#673AB7' },
-    { value: 'https://shop.r10s.jp/branding/cabinet/51/s6151_1.jpg', state: 'out', color: '#3F51B5' },
-    { value: 'https://item5.tradesy.com/images/louis-vuitton-black-moccasins-ostrich-leather-driving-formal-shoes-size-us-75-12369904-0-1.jpg?width=203&height=307', state: 'out', color: '#2196F3' },
-    { value: 'https://ecs7.tokopedia.net/img/cache/700/product-1/2017/2/16/2116658/2116658_e32d9475-4ecc-433a-a04a-06ba03b6ceab_1024_1024.png', state: 'out', color: '#F44336' },
-    { value: 'https://images.complex.com/complex/image/upload/c_fill,g_center,w_1200/fl_lossy,pg_1,q_auto/ggz8iihkqpq4ukot2ovi.jpg', state: 'out', color: '#E91E63' }
   ];
 
+  constructor(public navCtrl: NavController, public navParams: NavParams, private database: AngularFireDatabase, private zone: NgZone) {
+    this.uid = firebase.auth().currentUser.uid;
+
+     //Tops Data
+     this.blouse = this.database.list(`users/${this.uid}/lemari_category/tops/blouse/`);
+     this.sweater = this.database.list(`users/${this.uid}/lemari_category/tops/sweater/`);
+     this.tank = this.database.list(`users/${this.uid}/lemari_category/tops/tank/`);
+     this.shirt = this.database.list(`users/${this.uid}/lemari_category/tops/shirt/`);
+     this.cardigan = this.database.list(`users/${this.uid}/lemari_category/tops/cardigan/`);
+     this.tshirt = this.database.list(`users/${this.uid}/lemari_category/tops/tshirt/`);
+ 
+     //Bottoms Data
+     this.pants = this.database.list(`users/${this.uid}/lemari_category/bottom/pants/`);
+     this.jeans = this.database.list(`users/${this.uid}/lemari_category/bottom/jeans/`);
+     this.shorts = this.database.list(`users/${this.uid}/lemari_category/bottom/shorts/`);
+     this.skirts = this.database.list(`users/${this.uid}/lemari_category/bottom/skirts/`);
+     this.sweatpant = this.database.list(`users/${this.uid}/lemari_category/bottom/sweatpant/`);
+ 
+     //Shoes Data
+     this.sneakers = this.database.list(`users/${this.uid}/lemari_category/shoes/sneakers/`);
+     this.sandals = this.database.list(`users/${this.uid}/lemari_category/shoes/sandals/`);
+     this.flats = this.database.list(`users/${this.uid}/lemari_category/shoes/flats/`);
+     this.sports = this.database.list(`users/${this.uid}/lemari_category/shoes/sports/`);
+     this.slippers = this.database.list(`users/${this.uid}/lemari_category/shoes/slippers/`);
+     this.boots = this.database.list(`users/${this.uid}/lemari_category/shoes/boots/`);
+ 
+     //Accessories Data
+     this.cap = this.database.list(`users/${this.uid}/lemari_category/accessories/cap/`);
+     this.sunglasses = this.database.list(`users/${this.uid}/lemari_category/accessories/sunglasses/`);
+     this.tie = this.database.list(`users/${this.uid}/lemari_category/accessories/tie/`);
+     this.bowtie = this.database.list(`users/${this.uid}/lemari_category/accessories/bowtie/`);
+     this.scarf = this.database.list(`users/${this.uid}/lemari_category/accessories/scarf/`);
+
+    this.shuffleClothes();
+  }
+
+  shuffleClothes(){
+    //Tops Value
+    this.blouse.valueChanges().subscribe(response => {
+      response.forEach(item => {
+        this.cards.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+      });
+    });
+    this.sweater.valueChanges().subscribe(response => {
+      response.forEach(item => {
+        this.cards.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+      });
+    });
+    this.tank.valueChanges().subscribe(response => {
+      response.forEach(item => {
+        this.cards.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+      });
+    });
+    this.shirt.valueChanges().subscribe(response => {
+      response.forEach(item => {
+        this.cards.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+      });
+    });
+    this.cardigan.valueChanges().subscribe(response => {
+      response.forEach(item => {
+        this.cards.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+      });
+    });
+    this.tshirt.valueChanges().subscribe(response => {
+      response.forEach(item => {
+        this.cards.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+      });
+    });
+    
+    //Bottom Value
+    this.pants.valueChanges().subscribe(response => {
+      response.forEach(item => {
+        this.cardsTWO.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+      });
+    });
+    this.jeans.valueChanges().subscribe(response => {
+      response.forEach(item => {
+        this.cardsTWO.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+      });
+    });
+    this.shorts.valueChanges().subscribe(response => {
+      response.forEach(item => {
+        this.cardsTWO.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+      });
+    });
+    this.skirts.valueChanges().subscribe(response => {
+      response.forEach(item => {
+        this.cardsTWO.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+      });
+    });
+    this.sweatpant.valueChanges().subscribe(response => {
+      response.forEach(item => {
+        this.cardsTWO.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+      });
+    });
+
+    //Shoes Value
+    this.sneakers.valueChanges().subscribe(response => {
+      response.forEach(item => {
+        this.cardsTHREE.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+      });
+    });
+    this.sandals.valueChanges().subscribe(response => {
+      response.forEach(item => {
+        this.cardsTHREE.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+      });
+    });
+    this.flats.valueChanges().subscribe(response => {
+      response.forEach(item => {
+        this.cardsTHREE.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+      });
+    });
+    this.sports.valueChanges().subscribe(response => {
+      response.forEach(item => {
+        this.cardsTHREE.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+      });
+    });
+    this.slippers.valueChanges().subscribe(response => {
+      response.forEach(item => {
+        this.cardsTHREE.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+      });
+    });
+    this.boots.valueChanges().subscribe(response => {
+      response.forEach(item => {
+        this.cardsTHREE.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+      });
+    });
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ShufflePage');

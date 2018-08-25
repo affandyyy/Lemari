@@ -89,11 +89,11 @@
       </p>
 
       <ion-item>
-        <ion-input formControlName="price" type="price" placeholder="{{ 'Price' | translate }}" type="number" [class.invalid]="!inputForm.controls['price'].valid && (inputForm.controls['price'].dirty || falseAttempt)"></ion-input>
+        <ion-input formControlName="price" type="price" placeholder="{{ 'Price' | translate }}" type="number"></ion-input>
       </ion-item>
-      <p style="color:red;" *ngIf="!inputForm.controls['price'].valid && (inputForm.controls['price'].dirty || falseAttempt)">
+      <!-- <p style="color:red;" *ngIf="!inputForm.controls['price'].valid && (inputForm.controls['price'].dirty || falseAttempt)">
         <strong>{{ 'ValidPrice' | translate }}</strong>
-      </p>
+      </p> -->
 
       <ion-item>
         <ion-input formControlName="tag" type="tag" placeholder="{{ '#TAG' | translate }}" [class.invalid]="!inputForm.controls['tag'].valid && (inputForm.controls['tag'].dirty || falseAttempt)"></ion-input>

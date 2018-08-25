@@ -35,11 +35,9 @@ export class TabsPage {
 
   uid:any;
   subscribeIdRef:AngularFireObject<any>;
-  counterRef:AngularFireObject<any>;
 
-  count = 0;
-  counter = 0;
-  total: any;
+  space = 0;
+  spaceArray = [];
 
   blouse:  AngularFireList<any>;
   sweater:  AngularFireList<any>;
@@ -81,26 +79,10 @@ export class TabsPage {
     public database: AngularFireDatabase,
     private alert: AlertController
   ) {
-    this.getCounter();
-    console.log("Counter 1 : " + this.counter);
-  }
-
-  getCounter(){
-    if (this.counter = this.navParams.get("obj_counter")){
-      if(this.counter == 0){
-        this.counter = 0;
-      }
-      else if(this.counter == 1){
-        this.uid = firebase.auth().currentUser.uid;
-        this.clothesId();
-        this.conditionCounter();
-      }
-      console.log("Counter 3 : " + this.counter);
-    }
-    else if(this.counter == null){
-      this.counter = 0;
-    }
-    console.log("Counter 2 : " + this.counter);
+    this.uid = firebase.auth().currentUser.uid;
+    this.subscribeIdRef = this.database.object(`users/${this.uid}/subscribeId/`);
+    this.clothesId();
+    this.calc();
   }
 
   clothesId(){
@@ -135,102 +117,124 @@ export class TabsPage {
     this.scarf = this.database.list(`users/${this.uid}/lemari_category/accessories/scarf/`);
  }
 
- conditionCounter(){
-   if(this.calc() == null){
-     this.database.object(`users/${this.uid}/counter`).set(0);
-   }
-   else{
-     this.calc();
-   }
- }
-
  calc(){
    //Tops Value
    this.blouse.valueChanges().subscribe(response => {
-       this.calculateSum(response.length);
+    response.forEach(item => {
+       this.spaceArray.push(item);
+    });
    });
    this.sweater.valueChanges().subscribe(response => {
-     this.calculateSum(response.length);
+    response.forEach(item => {
+      this.spaceArray.push(item);
+    });
    });
    this.tank.valueChanges().subscribe(response => {
-     this.calculateSum(response.length);
+    response.forEach(item => {
+      this.spaceArray.push(item);
+    });
    });
    this.shirt.valueChanges().subscribe(response => {
-     this.calculateSum(response.length);
+    response.forEach(item => {
+      this.spaceArray.push(item);
+    });
    });
    this.cardigan.valueChanges().subscribe(response => {
-     this.calculateSum(response.length);
+    response.forEach(item => {
+      this.spaceArray.push(item);
+    });
    });
    this.tshirt.valueChanges().subscribe(response => {
-     this.calculateSum(response.length);
+    response.forEach(item => {
+      this.spaceArray.push(item);
+    });
    });
    
    //Bottom Value
    this.pants.valueChanges().subscribe(response => {
-     this.calculateSum(response.length);
+    response.forEach(item => {
+      this.spaceArray.push(item);
+    });
    });
    this.jeans.valueChanges().subscribe(response => {
-     this.calculateSum(response.length);
+    response.forEach(item => {
+      this.spaceArray.push(item);
+    });
    });
    this.shorts.valueChanges().subscribe(response => {
-     this.calculateSum(response.length);
+    response.forEach(item => {
+      this.spaceArray.push(item);
+    });
    });
    this.skirts.valueChanges().subscribe(response => {
-     this.calculateSum(response.length);
+    response.forEach(item => {
+      this.spaceArray.push(item);
+    });
    });
    this.sweatpant.valueChanges().subscribe(response => {
-     this.calculateSum(response.length);
+    response.forEach(item => {
+      this.spaceArray.push(item);
+    });
    });
 
    //Shoes Value
    this.sneakers.valueChanges().subscribe(response => {
-     this.calculateSum(response.length);
+    response.forEach(item => {
+      this.spaceArray.push(item);
+    });
    });
    this.sandals.valueChanges().subscribe(response => {
-     this.calculateSum(response.length);
+    response.forEach(item => {
+      this.spaceArray.push(item);
+    });
    });
    this.flats.valueChanges().subscribe(response => {
-     this.calculateSum(response.length);
+    response.forEach(item => {
+      this.spaceArray.push(item);
+    });
    });
    this.sports.valueChanges().subscribe(response => {
-     this.calculateSum(response.length);
+    response.forEach(item => {
+      this.spaceArray.push(item);
+    });
    });
    this.slippers.valueChanges().subscribe(response => {
-     this.calculateSum(response.length);
+    response.forEach(item => {
+      this.spaceArray.push(item);
+    });
    });
    this.boots.valueChanges().subscribe(response => {
-     this.calculateSum(response.length);
+    response.forEach(item => {
+      this.spaceArray.push(item);
+    });
    });
 
    //Accessories Value
    this.cap.valueChanges().subscribe(response => {
-     this.calculateSum(response.length);
+    response.forEach(item => {
+      this.spaceArray.push(item);
+    });
    });
    this.sunglasses.valueChanges().subscribe(response => {
-     this.calculateSum(response.length);
+    response.forEach(item => {
+      this.spaceArray.push(item);
+    });
    });
    this.tie.valueChanges().subscribe(response => {
-     this.calculateSum(response.length);
+    response.forEach(item => {
+      this.spaceArray.push(item);
+    });
    });
    this.bowtie.valueChanges().subscribe(response => {
-     this.calculateSum(response.length);
+    response.forEach(item => {
+      this.spaceArray.push(item);
+    });
    });
    this.scarf.valueChanges().subscribe(response => {
-     this.calculateSum(response.length);
+    response.forEach(item => {
+      this.spaceArray.push(item);
+    });
    });
- }
-
- calculateSum(value) {
-   this.count += parseInt(value);
-   console.log("Count 1 : " + this.count);
-   this.totalCount(this.count);
- }
-
- totalCount(value){
-   this.total = parseInt(value);
-   console.log("Total : " + this.total);
-   //save count in firebase
-   this.database.object(`users/${this.uid}`).update({counter:this.total});
  }
 
   presentActionSheet() {
@@ -281,39 +285,31 @@ export class TabsPage {
 
   //condition for subscribe
   takePicture() {
-    this.uid = firebase.auth().currentUser.uid;
-    this.subscribeIdRef = this.database.object(`users/${this.uid}/subscribeId/`);
-    this.counterRef = this.database.object(`users/${this.uid}/counter/`);
+    console.log("Space in takePicture: " + this.spaceArray.length);
     this.subscribeIdRef.valueChanges().subscribe(response =>{
       if(response == '1'){
-        this.counterRef.valueChanges().subscribe(data =>{
-          if(data >= 20){
-            this.overlimit();
-          }
-          else if(data <= 19){
-            this.openCamera();
-          }
-        });
+        if(this.spaceArray.length >= 20){
+          this.overlimit();
+        }
+        else if(this.spaceArray.length <= 19){
+          this.openCamera();
+        }
       }
       else if(response == '2'){
-        this.counterRef.valueChanges().subscribe(data =>{
-          if(data >= 100){
-            this.overlimit();
-          }
-          else if(data <= 99){
-            this.openCamera();
-          }
-        });
+        if(this.spaceArray.length >= 100){
+          this.overlimit();
+        }
+        else if(this.spaceArray.length <= 99){
+          this.openCamera();
+        }
       }
       else if(response == '3'){
-        this.counterRef.valueChanges().subscribe(data =>{
-          if(data>=300){
-            this.overlimit();
-          }
-          else if(data <= 299){
-            this.openCamera();
-          }
-        });
+        if(this.spaceArray.length>=300){
+          this.overlimit();
+        }
+        else if(this.spaceArray.length <= 299){
+          this.openCamera();
+        }
       }
       else if(response == '4'){
         this.openCamera();
@@ -354,39 +350,31 @@ export class TabsPage {
 
   //condition for subscribe
   openImagePicker() {
-    this.uid = firebase.auth().currentUser.uid;
-    this.subscribeIdRef = this.database.object(`users/${this.uid}/subscribeId/`);
-    this.counterRef = this.database.object(`users/${this.uid}/counter/`);
+    console.log("Space in openImagePicker: " + this.spaceArray.length);
     this.subscribeIdRef.valueChanges().subscribe(response =>{
       if(response == '1'){
-        this.counterRef.valueChanges().subscribe(data =>{
-          if(data >= 2){
+          if(this.spaceArray.length >= 2){
             this.overlimit();
           }
-          else if(data <= 1){
+          else if(this.spaceArray.length <= 1){
             this.openGallery();
           }
-        });
       }
       else if(response == '2'){
-        this.counterRef.valueChanges().subscribe(data =>{
-          if(data >= 100){
-            this.overlimit();
-          }
-          else if(data <= 99){
-            this.openGallery();
-          }
-        });
+        if(this.spaceArray.length >= 100){
+          this.overlimit();
+        }
+        else if(this.spaceArray.length <= 99){
+          this.openGallery();
+        }
       }
       else if(response == '3'){
-        this.counterRef.valueChanges().subscribe(data =>{
-          if(data >= 300){
-            this.overlimit();
-          }
-          else if(data <= 299){
-            this.openGallery();
-          }
-        });
+        if(this.spaceArray.length >= 300){
+          this.overlimit();
+        }
+        else if(this.spaceArray.length <= 299){
+          this.openGallery();
+        }
       }
       else if(response == '4'){
         this.openGallery();

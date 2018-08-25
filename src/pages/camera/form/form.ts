@@ -69,9 +69,6 @@ export class FormPage {
 
   inputForm: FormGroup;
   falseAttempt: boolean = false;
-  
-  counterRef:any;
-  counter=0;
 
   category: any[];
   subCategory: any[];
@@ -287,7 +284,7 @@ export class FormPage {
         this.brand,
         Validators.compose([Validators.maxLength(30), Validators.required])
       ],
-      price: [this.price, Validators.required],
+      price: [this.price],
       color: [this.color, Validators.required],
       tag: [
         this.tag,
@@ -314,12 +311,9 @@ export class FormPage {
       this.sCategory.value = this.categoryValue;
       this.ssubCategory = this.subCategory.filter(subCategory => subCategory.value == this.subCategoryValue);
       this.ssubCategory.value = this.subCategoryValue;
-      
-      this.counter = 0;
     }
     else {
       this.newPostKey = firebase.database().ref().child(`users/${this.uid}/lemari_category`).push().key;
-      this.counter = 1;
     }
   }
 
@@ -351,9 +345,7 @@ export class FormPage {
         {
           text: "Okay",
           handler: () => {
-            let obj_counter = this.counter;
-            console.log("Object Counter : " + obj_counter);
-            this.navCtrl.push(TabsPage, {obj_counter});
+            this.navCtrl.push(TabsPage);
           }
         }
       ]

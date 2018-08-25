@@ -35,8 +35,6 @@ export class ItemmodalPage {
   mypicref:any;
   mypic:Observable<any>;
 
-  counter = 1;
-
   newPostKey: any;
   imageUrl: any;
   category:any;
@@ -104,8 +102,7 @@ export class ItemmodalPage {
           text: 'Okay',
           handler: () => {
             this.detailRef.remove();
-            let obj_counter = this.counter;
-            this.navCtrl.push(TabsPage, {obj_counter});
+            this.navCtrl.push(TabsPage);
           }
         }
       ]
