@@ -17,7 +17,7 @@ import { Facebook } from "@ionic-native/facebook"; //facebook connection
 // import { HomePage } from "../home/home";
 import { TabsPage } from "../tabs/tabs";
 import { SubsuccessPage } from "../subscribe/subsuccess/subsuccess";
-import { AngularFireDatabase } from "angularfire2/database";
+import { AngularFireDatabase  } from "angularfire2/database";
 
 /**
  * Generated class for the LoginPage page.
@@ -44,7 +44,7 @@ export class LoginPage {
     public modal: ModalController,
     public loadingCtrl: LoadingController,
     public facebook: Facebook,
-    private db: AngularFireDatabase
+    private database: AngularFireDatabase
   ) {}
 
   // // It's interesting to remove the src and put it back
@@ -79,16 +79,27 @@ export class LoginPage {
           .auth()
           .signInWithCredential(facebookCredential)
           .then((success) => {  
-            this.navCtrl.setRoot(TabsPage);
+            this.database.object(`users/${firebase.auth().currentUser.uid}`).valueChanges().subscribe(response => {
+      
+              if(response == null){
+                firebase.database().ref('users/' + firebase.auth().currentUser.uid).set({
+                  username: firebase.auth().currentUser.displayName,
+                  email: firebase.auth().currentUser.email,
+                  profile_picture: firebase.auth().currentUser.photoURL,
+                  language:"en",
+                  subscribeId:'1'
+                })
+                this.navCtrl.setRoot(TabsPage);
+              }
+              else{
+                this.navCtrl.setRoot(TabsPage);
+              }
+            }); 
           });
       })
       .catch(error => {
         this.createAlert("Sign in failed. Please try again");
       });
-  }
-
-  loginHome() {
-    this.navCtrl.push(SubsuccessPage);
   }
 
   createAlert(err) {
