@@ -236,30 +236,22 @@ export class HomePage {
     }
   ];
 
-  // slides = [
-  //   {
-  //     title: '',
-  //     imageUrl: 'assets/imgs/wishlist-1.png',
-  //     songs: 2,
-  //     private: false
-  //   },
-  //   {
-  //     title: 'Highlights',
-  //     imageUrl: 'assets/imgs/wishlist-2.png',
-  //     songs: 4,
-  //     private: false
-  //   },
-  //   {
-  //     title: 'OOTD',
-  //     imageUrl: 'assets/imgs/wishlist-3.png',
-  //     songs: 5,
-  //     private: true
-  //   },
-  //   {
-  //     title: 'Trendy',
-  //     imageUrl: 'assets/imgs/wishlist-4.png',
-  //     songs: 12,
-  //     private: true
-  //   }
-  // ];
+  slides = [
+    {
+      title: '',
+      imageUrl: 'assets/imgs/wishlist-1.png',
+    },
+    {
+      title: 'Highlights',
+      imageUrl: 'assets/imgs/wishlist-2.png',
+    },
+    {
+      title: 'OOTD',
+      imageUrl: 'assets/imgs/wishlist-3.png',
+    },
+    {
+      title: 'Trendy',
+      imageUrl: 'assets/imgs/wishlist-4.png',
+    }
+  ];
 }
