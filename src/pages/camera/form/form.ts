@@ -62,7 +62,7 @@ export class FormPage {
   image: string = "";
   // category:any;
   brand: any;
-  color: String = '#000000';
+  color: String = "#000000";
   price: any;
   tag: any;
   location: any;
@@ -79,7 +79,7 @@ export class FormPage {
   sCategory: any;
   ssubCategory: any;
 
-  categoryValue:any;
+  categoryValue: any;
   subCategoryValue: any;
 
   constructor(
@@ -116,8 +116,8 @@ export class FormPage {
     this.subCategory = [
       {
         id: 1,
-        name: "Blouse",
-        value: "blouse",
+        name: "Dress",
+        value: "dress",
         category_id: 1,
         category_name: "tops"
       },
@@ -298,7 +298,7 @@ export class FormPage {
   }
 
   getId() {
-    if((this.newPostKey = this.navParams.get("obj_id"))) {
+    if ((this.newPostKey = this.navParams.get("obj_id"))) {
       this.categoryValue = this.navParams.get("obj_category");
       this.subCategoryValue = this.navParams.get("obj_subCategory");
       this.brand = this.navParams.get("obj_brand");
@@ -307,13 +307,20 @@ export class FormPage {
       this.tag = this.navParams.get("obj_tag");
       this.location = this.navParams.get("obj_location");
 
-      this.sCategory = this.category.filter(category => category.value == this.categoryValue);
+      this.sCategory = this.category.filter(
+        category => category.value == this.categoryValue
+      );
       this.sCategory.value = this.categoryValue;
-      this.ssubCategory = this.subCategory.filter(subCategory => subCategory.value == this.subCategoryValue);
+      this.ssubCategory = this.subCategory.filter(
+        subCategory => subCategory.value == this.subCategoryValue
+      );
       this.ssubCategory.value = this.subCategoryValue;
-    }
-    else {
-      this.newPostKey = firebase.database().ref().child(`users/${this.uid}/lemari_category`).push().key;
+    } else {
+      this.newPostKey = firebase
+        .database()
+        .ref()
+        .child(`users/${this.uid}/lemari_category`)
+        .push().key;
     }
   }
 
@@ -366,8 +373,7 @@ export class FormPage {
     if (!this.inputForm.valid) {
       this.falseAttempt = true;
       this.invalidInput();
-    }
-    else{
+    } else {
       this.saveDetail();
       this.validInput();
     }
