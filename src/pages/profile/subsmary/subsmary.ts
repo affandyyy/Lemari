@@ -28,7 +28,7 @@ export class SubsmaryPage {
 
   uid: string;
 
-  blouse:  AngularFireList<any>;
+  dress:  AngularFireList<any>;
   sweater:  AngularFireList<any>;
   tank:  AngularFireList<any>;
   shirt:  AngularFireList<any>;
@@ -68,7 +68,7 @@ export class SubsmaryPage {
     this.uid = firebase.auth().currentUser.uid;
 
     //Tops Data
-    this.blouse = this.database.list(`users/${this.uid}/lemari_category/tops/blouse/`);
+    this.dress = this.database.list(`users/${this.uid}/lemari_category/tops/dress/`);
     this.sweater = this.database.list(`users/${this.uid}/lemari_category/tops/sweater/`);
     this.tank = this.database.list(`users/${this.uid}/lemari_category/tops/tank/`);
     this.shirt = this.database.list(`users/${this.uid}/lemari_category/tops/shirt/`);
@@ -102,7 +102,7 @@ export class SubsmaryPage {
 
   calc(){
     //Tops Value
-    this.blouse.valueChanges().subscribe(response => {
+    this.dress.valueChanges().subscribe(response => {
       response.forEach(item => {
         this.counterTop++;
         this.calculateSumTop(this.counterTop,item.price);

@@ -62,8 +62,8 @@ export class HomePage {
     {
       id: "1",
       title: "tops",
-      subTitle: "blouse",
-      name: "Blouse",
+      subTitle: "dress",
+      name: "Dress",
       image: "./assets/imgs/card/blouse.jpg"
     },
     {

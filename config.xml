@@ -106,4 +106,5 @@
     <allow-navigation href="http://192.168.0.173:8101" />
     <plugin name="cordova-plugin-braintree" spec="https://github.com/taracque/cordova-plugin-braintree" />
     <engine name="android" spec="6.4.0" />
+    <allow-navigation href="http://172.20.10.2:8100" />
 </widget>
