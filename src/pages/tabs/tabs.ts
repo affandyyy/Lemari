@@ -353,10 +353,10 @@ export class TabsPage {
     console.log("Space in openImagePicker: " + this.spaceArray.length);
     this.subscribeIdRef.valueChanges().subscribe(response =>{
       if(response == '1'){
-          if(this.spaceArray.length >= 2){
+          if(this.spaceArray.length >= 20){
             this.overlimit();
           }
-          else if(this.spaceArray.length <= 1){
+          else if(this.spaceArray.length <= 19){
             this.openGallery();
           }
       }
