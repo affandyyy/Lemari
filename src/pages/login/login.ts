@@ -80,7 +80,6 @@ export class LoginPage {
           .signInWithCredential(facebookCredential)
           .then((success) => {  
             this.database.object(`users/${firebase.auth().currentUser.uid}`).valueChanges().subscribe(response => {
-      
               if(response == null){
                 firebase.database().ref('users/' + firebase.auth().currentUser.uid).set({
                   username: firebase.auth().currentUser.displayName,

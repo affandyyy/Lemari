@@ -1,4 +1,3 @@
-import { AngularFireList } from 'angularfire2/database';
 import firebase from 'firebase'; //firebase connection
 import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
