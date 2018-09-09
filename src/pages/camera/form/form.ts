@@ -319,12 +319,12 @@ export class FormPage {
       this.newPostKey = firebase
         .database()
         .ref()
-        .child(`users/${this.uid}/lemari_category`)
         .push().key;
     }
   }
 
   saveDetail() {
+    console.log("Key : " + this.newPostKey);
     this.database
       .object(
         `users/${this.uid}/lemari_category/${this.sCategory.value}/${
