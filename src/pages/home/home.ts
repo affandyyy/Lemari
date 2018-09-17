@@ -4,7 +4,7 @@ import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { Facebook } from '@ionic-native/facebook';
 import { WardrobePage } from './../wardrobe/wardrobe';
 import { Component, ViewChild} from '@angular/core';
-import { NavController, Slides, ModalController, NavParams } from 'ionic-angular';
+import { NavController, Slides, ModalController, NavParams, LoadingController } from 'ionic-angular';
 
 import "rxjs/add/operator/take";
 import { StatusBar } from '../../../node_modules/@ionic-native/status-bar';
@@ -20,6 +20,7 @@ export class HomePage {
   userFBRef: AngularFireObject<any>;
   userFB: Observable<any>;
   uid:any;
+  loading: any;
 
   dress:  AngularFireObject<any>;
   sweater:  AngularFireObject<any>;
@@ -52,7 +53,8 @@ export class HomePage {
   listThree = [];
   listFour = [];
 
-  constructor(public navCtrl: NavController, 
+  constructor(public loadingCtrl: LoadingController,
+              public navCtrl: NavController, 
               public navParams: NavParams,
               public modalCtrl: ModalController, 
               public statusBar: StatusBar, 
@@ -67,9 +69,18 @@ export class HomePage {
       this.userFBRef = this.database.object(`users/${this.uid}`);
       this.userFB = this.userFBRef.valueChanges();
 
+      this.loading = this.loadingCtrl.create({
+        spinner: 'ios',
+        content: 'Loading',
+      });
+      
+      this.loading.present();
+
       this.getUserData();
       this.clothesId();
       this.getImageData();
+
+      this.loading.dismiss();
     }
   
   getUserData(){

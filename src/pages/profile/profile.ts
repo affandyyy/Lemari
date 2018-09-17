@@ -302,8 +302,12 @@ export class ProfilePage {
   }
 
   calculateSum(price) {
-    this.totalPrice = this.totalPrice + parseInt(price);
-
+    if(price == ""){
+      this.totalPrice = this.totalPrice + 0;
+    }
+    else{
+      this.totalPrice = this.totalPrice + parseInt(price);
+    }
     this.user = [
       {
         items: this.spaceArray.length,
