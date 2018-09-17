@@ -1,3 +1,5 @@
+import firebase from "firebase";
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { PaymentPage } from './../payment/payment';
 import { AlertController } from 'ionic-angular';
 import { Component } from '@angular/core';
@@ -49,41 +51,61 @@ export class SubscribePage {
     }];
 
     uid:any;
-    subscribeRef:any;
-
+    subscribeIdRef:AngularFireObject<any>;
     subscribeId:any;
+    counter = 0;
   
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public alert: AlertController, 
-    public modalCtrl: ModalController) {
+    public modalCtrl: ModalController,
+    private database:AngularFireDatabase) {
+      this.subscribeID();
+      this.counter = this.navParams.get("counter");
+  }
+
+  subscribeID(){
+    this.uid = firebase.auth().currentUser.uid;
+    this.subscribeIdRef = this.database.object(`users/${this.uid}/subscribeId/`);
   }
 
   subscribePayment(subscribeId) {
-    const alertItem =  this.alert.create({
-      title: 'Upgrade!',
-      subTitle:  "Your have to make a payment to upgrade the storage!",
-      buttons: [
-        {
-          text: 'Okay',
-          handler: () => {
-            this.openModal(PaymentPage, subscribeId);
-          }
-        },
-        {
-          text: 'Cancel',
-          role: 'cancel'
-        }
-      ]
+    this.subscribeIdRef.valueChanges().subscribe(response =>{
+      if(response == subscribeId){
+        const alertItem =  this.alert.create({
+          title: 'Already Subscribe!',
+          subTitle:  " You're already subscribe this package, storage left is " + this.counter + " at subscription package ",
+          buttons: [
+            {
+              text: 'Okay',
+              handler: () => {['Dismiss']}
+            }
+          ]
+        });
+        alertItem.present();
+      }
+      else{
+        const alertItem =  this.alert.create({
+          title: 'Upgrade!',
+          subTitle:  "Your have to make a payment to upgrade the storage!",
+          buttons: [
+            {
+              text: 'Okay',
+              handler: () => {
+                this.openModal(PaymentPage, subscribeId);
+              }
+            },
+            {
+              text: 'Cancel',
+              role: 'cancel'
+            }
+          ]
+        });
+        alertItem.present();
+      }
     });
-    alertItem.present();
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SubscribePage');
-  }
-  
+  }  
 
   openModal(pageName,subscribeId) {
     this.modalCtrl.create(pageName, {subscribeId}, { cssClass: 'inset-modal' })

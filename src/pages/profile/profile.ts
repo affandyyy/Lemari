@@ -8,6 +8,7 @@ import "rxjs/add/operator/take";
 import {Observable} from "rxjs/Observable";
 import {AlertController} from "ionic-angular";
 import { LoginPage } from '../login/login';
+import { SubscribePage } from '../subscribe/subscribe';
 
 @Component({
   selector: 'page-profile',
@@ -51,12 +52,13 @@ export class ProfilePage {
   bowtie:  AngularFireList<any>;
   scarf:  AngularFireList<any>;
 
-  counter = 0;
   totalPrice = 0;
   loading: any;
 
   subscribeId:AngularFireObject<any>;
   subscribeName:any;
+
+  spaceArray = [];
 
   constructor(public loadingCtrl: LoadingController, 
               public navCtrl: NavController, 
@@ -161,151 +163,150 @@ export class ProfilePage {
     //Tops Value
     this.dress.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
     this.sweater.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
     this.tank.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
     this.shirt.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
     this.cardigan.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
     this.tshirt.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
     
     //Bottom Value
     this.pants.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
     this.jeans.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
     this.shorts.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
     this.skirts.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
     this.sweatpant.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
 
     //Shoes Value
     this.sneakers.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
     this.sandals.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
     this.flats.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
     this.sports.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
     this.slippers.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
     this.boots.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
 
     //Accessories Value
     this.cap.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
     this.sunglasses.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
     this.tie.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
     this.bowtie.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
     this.scarf.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.counter++;
-        this.calculateSum(this.counter,item.price);
+        this.spaceArray.push(item);
+        this.calculateSum(item.price);
       });
     });
   }
 
-  calculateSum(value,price) {
-    this.counter = parseInt(value);
+  calculateSum(price) {
     this.totalPrice = this.totalPrice + parseInt(price);
 
     this.user = [
       {
-        items: this.counter,
+        items: this.spaceArray.length,
         value: this.totalPrice,
         subs: this.subscribeName
       }
@@ -339,7 +340,8 @@ export class ProfilePage {
   }
 
   openSubs(){
-    this.navCtrl.push('SubscribePage');
+    let counter = this.spaceArray.length;
+    this.navCtrl.push(SubscribePage, {counter});
   }
 
   openSum(){
