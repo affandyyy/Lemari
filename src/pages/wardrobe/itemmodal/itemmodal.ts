@@ -78,6 +78,29 @@ export class ItemmodalPage {
         });
     });
   }
+
+  getCategoryImage(){
+    const alertItem =  this.alert.create({
+      title: 'Set Preview Image Category',
+      subTitle: "Your want to set this image as your picture category homepage?",
+      buttons: [
+        {
+          text: 'Okay',
+          handler: () => {
+            this.database.object(`users/${this.uid}/lemari_category_preview/${this.category}/${this.subCategory}`).set({
+              image_url:this.imageUrl
+            })
+            this.navCtrl.push(TabsPage);
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        }
+      ]
+    });
+    alertItem.present();
+  }
   
   editDetail(){
     let obj_category = this.category;
@@ -108,10 +131,6 @@ export class ItemmodalPage {
       ]
     });
     alertItem.present();
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ItemmodalPage');
   }
 
   dismiss() {

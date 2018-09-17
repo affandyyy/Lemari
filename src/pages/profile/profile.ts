@@ -313,7 +313,6 @@ export class ProfilePage {
   }
 
   editProfile(){
-
     const alertItem =  this.alert.create({
       title: 'Edit Profile',
       inputs: [
