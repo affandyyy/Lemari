@@ -13,7 +13,14 @@
 </ion-header>
 
 <ion-content padding>
-
+  <div>
+    <img height="70" src="https://icon-icons.com/icons2/474/PNG/512/magic-wand_46867.png" 
+    style="position: absolute;
+           bottom: 0;
+           right: 0;
+           margin: 0 2vw 2vh 0;"
+    (click)="animateAll()">
+  </div>
   <div class="game-area">
     <div class="card" *ngFor="let card of cards" [@cardSpinner]="card.state">
       <p>
@@ -36,11 +43,11 @@
     </div>
   </div>
 
-  <ion-footer padding>
+  <!-- <ion-footer padding>
     <div style="text-align: right">
       <div>
         <img height="70" src="https://icon-icons.com/icons2/474/PNG/512/magic-wand_46867.png" (click)="animateAll()">
       </div>
     </div>
-  </ion-footer>
+  </ion-footer> -->
 </ion-content>

@@ -2,7 +2,7 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import  * as firebase from "firebase";
 import { Component, NgZone } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
 import {
   trigger, state, animate, transition,
   style
@@ -87,7 +87,7 @@ export class ShufflePage {
     { value: 'http://www.integrityfarmwi.com/images/1581/3502.jpg', state: 'out', color: '#00BCD4' },
   ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private database: AngularFireDatabase, private zone: NgZone) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private database: AngularFireDatabase, private zone: NgZone,private alertCtrl: AlertController) {
     this.uid = firebase.auth().currentUser.uid;
 
      //Tops Data
@@ -221,13 +221,27 @@ export class ShufflePage {
   }
 
 
+
   animateAll() {
+console.log(this.cards.length,this.cardsTWO.length,this.cardsTHREE.length);
+
+    if(this.cards.length > 1 || this.cardsTWO.length > 1 || this.cardsTHREE.length > 2){
     this.animateSpin();
     this.animateSpinTWO();
     this.animateSpinTHREE();
+    console.log("spin");
+    
+    }
+    else{
+      let alert = this.alertCtrl.create({
+        title: 'No photo uploaded!',
+        subTitle: 'Please add photos in each category to shuffle',
+        buttons: ['Dismiss']
+      });
+      alert.present();
+      console.log("xspin");
+    }
   }
-
-
 
 animateSpin() {
   this.cards.forEach(card => card.state = 'out');
