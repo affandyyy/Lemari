@@ -6,14 +6,14 @@
 -->
 <ion-header>
     <ion-navbar color="main">  
-    <!-- <ion-title>{{ ' ' | translate }}</ion-title> -->
+    <ion-title>{{ this.name }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content text-center class="getstart">
 
-  <!-- <ion-card *ngFor="let item of listOne" style="border-radius: 0px 0px 7px 0px">
+  <!-- <ion-card *ngFor="let item of lisstOne" style="border-radius: 0px 0px 7px 0px">
       <ion-card-content (click)="openThis()"> -->
 
   <ion-card *ngFor="let item of details | async" style="border-radius: 7px 7px 7px 7px;">

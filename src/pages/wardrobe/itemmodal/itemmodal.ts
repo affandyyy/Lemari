@@ -127,6 +127,10 @@ export class ItemmodalPage {
             this.detailRef.remove();
             this.navCtrl.push(TabsPage);
           }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel'
         }
       ]
     });

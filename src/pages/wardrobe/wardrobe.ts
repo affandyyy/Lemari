@@ -34,6 +34,7 @@ export class WardrobePage {
   image_url: any;
   category:any;
   subCategory:any;
+  name:any;
   brand:any;
   color:AngularFireObject<any>;
   price:any;
@@ -48,6 +49,7 @@ export class WardrobePage {
     //get category
     this.category = this.navParams.get('category');
     this.subCategory = this.navParams.get('subCategory');
+    this.name = this.navParams.get('name');
 
     this.detailRef = this.database.list(`users/${this.uid}/lemari_category/${this.category}/${this.subCategory}`);
     this.details = this.detailRef.valueChanges();

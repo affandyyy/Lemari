@@ -313,8 +313,8 @@ export class HomePage {
     this.navCtrl.push("ShufflePage");
   }
 
-  openGallery(category, subCategory) {
-    this.navCtrl.push(WardrobePage, { category, subCategory });
+  openGallery(category, subCategory, name) {
+    this.navCtrl.push(WardrobePage, { category, subCategory, name });
   }
 
   slides = [

@@ -27,7 +27,7 @@
   <ion-scroll scrollX="true" direction="x">
 
     <ion-card *ngFor="let item of listOne" style="border-radius: 7px 7px 7px 7px;">
-      <ion-card-content (click)="openGallery(item.title,item.subTitle)">
+      <ion-card-content (click)="openGallery(item.title,item.subTitle,item.name)">
           <div padding-horizontal padding-top text-center class="tengah">{{item.name}}</div>
         <!-- <button ion-item (click)="openDetailActivity(item)">            
           More info
@@ -48,7 +48,7 @@
   </div>
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let itemTwo of listTwo" style="border-radius: 7px 7px 7px 7px;">
-      <ion-card-content (click)="openGallery(itemTwo.title,itemTwo.subTitle)">
+      <ion-card-content (click)="openGallery(itemTwo.title,itemTwo.subTitle,itemTwo.name)">
           <div padding-horizontal padding-top text-center class="tengah">{{itemTwo.name}}</div>
         <div *ngIf="itemTwo.image">
           <img [src]="itemTwo.image" />
@@ -62,7 +62,7 @@
   </div>
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let itemThree of listThree" style="border-radius: 7px 7px 7px 7px;">
-      <ion-card-content (click)="openGallery(itemThree.title,itemThree.subTitle)">
+      <ion-card-content (click)="openGallery(itemThree.title,itemThree.subTitle,itemThree.name)">
           <div padding-horizontal padding-top text-center class="tengah">{{itemThree.name}}</div>
         <div *ngIf="itemThree.image">
           <img [src]="itemThree.image" />
@@ -76,7 +76,7 @@
   </div>
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let itemFour of listFour" style="border-radius: 7px 7px 7px 7px;">
-      <ion-card-content (click)="openGallery(itemFour.title,itemFour.subTitle)">
+      <ion-card-content (click)="openGallery(itemFour.title,itemFour.subTitle,itemFour.name)">
           <div padding-horizontal padding-top text-center class="tengah">{{itemFour.name}}</div>
         <div *ngIf="itemFour.image">
           <img [src]="itemFour.image" />
