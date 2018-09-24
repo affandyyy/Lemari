@@ -318,10 +318,10 @@ export class TabsPage {
   }
 
   openCamera(){
-    let loader = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });
-    loader.present();
+    // let loader = this.loadingCtrl.create({
+    //   content: 'Please wait...'
+    // });
+    // loader.present();
 
     // Take a picture saving in device, as jpg and allows edit
     this.camera.getPicture({
@@ -334,7 +334,7 @@ export class TabsPage {
       saveToPhotoAlbum: true,
       correctOrientation: true
     }).then((imageURI) => {
-      loader.dismissAll();
+      // loader.dismissAll();
 
       // bind the URI returned by API
       this.image = 'data:image/jpeg;base64,' + imageURI;
