@@ -1,3 +1,5 @@
+import { ShufflePage } from './../shuffle/shuffle';
+import { AngularFireList } from 'angularfire2/database';
 import firebase from 'firebase'; //firebase connection
 import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
@@ -21,6 +23,10 @@ export class HomePage {
   userFB: Observable<any>;
   uid:any;
   loading: any;
+
+  spaceArray = [];
+  spaceArrayTwo = [];
+  spaceArrayThree = [];
 
   dress:  AngularFireObject<any>;
   sweater:  AngularFireObject<any>;
@@ -47,6 +53,32 @@ export class HomePage {
   tie:  AngularFireObject<any>;
   bowtie:  AngularFireObject<any>;
   scarf:  AngularFireObject<any>;
+
+  dressCount:  AngularFireList<any>;
+  sweaterCount:  AngularFireList<any>;
+  tankCount:  AngularFireList<any>;
+  shirtCount:  AngularFireList<any>;
+  cardiganCount:  AngularFireList<any>;
+  tshirtCount:  AngularFireList<any>;
+
+  pantsCount:  AngularFireList<any>;
+  jeansCount:  AngularFireList<any>;
+  shortsCount:  AngularFireList<any>;
+  skirtsCount:  AngularFireList<any>;
+  sweatpantCount:  AngularFireList<any>;
+
+  sneakersCount:  AngularFireList<any>;
+  sandalsCount:  AngularFireList<any>;
+  flatsCount:  AngularFireList<any>;
+  sportsCount:  AngularFireList<any>;
+  slippersCount:  AngularFireList<any>;
+  bootsCount:  AngularFireList<any>;
+  
+  capCount:  AngularFireList<any>;
+  sunglassesCount:  AngularFireList<any>;
+  tieCount:  AngularFireList<any>;
+  bowtieCount:  AngularFireList<any>;
+  scarfCount:  AngularFireList<any>;
 
   listOne = [];
   listTwo = [];
@@ -79,6 +111,7 @@ export class HomePage {
       this.getUserData();
       this.clothesId();
       this.getImageData();
+      this.calc();
 
       this.loading.dismiss();
     }
@@ -120,6 +153,29 @@ export class HomePage {
     this.tie = this.database.object(`users/${this.uid}/lemari_category_preview/accessories/tie/`);
     this.bowtie = this.database.object(`users/${this.uid}/lemari_category_preview/accessories/bowtie/`);
     this.scarf = this.database.object(`users/${this.uid}/lemari_category_preview/accessories/scarf/`);
+
+    //Tops Count Data
+    this.dressCount = this.database.list(`users/${this.uid}/lemari_category/tops/dress/`);
+    this.sweaterCount = this.database.list(`users/${this.uid}/lemari_category/tops/sweater/`);
+    this.tankCount = this.database.list(`users/${this.uid}/lemari_category/tops/tank/`);
+    this.shirtCount = this.database.list(`users/${this.uid}/lemari_category/tops/shirt/`);
+    this.cardiganCount = this.database.list(`users/${this.uid}/lemari_category/tops/cardigan/`);
+    this.tshirtCount = this.database.list(`users/${this.uid}/lemari_category/tops/tshirt/`);
+
+    //Bottoms Count Data
+    this.pantsCount = this.database.list(`users/${this.uid}/lemari_category/bottom/pants/`);
+    this.jeansCount = this.database.list(`users/${this.uid}/lemari_category/bottom/jeans/`);
+    this.shortsCount = this.database.list(`users/${this.uid}/lemari_category/bottom/shorts/`);
+    this.skirtsCount = this.database.list(`users/${this.uid}/lemari_category/bottom/skirts/`);
+    this.sweatpantCount = this.database.list(`users/${this.uid}/lemari_category/bottom/sweatpant/`);
+
+    //Shoes Count Data
+    this.sneakersCount = this.database.list(`users/${this.uid}/lemari_category/shoes/sneakers/`);
+    this.sandalsCount = this.database.list(`users/${this.uid}/lemari_category/shoes/sandals/`);
+    this.flatsCount = this.database.list(`users/${this.uid}/lemari_category/shoes/flats/`);
+    this.sportsCount = this.database.list(`users/${this.uid}/lemari_category/shoes/sports/`);
+    this.slippersCount = this.database.list(`users/${this.uid}/lemari_category/shoes/slippers/`);
+    this.bootsCount = this.database.list(`users/${this.uid}/lemari_category/shoes/boots/`);
  }
 
   getImageData(){
@@ -309,8 +365,105 @@ export class HomePage {
     });
   }
 
+  calc(){
+    //Tops Value
+    this.dressCount.valueChanges().subscribe(response => {
+     response.forEach(item => {
+        this.spaceArray.push(item);
+     });
+    });
+    this.sweaterCount.valueChanges().subscribe(response => {
+     response.forEach(item => {
+       this.spaceArray.push(item);
+     });
+    });
+    this.tankCount.valueChanges().subscribe(response => {
+     response.forEach(item => {
+       this.spaceArray.push(item);
+     });
+    });
+    this.shirtCount.valueChanges().subscribe(response => {
+     response.forEach(item => {
+       this.spaceArray.push(item);
+     });
+    });
+    this.cardiganCount.valueChanges().subscribe(response => {
+     response.forEach(item => {
+       this.spaceArray.push(item);
+     });
+    });
+    this.tshirtCount.valueChanges().subscribe(response => {
+     response.forEach(item => {
+       this.spaceArray.push(item);
+     });
+    });
+    
+    //Bottom Value
+    this.pantsCount.valueChanges().subscribe(response => {
+     response.forEach(item => {
+       this.spaceArrayTwo.push(item);
+     });
+    });
+    this.jeansCount.valueChanges().subscribe(response => {
+     response.forEach(item => {
+       this.spaceArrayTwo.push(item);
+     });
+    });
+    this.shortsCount.valueChanges().subscribe(response => {
+     response.forEach(item => {
+       this.spaceArrayTwo.push(item);
+     });
+    });
+    this.skirtsCount.valueChanges().subscribe(response => {
+     response.forEach(item => {
+       this.spaceArrayTwo.push(item);
+     });
+    });
+    this.sweatpantCount.valueChanges().subscribe(response => {
+     response.forEach(item => {
+       this.spaceArrayTwo.push(item);
+     });
+    });
+ 
+    //Shoes Value
+    this.sneakersCount.valueChanges().subscribe(response => {
+     response.forEach(item => {
+       this.spaceArrayThree.push(item);
+     });
+    });
+    this.sandalsCount.valueChanges().subscribe(response => {
+     response.forEach(item => {
+       this.spaceArrayThree.push(item);
+     });
+    });
+    this.flatsCount.valueChanges().subscribe(response => {
+     response.forEach(item => {
+       this.spaceArrayThree.push(item);
+     });
+    });
+    this.sportsCount.valueChanges().subscribe(response => {
+     response.forEach(item => {
+       this.spaceArrayThree.push(item);
+     });
+    });
+    this.slippersCount.valueChanges().subscribe(response => {
+     response.forEach(item => {
+       this.spaceArrayThree.push(item);
+     });
+    });
+    this.bootsCount.valueChanges().subscribe(response => {
+     response.forEach(item => {
+       this.spaceArrayThree.push(item);
+     });
+    });
+  }
+
   openShuffle() {
-    this.navCtrl.push("ShufflePage");
+    let shuffleTop = this.spaceArray.length;
+    let shuffleBottom = this.spaceArrayTwo.length;
+    let shuffleShoes = this.spaceArrayThree.length;
+
+    this.navCtrl.push(ShufflePage,{shuffleTop,shuffleBottom,shuffleShoes});
   }
 
   openGallery(category, subCategory, name) {

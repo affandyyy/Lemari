@@ -1,3 +1,4 @@
+import { TabsPage } from './../tabs/tabs';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import  * as firebase from "firebase";
@@ -68,27 +69,29 @@ export class ShufflePage {
 
   imageUrl: string
 
+  shuffleTop = 0;
+  shuffleBottom = 0;
+  shuffleShoes = 0;
+
   currentIndex = 0;
   intervalInstance;
-  cards = [
-    { value: 'http://www.yeezycustom.cn/upload/goods/Apperal/T-Shirts/LV-T-Shirts/3/LV%20short%20round%20collar%20T%20man%20M-3XL%20Apr%2024-zo01_2664518.JPG', state: 'in', color: '#F44336' },
-  ];
+  cards = [];
 
   currentIndexTWO = 0;
   intervalInstanceTWO;
-  cardsTWO = [
-    { value: 'https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_M/louis-vuitton-wool-and-cashmere-drawstring-pant-ready-to-wear--FDPA48DDU649_PM1_Side%20view.jpg?wid=614&hei=614', state: 'in', color: '#03A9F4' },
-  ];
+  cardsTWO = [];
   
   currentIndexTHREE = 0;
   intervalInstanceTHREE;
-  cardsTHREE = [
-    { value: 'https://it.louisvuitton.com/images/is/image/lv/1/PP_VP_M/louis-vuitton-scarponcino-laureate-calzature--AE8U4BSC02_PM2_Front%20view.jpg?wid=614&hei=614', state: 'in', color: '#03A9F4' },
-    { value: 'http://www.integrityfarmwi.com/images/1581/3502.jpg', state: 'out', color: '#00BCD4' },
-  ];
+  cardsTHREE = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private database: AngularFireDatabase, private zone: NgZone,private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private database: AngularFireDatabase, private alertCtrl: AlertController) {
     this.uid = firebase.auth().currentUser.uid;
+
+     //get counter
+     this.shuffleTop = this.navParams.get('shuffleTop');
+     this.shuffleBottom = this.navParams.get('shuffleBottom');
+     this.shuffleShoes = this.navParams.get('shuffleShoes');
 
      //Tops Data
      this.dress = this.database.list(`users/${this.uid}/lemari_category/tops/dress/`);
@@ -120,98 +123,204 @@ export class ShufflePage {
      this.bowtie = this.database.list(`users/${this.uid}/lemari_category/accessories/bowtie/`);
      this.scarf = this.database.list(`users/${this.uid}/lemari_category/accessories/scarf/`);
 
-    this.shuffleClothes();
+     this.conditionShuffle()
+  }
+
+  conditionShuffle(){
+    if(this.shuffleTop <= 2 || this.shuffleBottom <= 2 || this.shuffleShoes <= 2){
+      const alertItem = this.alertCtrl.create({
+        title: "Not Enough Clothes!",
+        subTitle: "Please upload 3 items each of tops, bottom, and shoes first to shuffle!",
+        buttons: [
+          {
+          text: 'Okay',
+          handler: () => {
+            this.navCtrl.setRoot(TabsPage);
+            }
+          }
+        ]
+      });
+      alertItem.present();
+    }
+    else{
+      this.shuffleClothes();
+    }
   }
 
   shuffleClothes(){
     //Tops Value
     this.dress.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.cards.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        if(this.cards.length == 1){
+          this.cards.push( { value: item.image_url, state: 'in', color: '#E91E63' },);
+        }
+        else{
+          this.cards.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        }
       });
     });
     this.sweater.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.cards.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        if(this.cards.length == 1){
+          this.cards.push( { value: item.image_url, state: 'in', color: '#E91E63' },);
+        }
+        else{
+          this.cards.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        }
       });
     });
     this.tank.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.cards.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        if(this.cards.length == 1){
+          this.cards.push( { value: item.image_url, state: 'in', color: '#E91E63' },);
+        }
+        else{
+          this.cards.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        }
       });
     });
     this.shirt.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.cards.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        if(this.cards.length == 1){
+          this.cards.push( { value: item.image_url, state: 'in', color: '#E91E63' },);
+        }
+        else{
+          this.cards.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        }
       });
     });
     this.cardigan.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.cards.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        if(this.cards.length == 1){
+          this.cards.push( { value: item.image_url, state: 'in', color: '#E91E63' },);
+        }
+        else{
+          this.cards.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        }
       });
     });
     this.tshirt.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.cards.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        if(this.cards.length == 1){
+          this.cards.push( { value: item.image_url, state: 'in', color: '#E91E63' },);
+        }
+        else{
+          this.cards.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        }
       });
     });
     
     //Bottom Value
     this.pants.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.cardsTWO.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        if(this.cardsTWO.length == 1){
+          this.cardsTWO.push( { value: item.image_url, state: 'in', color: '#E91E63' },);
+        }
+        else{
+          this.cardsTWO.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        }
       });
     });
     this.jeans.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.cardsTWO.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        if(this.cardsTWO.length == 1){
+          this.cardsTWO.push( { value: item.image_url, state: 'in', color: '#E91E63' },);
+        }
+        else{
+          this.cardsTWO.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        }
       });
     });
     this.shorts.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.cardsTWO.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        if(this.cardsTWO.length == 1){
+          this.cardsTWO.push( { value: item.image_url, state: 'in', color: '#E91E63' },);
+        }
+        else{
+          this.cardsTWO.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        }
       });
     });
     this.skirts.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.cardsTWO.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        if(this.cardsTWO.length == 1){
+          this.cardsTWO.push( { value: item.image_url, state: 'in', color: '#E91E63' },);
+        }
+        else{
+          this.cardsTWO.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        }
       });
     });
     this.sweatpant.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.cardsTWO.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        if(this.cardsTWO.length == 1){
+          this.cardsTWO.push( { value: item.image_url, state: 'in', color: '#E91E63' },);
+        }
+        else{
+          this.cardsTWO.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        }
       });
     });
 
     //Shoes Value
     this.sneakers.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.cardsTHREE.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        if(this.cardsTHREE.length == 1){
+          this.cardsTHREE.push( { value: item.image_url, state: 'in', color: '#E91E63' },);
+        }
+        else{
+          this.cardsTHREE.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        }
       });
     });
     this.sandals.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.cardsTHREE.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        if(this.cardsTHREE.length == 1){
+          this.cardsTHREE.push( { value: item.image_url, state: 'in', color: '#E91E63' },);
+        }
+        else{
+          this.cardsTHREE.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        }
       });
     });
     this.flats.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.cardsTHREE.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        if(this.cardsTHREE.length == 1){
+          this.cardsTHREE.push( { value: item.image_url, state: 'in', color: '#E91E63' },);
+        }
+        else{
+          this.cardsTHREE.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        }
       });
     });
     this.sports.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.cardsTHREE.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        if(this.cardsTHREE.length == 1){
+          this.cardsTHREE.push( { value: item.image_url, state: 'in', color: '#E91E63' },);
+        }
+        else{
+          this.cardsTHREE.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        }
       });
     });
     this.slippers.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.cardsTHREE.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        if(this.cardsTHREE.length == 1){
+          this.cardsTHREE.push( { value: item.image_url, state: 'in', color: '#E91E63' },);
+        }
+        else{
+          this.cardsTHREE.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        }
       });
     });
     this.boots.valueChanges().subscribe(response => {
       response.forEach(item => {
-        this.cardsTHREE.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        if(this.cardsTHREE.length == 1){
+          this.cardsTHREE.push( { value: item.image_url, state: 'in', color: '#E91E63' },);
+        }
+        else{
+          this.cardsTHREE.push( { value: item.image_url, state: 'out', color: '#E91E63' },);
+        }
       });
     });
   }

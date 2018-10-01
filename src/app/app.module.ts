@@ -1,3 +1,4 @@
+import { ShufflePage } from './../pages/shuffle/shuffle';
 import { SubscribePage } from './../pages/subscribe/subscribe';
 import { PaymentPage } from './../pages/payment/payment';
 import { WardrobePage } from './../pages/wardrobe/wardrobe';
@@ -66,7 +67,8 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     SubscribePage,
     SubsmaryPage,
     SubsuccessPage,
-    PaymentPage
+    PaymentPage,
+    ShufflePage
     // IntroPage
   ],
   imports: [
@@ -102,7 +104,8 @@ firebase.initializeApp(FIREBASE_CREDENTIALS)
     SubscribePage,
     SubsmaryPage,
     SubsuccessPage,
-    PaymentPage
+    PaymentPage,
+    ShufflePage
     // IntroPage
   ],
   providers: [
