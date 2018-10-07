@@ -24,9 +24,31 @@ export class HomePage {
   uid:any;
   loading: any;
 
-  spaceArray = [];
-  spaceArrayTwo = [];
-  spaceArrayThree = [];
+  spaceArrayDress = [];
+  spaceArraySweater = [];
+  spaceArrayTank = [];
+  spaceArrayShirt = [];
+  spaceArrayCardigan = [];
+  spaceArrayTshirt = [];
+
+  spaceArrayPants = [];
+  spaceArrayJeans = [];
+  spaceArrayShorts = [];
+  spaceArraySkirts = [];
+  spaceArraySweatpant = [];
+
+  spaceArraySneakers = [];
+  spaceArraySandals = [];
+  spaceArrayFlats = [];
+  spaceArraySports = [];
+  spaceArraySlippers = [];
+  spaceArrayBoots = [];
+
+  spaceArrayCap = [];
+  spaceArraySunglasses = [];
+  spaceArrayTie = [];
+  spaceArrayBowtie = [];
+  spaceArrayScarf = [];
 
   dress:  AngularFireObject<any>;
   sweater:  AngularFireObject<any>;
@@ -110,8 +132,8 @@ export class HomePage {
 
       this.getUserData();
       this.clothesId();
-      this.getImageData();
       this.calc();
+      this.getImageData();
 
       this.loading.dismiss();
     }
@@ -176,6 +198,13 @@ export class HomePage {
     this.sportsCount = this.database.list(`users/${this.uid}/lemari_category/shoes/sports/`);
     this.slippersCount = this.database.list(`users/${this.uid}/lemari_category/shoes/slippers/`);
     this.bootsCount = this.database.list(`users/${this.uid}/lemari_category/shoes/boots/`);
+
+    //Accessories Count Data
+    this.capCount = this.database.list(`users/${this.uid}/lemari_category/accessories/cap/`);
+    this.sunglassesCount = this.database.list(`users/${this.uid}/lemari_category/accessories/sunglasses/`);
+    this.tieCount = this.database.list(`users/${this.uid}/lemari_category/accessories/tie/`);
+    this.bowtieCount = this.database.list(`users/${this.uid}/lemari_category/accessories/bowtie/`);
+    this.scarfCount = this.database.list(`users/${this.uid}/lemari_category/accessories/scarf/`);
  }
 
   getImageData(){
@@ -183,184 +212,184 @@ export class HomePage {
     //Tops Image Data
     this.dress.valueChanges().subscribe(response => {
       if(response==null){
-        this.listOne.push({id: "1", title: "tops", subTitle: "dress", name: "Dress", image: "./assets/imgs/card/blouse.jpg"});
+        this.listOne.push({id: "1", title: "tops", subTitle: "dress", name: "Dress " + this.spaceArrayDress.length, image: "./assets/imgs/card/blouse.jpg"});
       }
       else{
-        this.listOne.push({id: "1", title: "tops", subTitle: "dress", name: "Dress", image: response.image_url});
+        this.listOne.push({id: "1", title: "tops", subTitle: "dress", name: "Dress " + this.spaceArrayDress.length, image: response.image_url});
       }
     });
     this.sweater.valueChanges().subscribe(response => {
       if(response==null){
-        this.listOne.push({id: "2", title: "tops", subTitle: "sweater", name: "Sweater", image: "./assets/imgs/card/sweater.png"});
+        this.listOne.push({id: "2", title: "tops", subTitle: "sweater", name: "Sweater " + this.spaceArraySweater.length, image: "./assets/imgs/card/sweater.png"});
       }
       else{
-        this.listOne.push({id: "2", title: "tops", subTitle: "sweater", name: "Sweater", image: response.image_url});
+        this.listOne.push({id: "2", title: "tops", subTitle: "sweater", name: "Sweater " + this.spaceArraySweater.length, image: response.image_url});
       }
     });
     this.tank.valueChanges().subscribe(response => {
       if(response==null){
-        this.listOne.push({id: "3", title: "tops", subTitle: "tank", name: "Tank", image: "./assets/imgs/card/tank.jpg"});
+        this.listOne.push({id: "3", title: "tops", subTitle: "tank", name: "Tank " + this.spaceArrayTank.length, image: "./assets/imgs/card/tank.jpg"});
       }
       else{
-        this.listOne.push({id: "3", title: "tops", subTitle: "tank", name: "Tank", image: response.image_url});
+        this.listOne.push({id: "3", title: "tops", subTitle: "tank", name: "Tank " + this.spaceArrayTank.length, image: response.image_url});
       }
     });
     this.shirt.valueChanges().subscribe(response => {
       if(response==null){
-        this.listOne.push( {id: "4", title: "tops", subTitle: "shirt", name: "Shirt", image: "./assets/imgs/card/shirt.jpg"});
+        this.listOne.push( {id: "4", title: "tops", subTitle: "shirt", name: "Shirt " + this.spaceArrayShirt.length, image: "./assets/imgs/card/shirt.jpg"});
       }
       else{
-        this.listOne.push({id: "4", title: "tops", subTitle: "shirt", name: "Shirt", image: response.image_url});
+        this.listOne.push({id: "4", title: "tops", subTitle: "shirt", name: "Shirt " + this.spaceArrayShirt.length, image: response.image_url});
       }
     });
     this.cardigan.valueChanges().subscribe(response => {
       if(response==null){
-        this.listOne.push({id: "5", title: "tops", subTitle: "cardigan", name: "Cardigan", image: "./assets/imgs/card/cardigan.jpg"});
+        this.listOne.push({id: "5", title: "tops", subTitle: "cardigan", name: "Cardigan " + this.spaceArrayCardigan.length, image: "./assets/imgs/card/cardigan.jpg"});
       }
       else{
-        this.listOne.push({id: "5", title: "tops", subTitle: "cardigan", name: "Cardigan", image: response.image_url});
+        this.listOne.push({id: "5", title: "tops", subTitle: "cardigan", name: "Cardigan " + this.spaceArrayCardigan.length, image: response.image_url});
       }
     });
     this.tshirt.valueChanges().subscribe(response => {
       if(response==null){
-        this.listOne.push({id: "6", title: "tops", subTitle: "tshirt", name: "T-Shirt", image: "./assets/imgs/card/shirt.jpg"});
+        this.listOne.push({id: "6", title: "tops", subTitle: "tshirt", name: "T-Shirt " + this.spaceArrayTshirt.length, image: "./assets/imgs/card/shirt.jpg"});
       }
       else{
-        this.listOne.push({id: "6", title: "tops", subTitle: "tshirt", name: "T-Shirt", image: response.image_url});
+        this.listOne.push({id: "6", title: "tops", subTitle: "tshirt", name: "T-Shirt " + this.spaceArrayTshirt.length, image: response.image_url});
       }
     });
 
     //Bottoms Image Data
     this.pants.valueChanges().subscribe(response => {
       if(response==null){
-        this.listTwo.push({id: "1", title: "bottom", subTitle: "pants", name: "Pants", image: "./assets/imgs/card/pants.jpg"});
+        this.listTwo.push({id: "1", title: "bottom", subTitle: "pants", name: "Pants " + this.spaceArrayPants.length, image: "./assets/imgs/card/pants.jpg"});
       }
       else{
-        this.listTwo.push({id: "1", title: "bottom", subTitle: "pants", name: "Pants", image: response.image_url});
+        this.listTwo.push({id: "1", title: "bottom", subTitle: "pants", name: "Pants " + this.spaceArrayPants.length, image: response.image_url});
       }
     });
     this.jeans.valueChanges().subscribe(response => {
       if(response==null){
-        this.listTwo.push({id: "2", title: "bottom",subTitle: "jeans",name: "Jeans", image: "./assets/imgs/card/jeans.png"});
+        this.listTwo.push({id: "2", title: "bottom",subTitle: "jeans",name: "Jeans " + this.spaceArrayJeans.length, image: "./assets/imgs/card/jeans.png"});
       }
       else{
-        this.listTwo.push({id: "2", title: "bottom",subTitle: "jeans",name: "Jeans", image: response.image_url});
+        this.listTwo.push({id: "2", title: "bottom",subTitle: "jeans",name: "Jeans " + this.spaceArrayJeans.length, image: response.image_url});
       }
     });
     this.shorts.valueChanges().subscribe(response => {
       if(response==null){
-        this.listTwo.push({id: "3", title: "bottom", subTitle: "shorts", name: "Shorts", image: "./assets/imgs/card/shorts.jpg"});
+        this.listTwo.push({id: "3", title: "bottom", subTitle: "shorts", name: "Shorts " + this.spaceArrayShorts.length, image: "./assets/imgs/card/shorts.jpg"});
       }
       else{
-        this.listTwo.push({id: "3", title: "bottom", subTitle: "shorts", name: "Shorts", image: response.image_url});
+        this.listTwo.push({id: "3", title: "bottom", subTitle: "shorts", name: "Shorts " + this.spaceArrayShorts.length, image: response.image_url});
       }
     });
     this.skirts.valueChanges().subscribe(response => {
       if(response==null){
-        this.listTwo.push({id: "4", title: "bottom", subTitle: "skirts", name: "Skirts", image: "./assets/imgs/card/skirts.jpg"});
+        this.listTwo.push({id: "4", title: "bottom", subTitle: "skirts", name: "Skirts " + this.spaceArraySkirts.length, image: "./assets/imgs/card/skirts.jpg"});
       }
       else{
-        this.listTwo.push({id: "4", title: "bottom", subTitle: "skirts", name: "Skirts", image: response.image_url});
+        this.listTwo.push({id: "4", title: "bottom", subTitle: "skirts", name: "Skirts " + this.spaceArraySkirts.length, image: response.image_url});
       }
     });
     this.sweatpant.valueChanges().subscribe(response => {
       if(response==null){
-        this.listTwo.push({id: "5", title: "bottom", subTitle: "sweatpant", name: "Sweat Pant", image: "./assets/imgs/card/sweat.jpg"});
+        this.listTwo.push({id: "5", title: "bottom", subTitle: "sweatpant", name: "Sweat Pant " + this.spaceArraySweatpant.length, image: "./assets/imgs/card/sweat.jpg"});
       }
       else{
-        this.listTwo.push({id: "5", title: "bottom", subTitle: "sweatpant", name: "Sweat Pant", image: response.image_url});
+        this.listTwo.push({id: "5", title: "bottom", subTitle: "sweatpant", name: "Sweat Pant " + this.spaceArraySweatpant.length, image: response.image_url});
       }
     });
 
      //Shoes Image Data
      this.sneakers.valueChanges().subscribe(response => {
       if(response==null){
-        this.listThree.push({id: "1", title: "shoes", subTitle: "sneakers", name: "Sneakers", image: "./assets/imgs/card/shoes.jpg"});
+        this.listThree.push({id: "1", title: "shoes", subTitle: "sneakers", name: "Sneakers " + this.spaceArraySneakers.length, image: "./assets/imgs/card/shoes.jpg"});
       }
       else{
-        this.listThree.push({id: "1", title: "shoes", subTitle: "sneakers", name: "Sneakers", image: response.image_url});
+        this.listThree.push({id: "1", title: "shoes", subTitle: "sneakers", name: "Sneakers " + this.spaceArraySneakers.length, image: response.image_url});
       }
     });
     this.sandals.valueChanges().subscribe(response => {
       if(response==null){
-        this.listThree.push({id: "2", title: "shoes", subTitle: "sandal", name: "Sandal", image: "./assets/imgs/card/sandals.jpg"});
+        this.listThree.push({id: "2", title: "shoes", subTitle: "sandal", name: "Sandal " + this.spaceArraySandals.length, image: "./assets/imgs/card/sandals.jpg"});
       }
       else{
-        this.listThree.push({id: "2", title: "shoes", subTitle: "sandal", name: "Sandal", image: response.image_url});
+        this.listThree.push({id: "2", title: "shoes", subTitle: "sandal", name: "Sandal " + this.spaceArraySandals.length, image: response.image_url});
       }
     });
     this.flats.valueChanges().subscribe(response => {
       if(response==null){
-        this.listThree.push({id: "3", title: "shoes", subTitle: "flats", name: "Flats", image: "./assets/imgs/card/flat.jpg"});
+        this.listThree.push({id: "3", title: "shoes", subTitle: "flats", name: "Flats " + this.spaceArrayFlats.length, image: "./assets/imgs/card/flat.jpg"});
       }
       else{
-        this.listThree.push({id: "3", title: "shoes", subTitle: "flats", name: "Flats", image: response.image_url});
+        this.listThree.push({id: "3", title: "shoes", subTitle: "flats", name: "Flats " + this.spaceArrayFlats.length, image: response.image_url});
       }
     });
     this.sports.valueChanges().subscribe(response => {
       if(response==null){
-        this.listThree.push({id: "4", title: "shoes", subTitle: "sports", name: "Sports", image: "./assets/imgs/card/sport.jpg"});
+        this.listThree.push({id: "4", title: "shoes", subTitle: "sports", name: "Sports " + this.spaceArraySports.length, image: "./assets/imgs/card/sport.jpg"});
       }
       else{
-        this.listThree.push({id: "4", title: "shoes", subTitle: "sports", name: "Sports", image: response.image_url});
+        this.listThree.push({id: "4", title: "shoes", subTitle: "sports", name: "Sports " + this.spaceArraySports.length, image: response.image_url});
       }
     });
     this.slippers.valueChanges().subscribe(response => {
       if(response==null){
-        this.listThree.push({id: "5", title: "shoes", subTitle: "slippers", name: "Slippers", image: "./assets/imgs/card/slipper.jpg"});
+        this.listThree.push({id: "5", title: "shoes", subTitle: "slippers", name: "Slippers " + this.spaceArraySlippers.length, image: "./assets/imgs/card/slipper.jpg"});
       }
       else{
-        this.listThree.push({id: "5", title: "shoes", subTitle: "slippers", name: "Slippers", image: response.image_url});
+        this.listThree.push({id: "5", title: "shoes", subTitle: "slippers", name: "Slippers " + this.spaceArraySlippers.length, image: response.image_url});
       }
     });
     this.boots.valueChanges().subscribe(response => {
       if(response==null){
-        this.listThree.push({id: "6", title: "shoes", subTitle: "boots", name: "Boots", image: "./assets/imgs/card/boots.jpg"});
+        this.listThree.push({id: "6", title: "shoes", subTitle: "boots", name: "Boots " + this.spaceArrayBoots.length, image: "./assets/imgs/card/boots.jpg"});
       }
       else{
-        this.listThree.push({id: "6", title: "shoes", subTitle: "boots", name: "Boots", image: response.image_url});
+        this.listThree.push({id: "6", title: "shoes", subTitle: "boots", name: "Boots " + this.spaceArrayBoots.length, image: response.image_url});
       }
     });
 
     //Accessories Image Data
     this.cap.valueChanges().subscribe(response => {
       if(response==null){
-        this.listFour.push({id: "1", title: "accessories", subTitle: "Cap", name: "Cap", image: "./assets/imgs/card/hat.png"});
+        this.listFour.push({id: "1", title: "accessories", subTitle: "Cap", name: "Cap " + this.spaceArrayCap.length, image: "./assets/imgs/card/hat.png"});
       }
       else{
-        this.listFour.push({id: "1", title: "accessories", subTitle: "Cap", name: "Cap", image: response.image_url});
+        this.listFour.push({id: "1", title: "accessories", subTitle: "Cap", name: "Cap " + this.spaceArrayCap.length, image: response.image_url});
       }
     });
     this.sunglasses.valueChanges().subscribe(response => {
       if(response==null){
-        this.listFour.push({id: "2", title: "accessories", subTitle: "sunglasses", name: "Sunglasses", image: "./assets/imgs/card/glass.png"});
+        this.listFour.push({id: "2", title: "accessories", subTitle: "sunglasses", name: "Sunglasses " + this.spaceArraySunglasses.length, image: "./assets/imgs/card/glass.png"});
       }
       else{
-        this.listFour.push({id: "2", title: "accessories", subTitle: "sunglasses", name: "Sunglasses", image: response.image_url});
+        this.listFour.push({id: "2", title: "accessories", subTitle: "sunglasses", name: "Sunglasses " + this.spaceArraySunglasses.length, image: response.image_url});
       }
     });
     this.tie.valueChanges().subscribe(response => {
       if(response==null){
-        this.listFour.push({id: "3", title: "accessories", subTitle: "tie", name: "Tie", image: "./assets/imgs/card/tie.jpg"});
+        this.listFour.push({id: "3", title: "accessories", subTitle: "tie", name: "Tie " + this.spaceArrayTie.length, image: "./assets/imgs/card/tie.jpg"});
       }
       else{
-        this.listFour.push({id: "3", title: "accessories", subTitle: "tie", name: "Tie", image: response.image_url});
+        this.listFour.push({id: "3", title: "accessories", subTitle: "tie", name: "Tie " + this.spaceArrayTie.length, image: response.image_url});
       }
     });
     this.bowtie.valueChanges().subscribe(response => {
       if(response==null){
-        this.listFour.push({id: "4", title: "accessories", subTitle: "bowtie", name: "Bowtie", image: "./assets/imgs/card/bow.jpg"});
+        this.listFour.push({id: "4", title: "accessories", subTitle: "bowtie", name: "Bowtie " + this.spaceArrayBowtie.length, image: "./assets/imgs/card/bow.jpg"});
       }
       else{
-        this.listFour.push({id: "4", title: "accessories", subTitle: "bowtie", name: "Bowtie", image: response.image_url});
+        this.listFour.push({id: "4", title: "accessories", subTitle: "bowtie", name: "Bowtie " + this.spaceArrayBowtie.length, image: response.image_url});
       }
     });
     this.scarf.valueChanges().subscribe(response => {
       if(response==null){
-        this.listFour.push({id: "5", title: "accessories", subTitle: "scarf", name: "Sweat Scarf", image: "./assets/imgs/card/scarf.png"});
+        this.listFour.push({id: "5", title: "accessories", subTitle: "scarf", name: "Sweat Scarf " + this.spaceArrayScarf.length, image: "./assets/imgs/card/scarf.png"});
       }
       else{
-        this.listFour.push({id: "5", title: "accessories", subTitle: "scarf", name: "Sweat Scarf", image: response.image_url});
+        this.listFour.push({id: "5", title: "accessories", subTitle: "scarf", name: "Sweat Scarf " + this.spaceArrayScarf.length, image: response.image_url});
       }
     });
   }
@@ -369,99 +398,126 @@ export class HomePage {
     //Tops Value
     this.dressCount.valueChanges().subscribe(response => {
      response.forEach(item => {
-        this.spaceArray.push(item);
+        this.spaceArrayDress.push(item);
      });
     });
     this.sweaterCount.valueChanges().subscribe(response => {
      response.forEach(item => {
-       this.spaceArray.push(item);
+       this.spaceArraySweater.push(item);
      });
     });
     this.tankCount.valueChanges().subscribe(response => {
      response.forEach(item => {
-       this.spaceArray.push(item);
+       this.spaceArrayTank.push(item);
      });
     });
     this.shirtCount.valueChanges().subscribe(response => {
      response.forEach(item => {
-       this.spaceArray.push(item);
+       this.spaceArrayShirt.push(item);
      });
     });
     this.cardiganCount.valueChanges().subscribe(response => {
      response.forEach(item => {
-       this.spaceArray.push(item);
+       this.spaceArrayCardigan.push(item);
      });
     });
     this.tshirtCount.valueChanges().subscribe(response => {
      response.forEach(item => {
-       this.spaceArray.push(item);
+       this.spaceArrayTshirt.push(item);
      });
     });
     
     //Bottom Value
     this.pantsCount.valueChanges().subscribe(response => {
      response.forEach(item => {
-       this.spaceArrayTwo.push(item);
+       this.spaceArrayPants.push(item);
      });
     });
     this.jeansCount.valueChanges().subscribe(response => {
      response.forEach(item => {
-       this.spaceArrayTwo.push(item);
+       this.spaceArrayJeans.push(item);
      });
     });
     this.shortsCount.valueChanges().subscribe(response => {
      response.forEach(item => {
-       this.spaceArrayTwo.push(item);
+       this.spaceArrayShorts.push(item);
      });
     });
     this.skirtsCount.valueChanges().subscribe(response => {
      response.forEach(item => {
-       this.spaceArrayTwo.push(item);
+       this.spaceArraySkirts.push(item);
      });
     });
     this.sweatpantCount.valueChanges().subscribe(response => {
      response.forEach(item => {
-       this.spaceArrayTwo.push(item);
+       this.spaceArraySweatpant.push(item);
      });
     });
  
     //Shoes Value
     this.sneakersCount.valueChanges().subscribe(response => {
      response.forEach(item => {
-       this.spaceArrayThree.push(item);
+       this.spaceArraySneakers.push(item);
      });
     });
     this.sandalsCount.valueChanges().subscribe(response => {
      response.forEach(item => {
-       this.spaceArrayThree.push(item);
+       this.spaceArraySandals.push(item);
      });
     });
     this.flatsCount.valueChanges().subscribe(response => {
      response.forEach(item => {
-       this.spaceArrayThree.push(item);
+       this.spaceArrayFlats.push(item);
      });
     });
     this.sportsCount.valueChanges().subscribe(response => {
      response.forEach(item => {
-       this.spaceArrayThree.push(item);
+       this.spaceArraySports.push(item);
      });
     });
     this.slippersCount.valueChanges().subscribe(response => {
      response.forEach(item => {
-       this.spaceArrayThree.push(item);
+       this.spaceArraySlippers.push(item);
      });
     });
     this.bootsCount.valueChanges().subscribe(response => {
      response.forEach(item => {
-       this.spaceArrayThree.push(item);
+       this.spaceArrayBoots.push(item);
      });
     });
+
+    //Accessories Value
+   this.capCount.valueChanges().subscribe(response => {
+    response.forEach(item => {
+      this.spaceArrayCap.push(item);
+    });
+   });
+   this.sunglassesCount.valueChanges().subscribe(response => {
+    response.forEach(item => {
+      this.spaceArraySunglasses.push(item);
+    });
+   });
+   this.tieCount.valueChanges().subscribe(response => {
+    response.forEach(item => {
+      this.spaceArrayTie.push(item);
+    });
+   });
+   this.bowtieCount.valueChanges().subscribe(response => {
+    response.forEach(item => {
+      this.spaceArrayBowtie.push(item);
+    });
+   });
+   this.scarfCount.valueChanges().subscribe(response => {
+    response.forEach(item => {
+      this.spaceArrayScarf.push(item);
+    });
+   });
   }
 
   openShuffle() {
-    let shuffleTop = this.spaceArray.length;
-    let shuffleBottom = this.spaceArrayTwo.length;
-    let shuffleShoes = this.spaceArrayThree.length;
+    let shuffleTop = this.spaceArrayDress.length + this.spaceArraySweater.length + this.spaceArrayTank.length + this.spaceArrayShirt.length + this.spaceArrayCardigan.length + this.spaceArrayTshirt.length;
+    let shuffleBottom = this.spaceArrayPants.length + this.spaceArrayJeans.length + this.spaceArrayShorts.length + this.spaceArraySkirts.length + this.spaceArraySweatpant.length;
+    let shuffleShoes = this.spaceArraySneakers.length + this.spaceArraySandals.length + this.spaceArrayFlats.length + this.spaceArraySports.length + this.spaceArraySlippers.length + this.spaceArrayBoots.length;
 
     this.navCtrl.push(ShufflePage,{shuffleTop,shuffleBottom,shuffleShoes});
   }
