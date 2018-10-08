@@ -143,11 +143,12 @@ ion-modal.inset-modal {
   .notify-bubble {
     position: absolute;
     top: 1px;
-    margin-left: 91px;
-    padding: 3px 5px;
+    margin-left: 80px;
+    padding: 5px 9px;
     background-color: red;
     color: white;
-    font-size: 10px;
+    font-size: 12px;
+    font-weight: bold;
     border-radius: 25px;
     box-shadow: 1px 1px 1px gray;
   
