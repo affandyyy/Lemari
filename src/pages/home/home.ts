@@ -208,188 +208,187 @@ export class HomePage {
  }
 
   getImageData(){
-
     //Tops Image Data
     this.dress.valueChanges().subscribe(response => {
       if(response==null){
-        this.listOne.push({id: "1", title: "tops", subTitle: "dress", name: "Dress " + this.spaceArrayDress.length, image: "./assets/imgs/card/blouse.jpg"});
+        this.listOne.push({id: "1", title: "tops", subTitle: "dress", name: "Dress", count: this.spaceArrayDress.length, image: "./assets/imgs/card/blouse.jpg"});
       }
       else{
-        this.listOne.push({id: "1", title: "tops", subTitle: "dress", name: "Dress " + this.spaceArrayDress.length, image: response.image_url});
+        this.listOne.push({id: "1", title: "tops", subTitle: "dress", name: "Dress", count: this.spaceArrayDress.length, image: response.image_url});
       }
     });
     this.sweater.valueChanges().subscribe(response => {
       if(response==null){
-        this.listOne.push({id: "2", title: "tops", subTitle: "sweater", name: "Sweater " + this.spaceArraySweater.length, image: "./assets/imgs/card/sweater.png"});
+        this.listOne.push({id: "2", title: "tops", subTitle: "sweater", name: "Sweater ", count: this.spaceArraySweater.length, image: "./assets/imgs/card/sweater.png"});
       }
       else{
-        this.listOne.push({id: "2", title: "tops", subTitle: "sweater", name: "Sweater " + this.spaceArraySweater.length, image: response.image_url});
+        this.listOne.push({id: "2", title: "tops", subTitle: "sweater", name: "Sweater ", count: this.spaceArraySweater.length, image: response.image_url});
       }
     });
     this.tank.valueChanges().subscribe(response => {
       if(response==null){
-        this.listOne.push({id: "3", title: "tops", subTitle: "tank", name: "Tank " + this.spaceArrayTank.length, image: "./assets/imgs/card/tank.jpg"});
+        this.listOne.push({id: "3", title: "tops", subTitle: "tank", name: "Tank ", count: this.spaceArrayTank.length, image: "./assets/imgs/card/tank.jpg"});
       }
       else{
-        this.listOne.push({id: "3", title: "tops", subTitle: "tank", name: "Tank " + this.spaceArrayTank.length, image: response.image_url});
+        this.listOne.push({id: "3", title: "tops", subTitle: "tank", name: "Tank ", count: this.spaceArrayTank.length, image: response.image_url});
       }
     });
     this.shirt.valueChanges().subscribe(response => {
       if(response==null){
-        this.listOne.push( {id: "4", title: "tops", subTitle: "shirt", name: "Shirt " + this.spaceArrayShirt.length, image: "./assets/imgs/card/shirt.jpg"});
+        this.listOne.push( {id: "4", title: "tops", subTitle: "shirt", name: "Shirt ", count: this.spaceArrayShirt.length, image: "./assets/imgs/card/shirt.jpg"});
       }
       else{
-        this.listOne.push({id: "4", title: "tops", subTitle: "shirt", name: "Shirt " + this.spaceArrayShirt.length, image: response.image_url});
+        this.listOne.push({id: "4", title: "tops", subTitle: "shirt", name: "Shirt ", count: this.spaceArrayShirt.length, image: response.image_url});
       }
     });
     this.cardigan.valueChanges().subscribe(response => {
       if(response==null){
-        this.listOne.push({id: "5", title: "tops", subTitle: "cardigan", name: "Cardigan " + this.spaceArrayCardigan.length, image: "./assets/imgs/card/cardigan.jpg"});
+        this.listOne.push({id: "5", title: "tops", subTitle: "cardigan", name: "Cardigan ", count: this.spaceArrayCardigan.length, image: "./assets/imgs/card/cardigan.jpg"});
       }
       else{
-        this.listOne.push({id: "5", title: "tops", subTitle: "cardigan", name: "Cardigan " + this.spaceArrayCardigan.length, image: response.image_url});
+        this.listOne.push({id: "5", title: "tops", subTitle: "cardigan", name: "Cardigan ", count: this.spaceArrayCardigan.length, image: response.image_url});
       }
     });
     this.tshirt.valueChanges().subscribe(response => {
       if(response==null){
-        this.listOne.push({id: "6", title: "tops", subTitle: "tshirt", name: "T-Shirt " + this.spaceArrayTshirt.length, image: "./assets/imgs/card/shirt.jpg"});
+        this.listOne.push({id: "6", title: "tops", subTitle: "tshirt", name: "T-Shirt ", count: this.spaceArrayTshirt.length, image: "./assets/imgs/card/shirt.jpg"});
       }
       else{
-        this.listOne.push({id: "6", title: "tops", subTitle: "tshirt", name: "T-Shirt " + this.spaceArrayTshirt.length, image: response.image_url});
+        this.listOne.push({id: "6", title: "tops", subTitle: "tshirt", name: "T-Shirt ", count: this.spaceArrayTshirt.length, image: response.image_url});
       }
     });
 
     //Bottoms Image Data
     this.pants.valueChanges().subscribe(response => {
       if(response==null){
-        this.listTwo.push({id: "1", title: "bottom", subTitle: "pants", name: "Pants " + this.spaceArrayPants.length, image: "./assets/imgs/card/pants.jpg"});
+        this.listTwo.push({id: "1", title: "bottom", subTitle: "pants", name: "Pants ", count: this.spaceArrayPants.length, image: "./assets/imgs/card/pants.jpg"});
       }
       else{
-        this.listTwo.push({id: "1", title: "bottom", subTitle: "pants", name: "Pants " + this.spaceArrayPants.length, image: response.image_url});
+        this.listTwo.push({id: "1", title: "bottom", subTitle: "pants", name: "Pants ", count: this.spaceArrayPants.length, image: response.image_url});
       }
     });
     this.jeans.valueChanges().subscribe(response => {
       if(response==null){
-        this.listTwo.push({id: "2", title: "bottom",subTitle: "jeans",name: "Jeans " + this.spaceArrayJeans.length, image: "./assets/imgs/card/jeans.png"});
+        this.listTwo.push({id: "2", title: "bottom",subTitle: "jeans",name: "Jeans ", count: this.spaceArrayJeans.length, image: "./assets/imgs/card/jeans.png"});
       }
       else{
-        this.listTwo.push({id: "2", title: "bottom",subTitle: "jeans",name: "Jeans " + this.spaceArrayJeans.length, image: response.image_url});
+        this.listTwo.push({id: "2", title: "bottom",subTitle: "jeans",name: "Jeans ", count: this.spaceArrayJeans.length, image: response.image_url});
       }
     });
     this.shorts.valueChanges().subscribe(response => {
       if(response==null){
-        this.listTwo.push({id: "3", title: "bottom", subTitle: "shorts", name: "Shorts " + this.spaceArrayShorts.length, image: "./assets/imgs/card/shorts.jpg"});
+        this.listTwo.push({id: "3", title: "bottom", subTitle: "shorts", name: "Shorts ", count: this.spaceArrayShorts.length, image: "./assets/imgs/card/shorts.jpg"});
       }
       else{
-        this.listTwo.push({id: "3", title: "bottom", subTitle: "shorts", name: "Shorts " + this.spaceArrayShorts.length, image: response.image_url});
+        this.listTwo.push({id: "3", title: "bottom", subTitle: "shorts", name: "Shorts ", count: this.spaceArrayShorts.length, image: response.image_url});
       }
     });
     this.skirts.valueChanges().subscribe(response => {
       if(response==null){
-        this.listTwo.push({id: "4", title: "bottom", subTitle: "skirts", name: "Skirts " + this.spaceArraySkirts.length, image: "./assets/imgs/card/skirts.jpg"});
+        this.listTwo.push({id: "4", title: "bottom", subTitle: "skirts", name: "Skirts ", count: this.spaceArraySkirts.length, image: "./assets/imgs/card/skirts.jpg"});
       }
       else{
-        this.listTwo.push({id: "4", title: "bottom", subTitle: "skirts", name: "Skirts " + this.spaceArraySkirts.length, image: response.image_url});
+        this.listTwo.push({id: "4", title: "bottom", subTitle: "skirts", name: "Skirts ", count: this.spaceArraySkirts.length, image: response.image_url});
       }
     });
     this.sweatpant.valueChanges().subscribe(response => {
       if(response==null){
-        this.listTwo.push({id: "5", title: "bottom", subTitle: "sweatpant", name: "Sweat Pant " + this.spaceArraySweatpant.length, image: "./assets/imgs/card/sweat.jpg"});
+        this.listTwo.push({id: "5", title: "bottom", subTitle: "sweatpant", name: "Sweat Pant ", count: this.spaceArraySweatpant.length, image: "./assets/imgs/card/sweat.jpg"});
       }
       else{
-        this.listTwo.push({id: "5", title: "bottom", subTitle: "sweatpant", name: "Sweat Pant " + this.spaceArraySweatpant.length, image: response.image_url});
+        this.listTwo.push({id: "5", title: "bottom", subTitle: "sweatpant", name: "Sweat Pant ", count: this.spaceArraySweatpant.length, image: response.image_url});
       }
     });
 
      //Shoes Image Data
      this.sneakers.valueChanges().subscribe(response => {
       if(response==null){
-        this.listThree.push({id: "1", title: "shoes", subTitle: "sneakers", name: "Sneakers " + this.spaceArraySneakers.length, image: "./assets/imgs/card/shoes.jpg"});
+        this.listThree.push({id: "1", title: "shoes", subTitle: "sneakers", name: "Sneakers ", count: this.spaceArraySneakers.length, image: "./assets/imgs/card/shoes.jpg"});
       }
       else{
-        this.listThree.push({id: "1", title: "shoes", subTitle: "sneakers", name: "Sneakers " + this.spaceArraySneakers.length, image: response.image_url});
+        this.listThree.push({id: "1", title: "shoes", subTitle: "sneakers", name: "Sneakers ", count: this.spaceArraySneakers.length, image: response.image_url});
       }
     });
     this.sandals.valueChanges().subscribe(response => {
       if(response==null){
-        this.listThree.push({id: "2", title: "shoes", subTitle: "sandal", name: "Sandal " + this.spaceArraySandals.length, image: "./assets/imgs/card/sandals.jpg"});
+        this.listThree.push({id: "2", title: "shoes", subTitle: "sandal", name: "Sandal ", count: this.spaceArraySandals.length, image: "./assets/imgs/card/sandals.jpg"});
       }
       else{
-        this.listThree.push({id: "2", title: "shoes", subTitle: "sandal", name: "Sandal " + this.spaceArraySandals.length, image: response.image_url});
+        this.listThree.push({id: "2", title: "shoes", subTitle: "sandal", name: "Sandal ", count: this.spaceArraySandals.length, image: response.image_url});
       }
     });
     this.flats.valueChanges().subscribe(response => {
       if(response==null){
-        this.listThree.push({id: "3", title: "shoes", subTitle: "flats", name: "Flats " + this.spaceArrayFlats.length, image: "./assets/imgs/card/flat.jpg"});
+        this.listThree.push({id: "3", title: "shoes", subTitle: "flats", name: "Flats ", count: this.spaceArrayFlats.length, image: "./assets/imgs/card/flat.jpg"});
       }
       else{
-        this.listThree.push({id: "3", title: "shoes", subTitle: "flats", name: "Flats " + this.spaceArrayFlats.length, image: response.image_url});
+        this.listThree.push({id: "3", title: "shoes", subTitle: "flats", name: "Flats ", count: this.spaceArrayFlats.length, image: response.image_url});
       }
     });
     this.sports.valueChanges().subscribe(response => {
       if(response==null){
-        this.listThree.push({id: "4", title: "shoes", subTitle: "sports", name: "Sports " + this.spaceArraySports.length, image: "./assets/imgs/card/sport.jpg"});
+        this.listThree.push({id: "4", title: "shoes", subTitle: "sports", name: "Sports ", count: this.spaceArraySports.length, image: "./assets/imgs/card/sport.jpg"});
       }
       else{
-        this.listThree.push({id: "4", title: "shoes", subTitle: "sports", name: "Sports " + this.spaceArraySports.length, image: response.image_url});
+        this.listThree.push({id: "4", title: "shoes", subTitle: "sports", name: "Sports ", count: this.spaceArraySports.length, image: response.image_url});
       }
     });
     this.slippers.valueChanges().subscribe(response => {
       if(response==null){
-        this.listThree.push({id: "5", title: "shoes", subTitle: "slippers", name: "Slippers " + this.spaceArraySlippers.length, image: "./assets/imgs/card/slipper.jpg"});
+        this.listThree.push({id: "5", title: "shoes", subTitle: "slippers", name: "Slippers ", count: this.spaceArraySlippers.length, image: "./assets/imgs/card/slipper.jpg"});
       }
       else{
-        this.listThree.push({id: "5", title: "shoes", subTitle: "slippers", name: "Slippers " + this.spaceArraySlippers.length, image: response.image_url});
+        this.listThree.push({id: "5", title: "shoes", subTitle: "slippers", name: "Slippers ", count: this.spaceArraySlippers.length, image: response.image_url});
       }
     });
     this.boots.valueChanges().subscribe(response => {
       if(response==null){
-        this.listThree.push({id: "6", title: "shoes", subTitle: "boots", name: "Boots " + this.spaceArrayBoots.length, image: "./assets/imgs/card/boots.jpg"});
+        this.listThree.push({id: "6", title: "shoes", subTitle: "boots", name: "Boots ", count: this.spaceArrayBoots.length, image: "./assets/imgs/card/boots.jpg"});
       }
       else{
-        this.listThree.push({id: "6", title: "shoes", subTitle: "boots", name: "Boots " + this.spaceArrayBoots.length, image: response.image_url});
+        this.listThree.push({id: "6", title: "shoes", subTitle: "boots", name: "Boots ", count: this.spaceArrayBoots.length, image: response.image_url});
       }
     });
 
     //Accessories Image Data
     this.cap.valueChanges().subscribe(response => {
       if(response==null){
-        this.listFour.push({id: "1", title: "accessories", subTitle: "Cap", name: "Cap " + this.spaceArrayCap.length, image: "./assets/imgs/card/hat.png"});
+        this.listFour.push({id: "1", title: "accessories", subTitle: "Cap", name: "Cap ", count: this.spaceArrayCap.length, image: "./assets/imgs/card/hat.png"});
       }
       else{
-        this.listFour.push({id: "1", title: "accessories", subTitle: "Cap", name: "Cap " + this.spaceArrayCap.length, image: response.image_url});
+        this.listFour.push({id: "1", title: "accessories", subTitle: "Cap", name: "Cap ", count: this.spaceArrayCap.length, image: response.image_url});
       }
     });
     this.sunglasses.valueChanges().subscribe(response => {
       if(response==null){
-        this.listFour.push({id: "2", title: "accessories", subTitle: "sunglasses", name: "Sunglasses " + this.spaceArraySunglasses.length, image: "./assets/imgs/card/glass.png"});
+        this.listFour.push({id: "2", title: "accessories", subTitle: "sunglasses", name: "Sunglasses ", count: this.spaceArraySunglasses.length, image: "./assets/imgs/card/glass.png"});
       }
       else{
-        this.listFour.push({id: "2", title: "accessories", subTitle: "sunglasses", name: "Sunglasses " + this.spaceArraySunglasses.length, image: response.image_url});
+        this.listFour.push({id: "2", title: "accessories", subTitle: "sunglasses", name: "Sunglasses ", count: this.spaceArraySunglasses.length, image: response.image_url});
       }
     });
     this.tie.valueChanges().subscribe(response => {
       if(response==null){
-        this.listFour.push({id: "3", title: "accessories", subTitle: "tie", name: "Tie " + this.spaceArrayTie.length, image: "./assets/imgs/card/tie.jpg"});
+        this.listFour.push({id: "3", title: "accessories", subTitle: "tie", name: "Tie ", count: this.spaceArrayTie.length, image: "./assets/imgs/card/tie.jpg"});
       }
       else{
-        this.listFour.push({id: "3", title: "accessories", subTitle: "tie", name: "Tie " + this.spaceArrayTie.length, image: response.image_url});
+        this.listFour.push({id: "3", title: "accessories", subTitle: "tie", name: "Tie ", count: this.spaceArrayTie.length, image: response.image_url});
       }
     });
     this.bowtie.valueChanges().subscribe(response => {
       if(response==null){
-        this.listFour.push({id: "4", title: "accessories", subTitle: "bowtie", name: "Bowtie " + this.spaceArrayBowtie.length, image: "./assets/imgs/card/bow.jpg"});
+        this.listFour.push({id: "4", title: "accessories", subTitle: "bowtie", name: "Bowtie ", count: this.spaceArrayBowtie.length, image: "./assets/imgs/card/bow.jpg"});
       }
       else{
-        this.listFour.push({id: "4", title: "accessories", subTitle: "bowtie", name: "Bowtie " + this.spaceArrayBowtie.length, image: response.image_url});
+        this.listFour.push({id: "4", title: "accessories", subTitle: "bowtie", name: "Bowtie ", count: this.spaceArrayBowtie.length, image: response.image_url});
       }
     });
     this.scarf.valueChanges().subscribe(response => {
       if(response==null){
-        this.listFour.push({id: "5", title: "accessories", subTitle: "scarf", name: "Sweat Scarf " + this.spaceArrayScarf.length, image: "./assets/imgs/card/scarf.png"});
+        this.listFour.push({id: "5", title: "accessories", subTitle: "scarf", name: "Sweat Scarf ", count: this.spaceArrayScarf.length, image: "./assets/imgs/card/scarf.png"});
       }
       else{
-        this.listFour.push({id: "5", title: "accessories", subTitle: "scarf", name: "Sweat Scarf " + this.spaceArrayScarf.length, image: response.image_url});
+        this.listFour.push({id: "5", title: "accessories", subTitle: "scarf", name: "Sweat Scarf ", count: this.spaceArrayScarf.length, image: response.image_url});
       }
     });
   }
